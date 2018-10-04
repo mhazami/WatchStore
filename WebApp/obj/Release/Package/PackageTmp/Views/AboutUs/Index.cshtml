@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ClockStore.DTO.AboutUs>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
+    </p>
+    <table class="table table-bordered table-striped table-hover table-responsive table-condensed">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td width="100px">
+                    @Html.ActionLink("Edit", "Edit","", new { id = item.AboutUsId, @class = "btn btn-info" }) |
+                    @Html.ActionLink("Details", "Details", "", new { id = item.AboutUsId, @class = "btn btn-default" } ) |
+                    @Html.ActionLink("Delete", "Delete", "", new { id = item.AboutUsId, @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p>
+        @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
+    </p>
+</body>
+</html>

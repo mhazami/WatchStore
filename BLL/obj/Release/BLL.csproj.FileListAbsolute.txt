@@ -1,0 +1,15 @@
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Release\ClockStore.BLL.dll.config
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Release\ClockStore.BLL.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Release\ClockStore.BLL.pdb
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Release\ClockStore.DTO.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Release\EntityFramework.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Release\ClockStore.DTO.pdb
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Release\ClockStore.DTO.dll.config
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Release\EntityFramework.xml
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\obj\Release\BLL.csprojAssemblyReference.cache
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\obj\Release\BLL.csproj.CoreCompileInputs.cache
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\obj\Release\BLL.csproj.CopyComplete
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\obj\Release\ClockStore.BLL.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\obj\Release\ClockStore.BLL.pdb

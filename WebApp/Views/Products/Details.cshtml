@@ -1,0 +1,76 @@
+﻿@using WebApp.App_Code.Base;
+@model ClockStore.DTO.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            Image
+        </dt>
+
+        <dd>
+            <img src="@FileManager.ImageHandler(Model.FileId)" style="width:100px;height:100px; margin-top:20px;" class="thumbnail" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Off)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Off)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceWithOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceWithOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

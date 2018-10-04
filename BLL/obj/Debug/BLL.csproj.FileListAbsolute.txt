@@ -1,0 +1,15 @@
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Debug\ClockStore.BLL.dll.config
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Debug\ClockStore.BLL.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Debug\ClockStore.BLL.pdb
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Debug\EntityFramework.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Debug\EntityFramework.xml
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\obj\Debug\ClockStore.BLL.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\obj\Debug\ClockStore.BLL.pdb
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Debug\ClockStore.DTO.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Debug\ClockStore.DTO.pdb
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\BLL\bin\Debug\ClockStore.DTO.dll.config

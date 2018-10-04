@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saat Trend</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
+    <script src="~/Scripts/js/jquery-1.11.0.min.js"></script>
+    <!--Custom-Theme-files-->
+    <!--theme-style-->
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Luxury Watches Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1);
+        }
+    </script>
+    <!--start-menu-->
+    <script src="~/Scripts/js/simpleCart.min.js"></script>
+    <link href="~/Content/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="~/Scripts/js/memenu.js"></script>
+    <script>
+        $(document).ready(
+            function () {
+                $(".memenu").memenu();
+            });
+    </script>
+    <!--dropdown-->
+    <script src="~/Scripts/js/jquery.easydropdown.js"></script>
+
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/animate.css" rel="stylesheet" />
+    <link href="~/Content/css/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/css/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="~/Content/css/util.css" rel="stylesheet" />
+    <link href="~/Content/css/main.css" rel="stylesheet" />
+    <link href="~/Content/css/alertify.core.css" rel="stylesheet" />
+    <link href="~/Content/css/alertify.bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/alertify.default.css" rel="stylesheet" />
+    <script src="~/Scripts/js/alertify.js"></script>
+
+</head>
+
+@using (Html.BeginForm("Login", "Users", FormMethod.Post))
+{
+    <div class="account">
+        <div class="container">
+            <div class="account-top heading">
+                <h2>Management Panel</h2>
+            </div>
+            <div class="account-main">
+                <div class="col-md-6 account-left" style="margin:auto;">
+                    <h3>Login User</h3>
+                    <div class="account-bottom">
+                        <input placeholder="UserName" name="UserName" id="UserName" type="text" tabindex="3" required>
+                        <input placeholder="Password" type="password" name="PassWord" id="PassWord" tabindex="4" required>
+                        <div class="address">
+
+                            <input type="submit" value="Login">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+
+}
+
+<script>
+    $(document).ready(function () {
+        debugger;
+            if ('@ViewBag.Alert' !== "") {
+                alertify.error('@ViewBag.Alert');
+            }
+
+        })
+</script>

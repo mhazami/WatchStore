@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ClockStore.DTO.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+
+
+                <table>
+                    <tr class="table100-head">
+                        <th class="column1">
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </th>
+                        <th class="column2">
+                            @Html.DisplayNameFor(model => model.LastName)
+                        </th>
+                        <th class="column3">
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </th>
+
+                        <th class="column4"></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="column1">
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td class="column2">
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td class="column3">
+                                @Html.DisplayFor(modelItem => item.UserName)
+                            </td>
+
+                            <td class="column4">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                                @Html.ActionLink("Delete", "Delete",  new { id = item.UserId })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                <p>
+                    @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
+                </p>
+            </div>
+        </div>
+    </div>

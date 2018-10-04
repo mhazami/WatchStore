@@ -1,0 +1,12 @@
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\bin\Release\ClockStore.DTO.dll.config
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\bin\Release\ClockStore.DTO.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\bin\Release\ClockStore.DTO.pdb
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\bin\Release\EntityFramework.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\bin\Release\EntityFramework.xml
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Release\DTO.csprojAssemblyReference.cache
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Release\DTO.csproj.CoreCompileInputs.cache
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Release\DTO.csproj.CopyComplete
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Release\ClockStore.DTO.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Release\ClockStore.DTO.pdb

@@ -1,0 +1,104 @@
+﻿
+@using WebApp.App_Code.Base;
+@model ClockStore.DTO.Product
+
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="single contact">
+    <div class="container">
+        <div class="single-main">
+            <div class="col-md-9 single-main-left">
+                <div class="sngl-top">
+                    <div class="col-md-5 single-top-left">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li data-thumb="@FileManager.ImageHandler(Model.FileId)">
+                                    <div class="thumb-image"> <img src="@FileManager.ImageHandler(Model.FileId)" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                </li>
+                                @{
+                                    foreach (var item in Model.ExtraImages)
+                                    {
+                                        <li data-thumb="@FileManager.ImageHandler(item.FileId)">
+                                            <div class="thumb-image"> <img src="@FileManager.ImageHandler(item.FileId)" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                        </li>
+                                    }
+                                }
+
+                            </ul>
+                        </div>
+                        <!-- FlexSlider -->
+                        <script src="js/imagezoom.js"></script>
+                        <script defer src="js/jquery.flexslider.js"></script>
+                        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
+                        <script>
+                            // Can also be used with $(document).ready()
+                            $(window).load(function () {
+                                $('.flexslider').flexslider({
+                                    animation: "slide",
+                                    controlNav: "thumbnails"
+                                });
+                            });
+                        </script>
+                    </div>
+                    <div class="col-md-7 single-top-right">
+                        <div class="single-para simpleCart_shelfItem">
+                            <h2>@Model.ProductName</h2>
+                            <div class="star-on">
+                                <ul class="star-footer">
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                    <li><a href="#"><i> </i></a></li>
+                                </ul>
+                                @*<div class="review">
+                                        <a href="#"> 1 customer review </a>
+
+                                    </div>*@
+                                <div class="clearfix"> </div>
+                            </div>
+
+                            <h5 class="item_price">
+                                @{
+                                    if (Model.Off > 0)
+                                    {
+                                        <s>$@Model.Price.ToString("N0")</s>
+                                        <span>$@Model.PriceWithOff.ToString("N0")</span>
+
+                                    }
+                                }
+                            </h5>
+                            <p>@Model.Description</p>
+
+                            <a href="/Baskets/AddToCard?id=@Model.ProductId" class="add-cart item_add">ADD TO CART</a>
+                            <script>
+                                $(document).ready(function (c) {
+                                    if ('@TempData["s"]' === 'null') {
+                                        alertify.alert("Please Loging!");
+                                    }
+                                    if ('@TempData["s"]' === 'ok') {
+                                        alertify.alert("Selected Item Added To Cart");
+                                    }
+                                    if ('@TempData["s"]' === 'nok') {
+                                        alertify.alert("Failed");
+                                    }
+                                });
+
+                            </script>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+

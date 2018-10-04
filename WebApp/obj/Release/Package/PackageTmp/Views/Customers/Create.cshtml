@@ -1,0 +1,98 @@
+﻿@model ClockStore.DTO.Customer
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Create", "Customers", FormMethod.Post, new { onsubmit = "return Validation(this)" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="register">
+        <div class="container">
+
+            <div class="register-top heading">
+                <h2>REGISTER</h2>
+            </div>
+            <div class="register-main">
+                <div class="col-md-6 account-left">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <input placeholder="First name" id="FirstName" name="FirstName" type="text" tabindex="2" required>
+                    <input placeholder="Last name" id="LastName" name="LastName" type="text" tabindex="2" required>
+                    <input placeholder="User Name" id="UserName" name="UserName" type="text" tabindex="3" required>
+                    <label id="lblusername" style="color:red;"></label>
+                    <input placeholder="Email Address" id="Email" name="Email" type="text" tabindex="3" required>
+
+                </div>
+                <div class="col-md-6 account-left">
+
+                    <input placeholder="PassWord" name="PassWord" data-rule-PassWord="true" id="PassWord" type="password" tabindex="4" required>
+                    <input placeholder="Retype password" id="RepeatPassWord" type="password" name="PassWord" data-rule-PassWord="true" data-rule-equalTo="#PassWord" tabindex="4" required>
+                    <input placeholder="Phone" id="Phone" name="Phone" type="text" tabindex="3" required>
+                    <input placeholder="Address" id="Address" name="Address" type="text" tabindex="3" required>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="address submit">
+                <input id="btnsave" type="submit" value="Submit">
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script>
+  
+    $(document).ready(function () {
+        $("#UserName").blur(function () {
+            checkusername();
+
+        });
+       
+    });
+    function Validation(form) {
+        debugger;
+
+        var password = $("#PassWord").val();
+        var reppassword = $("#RepeatPassWord").val();
+        if (password !== reppassword) {
+            alertify.error("Please check that you've entered and confirmed your password!");
+            return false;
+        }
+
+
+
+    }
+
+    function checkusername() {
+        debugger;
+        var username = $("#UserName").val();
+        $.ajax({
+            url: '/Customers/CheckUserName',
+            data: "user=" + username + "",
+            type: "GET",
+            success: function (data) {
+                debugger;
+                if (data === "true") {
+                  
+                    alertify.error("This user name already exists");
+                    $("#btnsave").attr("disabled", 'disabled');
+                    $("#lblusername").text("This user name already exists!");
+                }
+
+                else {
+                    $("#btnsave").removeAttr('disabled');
+                    $("#lblusername").text("");
+                }
+
+
+            }
+        });
+    }
+
+</script>
