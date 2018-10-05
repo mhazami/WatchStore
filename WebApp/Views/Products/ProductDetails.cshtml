@@ -38,11 +38,26 @@
                         <script>
                             // Can also be used with $(document).ready()
                             $(window).load(function () {
+                                debugger;
                                 $('.flexslider').flexslider({
                                     animation: "slide",
                                     controlNav: "thumbnails"
                                 });
+                                if ('@TempData["s"]' === "null") {
+
+                                }
+
+                                if ('@TempData["s"]' === "Added") {
+                                    alertify.alert("Selected Item Added To Cart");
+                                       
+                                }
+                                if ('@TempData["s"]' === "Failed") {
+                                    alertify.alert("Failed");
+                                        
+                                }
+                                $(".flex-direction-nav").remove();
                             });
+                          
                         </script>
                     </div>
                     <div class="col-md-7 single-top-right">
@@ -79,21 +94,8 @@
                             </h5>
                             <p>@Model.Description</p>
 
-                            <a href="/Baskets/AddToCard?id=@Model.ProductId" class="add-cart item_add">ADD TO CART</a>
-                            <script>
-                                $(document).ready(function (c) {
-                                    if ('@TempData["s"]' === 'null') {
-                                        alertify.alert("Please Loging!");
-                                    }
-                                    if ('@TempData["s"]' === 'ok') {
-                                        alertify.alert("Selected Item Added To Cart");
-                                    }
-                                    if ('@TempData["s"]' === 'nok') {
-                                        alertify.alert("Failed");
-                                    }
-                                });
+                            <a href="/Products/AddCart?id=@Model.ProductId" class="add-cart item_add">ADD TO CART</a>
 
-                            </script>
                         </div>
                     </div>
                     <div class="clearfix"> </div>

@@ -107,3 +107,4 @@ C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Deb
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\Azami.Utility.dll
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\Azami.Utility.pdb
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.UpdateDTO.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.UpdateNews.resources

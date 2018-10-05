@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201810032203005_UpdateDTO.Designer.cs">
       <DependentUpon>201810032203005_UpdateDTO.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810051333515_UpdateNews.cs" />
+    <Compile Include="Migrations\201810051333515_UpdateNews.Designer.cs">
+      <DependentUpon>201810051333515_UpdateNews.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -265,6 +269,7 @@
     <Content Include="fonts\Muli-Regular.ttf" />
     <Content Include="fonts\Philosopher-Regular.ttf" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -353,6 +358,8 @@
     <Content Include="Views\News\Details.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\PVWallPaper.cshtml" />
+    <Content Include="Views\Customers\Signin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -396,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810032203005_UpdateDTO.resx">
       <DependentUpon>201810032203005_UpdateDTO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810051333515_UpdateNews.resx">
+      <DependentUpon>201810051333515_UpdateNews.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

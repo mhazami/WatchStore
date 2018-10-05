@@ -19,6 +19,8 @@ namespace WebApp.Controllers
         // GET: Baskets
         public ActionResult Index()
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             var basket = db.Basket.Include(b => b.Customer).Include(b => b.Product);
             return View(basket.ToList());
         }
@@ -26,6 +28,8 @@ namespace WebApp.Controllers
         // GET: Baskets/Details/5
         public ActionResult Details(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -41,6 +45,8 @@ namespace WebApp.Controllers
         // GET: Baskets/Create
         public ActionResult Create()
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             ViewBag.CustomerId = new SelectList(db.Customer, "CustomerId", "FirstName");
             ViewBag.ProductId = new SelectList(db.Product, "ProductId", "ProductName");
             return View();
@@ -69,6 +75,8 @@ namespace WebApp.Controllers
         // GET: Baskets/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -104,6 +112,8 @@ namespace WebApp.Controllers
         // GET: Baskets/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -139,9 +149,11 @@ namespace WebApp.Controllers
         public ActionResult CheckOut()
         {
             if (SessionParameters.Customer == null)
-                return Content("Empty Card");
-            var basket = new BasketBO().GetAll().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId);
-            return View(basket.ToList());
+                return Redirect("/Customers/Create");
+            var basket = db.Basket.ToList().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId);
+            return View(basket);
+
+
 
         }
 
@@ -167,17 +179,17 @@ namespace WebApp.Controllers
 
             if (new BasketBO().Insert(basket))
             {
-                ViewBag.status = "ok";
+                TempData["s"] = "Added";
                 return Redirect("/Products/ProductDetails?id=" + id + "");
             }
-            ViewBag.status = "nok";
+            TempData["s"] = "Failed";
             return Redirect("/Products/ProductDetails?id=" + id + "");
 
         }
 
         public ActionResult RemoveFromCart(Guid id)
         {
-            Basket basket = new BasketBO().Get(id);
+            Basket basket = db.Basket.Find(id);
             db.Basket.Remove(basket);
             db.SaveChanges();
             return RedirectToAction("CheckOut");

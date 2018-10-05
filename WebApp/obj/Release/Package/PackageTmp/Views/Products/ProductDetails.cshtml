@@ -31,18 +31,32 @@
                             </ul>
                         </div>
                         <!-- FlexSlider -->
-                        <script src="js/imagezoom.js"></script>
-                        <script defer src="js/jquery.flexslider.js"></script>
-                        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+                        <script src="~/Scripts/js/imagezoom.js"></script>
+                        <script defer src="~/Scripts/js/jquery.flexslider.js"></script>
+                        <link rel="stylesheet" href="~/Content/css/flexslider.css" type="text/css" media="screen" />
 
                         <script>
                             // Can also be used with $(document).ready()
                             $(window).load(function () {
+                                debugger;
                                 $('.flexslider').flexslider({
                                     animation: "slide",
                                     controlNav: "thumbnails"
                                 });
+                                if ('@TempData["s"]' === "null") {
+
+                                }
+
+                                if ('@TempData["s"]' === "Added") {
+                                    alertify.alert("Selected Item Added To Cart");
+                                       
+                                }
+                                if ('@TempData["s"]' === "Failed") {
+                                    alertify.alert("Failed");
+                                        
+                                }
                             });
+                          
                         </script>
                     </div>
                     <div class="col-md-7 single-top-right">
@@ -71,25 +85,16 @@
                                         <span>$@Model.PriceWithOff.ToString("N0")</span>
 
                                     }
+                                    else
+                                    {
+                                        <span>$ @Model.Price.ToString("N0")</span>
+                                    }
                                 }
                             </h5>
                             <p>@Model.Description</p>
 
-                            <a href="/Baskets/AddToCard?id=@Model.ProductId" class="add-cart item_add">ADD TO CART</a>
-                            <script>
-                                $(document).ready(function (c) {
-                                    if ('@TempData["s"]' === 'null') {
-                                        alertify.alert("Please Loging!");
-                                    }
-                                    if ('@TempData["s"]' === 'ok') {
-                                        alertify.alert("Selected Item Added To Cart");
-                                    }
-                                    if ('@TempData["s"]' === 'nok') {
-                                        alertify.alert("Failed");
-                                    }
-                                });
+                            <a href="/Products/AddCart?id=@Model.ProductId" class="add-cart item_add">ADD TO CART</a>
 
-                            </script>
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -102,3 +107,20 @@
     </div>
 </div>
 
+<script>
+    @*$(document).ready(function () {
+        debugger;
+        if ('@TempData["s"]' === 'null') {
+            alertify.alert("Please Loging!");
+        }
+        if ('@TempData["s"]' === 'Added') {
+            alertify.alert("Selected Item Added To Cart");
+                                        @TempData["s"]=null;
+        }
+        if ('@TempData["s"]' === 'Failed') {
+            alertify.alert("Failed");
+                                        @TempData["s"]=null;
+        }
+    });*@
+
+</script>

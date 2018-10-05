@@ -1,5 +1,5 @@
 ﻿@using WebApp.App_Code.Base;
-@model List<ClockStore.DTO.Basket>
+@model IEnumerable<ClockStore.DTO.Basket>
 @{
     ViewBag.Title = "CheckOut";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,11 +17,14 @@
                 <script>
                     $(document).ready(function (c) {
                         $('.close1').on('click', function (c) {
-                            debugger;89*88////////////////////9
+                            debugger;
                             var id = $(this).attr('itemid');
                             $.get('/Baskets/RemoveFromCart?id=' + id + '', function () {
-                                $(this).parent().fadeOut('slow', function (c) {
-                                    $(this).remove();
+                                debugger;
+                                $("div[itemid='" + id + "']").attr("class");
+                                $("div[itemid='" + id + "']").parent().fadeOut('slow', function (c) {
+                                    debugger;
+                                    $("div[itemid='" + id + "']").remove();
                                     alertify.alert("Selected Item Was Removed!")
                                 });
                             })

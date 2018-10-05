@@ -1,0 +1,35 @@
+﻿@model ClockStore.DTO.ExtraImages
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ExtraImages</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ExtraImagesId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

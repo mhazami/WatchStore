@@ -17,6 +17,8 @@ namespace WebApp.Controllers
         // GET: AboutUs
         public ActionResult Index()
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             var list = new AboutUsBO().GetAll();
             return list.Any() ? View(list) : View("Create");
         }
@@ -24,6 +26,8 @@ namespace WebApp.Controllers
         // GET: AboutUs/Details/5
         public ActionResult Details(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +43,8 @@ namespace WebApp.Controllers
         // GET: AboutUs/Create
         public ActionResult Create()
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             return View();
         }
 
@@ -62,6 +68,8 @@ namespace WebApp.Controllers
         // GET: AboutUs/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -92,6 +100,9 @@ namespace WebApp.Controllers
         // GET: AboutUs/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
+           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

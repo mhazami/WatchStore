@@ -17,6 +17,8 @@ namespace WebApp.Controllers
         // GET: Sliders
         public ActionResult Index()
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             var slider = new SliderBO().GetAll();
             return View(slider);
         }
@@ -24,6 +26,8 @@ namespace WebApp.Controllers
         // GET: Sliders/Details/5
         public ActionResult Details(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +43,8 @@ namespace WebApp.Controllers
         // GET: Sliders/Create
         public ActionResult Create()
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             return View();
         }
 
@@ -64,6 +70,8 @@ namespace WebApp.Controllers
         // GET: Sliders/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -92,6 +100,8 @@ namespace WebApp.Controllers
         // GET: Sliders/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

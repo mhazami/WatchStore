@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClockStore.DTO
 {
-    public class Customer
+    public partial class Customer
     {
         [Key]
         public Guid CustomerId { get; set; }

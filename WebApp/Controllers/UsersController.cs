@@ -19,7 +19,7 @@ namespace WebApp.Controllers
         public ActionResult Index()
         {
             if (SessionParameters.User == null)
-                return View("Login");
+                return RedirectToAction("Login");
             if (SessionParameters.User.UserName != "host")
                 return Redirect("/Products/Index");
             var list = new UserBO().GetAll().Where(c => c.UserName != "host");
@@ -29,6 +29,8 @@ namespace WebApp.Controllers
         // GET: Users/Details/5
         public ActionResult Details(Guid? id)
         {
+            if (SessionParameters.User == null)
+                return RedirectToAction("Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -44,6 +46,8 @@ namespace WebApp.Controllers
         // GET: Users/Create
         public ActionResult Create()
         {
+            if (SessionParameters.User == null)
+                return RedirectToAction("Login");
             return View();
         }
 
@@ -69,6 +73,8 @@ namespace WebApp.Controllers
         // GET: Users/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (SessionParameters.User == null)
+                return RedirectToAction("Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -99,6 +105,8 @@ namespace WebApp.Controllers
         // GET: Users/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (SessionParameters.User == null)
+                return RedirectToAction("Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -152,7 +160,7 @@ namespace WebApp.Controllers
         public ActionResult Logout()
         {
             SessionParameters.User = null;
-            return Redirect("Login");
+            return RedirectToAction("Login");
         }
     }
 }

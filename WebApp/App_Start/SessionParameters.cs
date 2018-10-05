@@ -6,7 +6,7 @@ using System.Web;
 
 namespace WebApp
 {
-    internal static class SessionParameters
+    internal class SessionParameters
     {
         public static User User
         {

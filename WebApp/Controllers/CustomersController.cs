@@ -19,12 +19,16 @@ namespace WebApp.Controllers
         // GET: Customers
         public ActionResult Index()
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             return View(db.Customer.ToList());
         }
 
         // GET: Customers/Details/5
         public ActionResult Details(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -95,6 +99,8 @@ namespace WebApp.Controllers
         // GET: Customers/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -132,11 +138,30 @@ namespace WebApp.Controllers
             var customer = db.Customer.FirstOrDefault(c => c.UserName == user);
             if (customer != null)
             {
-               
-                return Json("true",JsonRequestBehavior.AllowGet);
+
+                return Json("true", JsonRequestBehavior.AllowGet);
 
             }
-            return Json("false",JsonRequestBehavior.AllowGet);
+            return Json("false", JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Signin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Signin(string email,string password)
+        {
+            var customer = db.Customer.FirstOrDefault(c => c.Email == email.ToLower() && c.PassWord == password.ToLower());
+            if (customer != null)
+            {
+                ViewBag.Alert = "";
+                SessionParameters.Customer = customer;
+                return Redirect("/Home/Index");
+            }
+            ViewBag.Alert = "Invalid UserName or PassWord!";
+            return View();
         }
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="ExtraImages.cs" />
     <Compile Include="File.cs" />
     <Compile Include="News.cs" />
+    <Compile Include="Partial\Customer.cs" />
     <Compile Include="Partial\Product.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

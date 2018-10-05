@@ -18,6 +18,8 @@ namespace WebApp.Controllers
         // GET: Products
         public ActionResult Index()
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             var product = new ProductBO().GetAll();
             return View(product);
         }
@@ -25,6 +27,8 @@ namespace WebApp.Controllers
         // GET: Products/Details/5
         public ActionResult Details(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -40,6 +44,8 @@ namespace WebApp.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             ViewBag.CategoryId = new SelectList(new CategoryBO().GetAll(), "CategoryId", "CategoryName");
             return View();
         }
@@ -49,7 +55,7 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,CategoryId")] Product product, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,Code")] Product product, HttpPostedFileBase file)
         {
 
             product.ProductId = Guid.NewGuid();
@@ -68,6 +74,8 @@ namespace WebApp.Controllers
         // GET: Products/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -87,7 +95,7 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,CategoryId")] Product product, HttpPostedFileBase file)
+        public ActionResult Edit([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,Code")] Product product, HttpPostedFileBase file)
         {
             var fileid = db.Product.Find(product.ProductId).FileId;
             if (file != null)
@@ -109,6 +117,8 @@ namespace WebApp.Controllers
         // GET: Products/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -130,7 +140,7 @@ namespace WebApp.Controllers
             var product = db.Product.Find(id);
             db.Product.Remove(product);
             db.SaveChanges();
-                
+
             if (new FileBO().Delete(product.FileId))
                 return RedirectToAction("Index");
             return View(product);
@@ -160,6 +170,13 @@ namespace WebApp.Controllers
             product.ExtraImages = extraimage;
 
             return PartialView("ProductDetails", product);
+        }
+
+        public ActionResult AddCart(Guid? id)
+        {
+            if (SessionParameters.Customer != null)
+                return Redirect("/Baskets/AddToCard?id=" + id + "");
+            return Redirect("/Customers/Signin");
         }
         #endregion Method
     }

@@ -19,6 +19,8 @@ namespace WebApp.Controllers
         // GET: ExtraImages
         public ActionResult Index()
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             var extraImages = db.ExtraImages.Include(e => e.Product);
             return View(extraImages.ToList());
         }
@@ -26,6 +28,8 @@ namespace WebApp.Controllers
         // GET: ExtraImages/Details/5
         public ActionResult Details(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -41,6 +45,8 @@ namespace WebApp.Controllers
         // GET: ExtraImages/Create
         public ActionResult Create()
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             ViewBag.ProductId = new SelectList(db.Product, "ProductId", "ProductName");
             return View();
         }
@@ -67,6 +73,8 @@ namespace WebApp.Controllers
         // GET: ExtraImages/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -100,6 +108,8 @@ namespace WebApp.Controllers
         // GET: ExtraImages/Delete/5
         public ActionResult Delete(Guid? id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -143,6 +153,8 @@ namespace WebApp.Controllers
 
         public ActionResult ProductImages(Guid id)
         {
+            if (SessionParameters.User == null)
+                 return Redirect("/Users/Login");
             var list = new ExtraImagesBO().GetAll().Where(c => c.ProductId == id);
             ViewBag.ProductId = id;
             return View(list);

@@ -829,6 +829,10 @@ a.mask {
     bottom: 9%;
     right: 16px;
 }
+    .srchbottom span {
+        font-size: 13px;
+        padding: 4px 12px;
+    }
 /*--product-end--*/
 /*--information-starts--*/
 .infor-left h3 {

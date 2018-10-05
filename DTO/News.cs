@@ -20,8 +20,9 @@ namespace ClockStore.DTO
         [Required]
         public Int16 Position { get; set; }
 
-        [MaxLength(100)]
-        public string NewsImage { get; set; }
+        [Required]
+        public Guid FileId { get; set; }
+        public virtual File File { get; set; }
 
         [Required]
         public string Description { get; set; }

@@ -4,6 +4,34 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!--slider start-->
+@Html.Action("Sliders", "Sliders", null)
+<!--slider end-->
 
+<script src="~/Scripts/js/responsiveslides.min.js"></script>
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+        // Slideshow 4
+        $("#slider4").responsiveSlides({
+            auto: true,
+            pager: true,
+            nav: true,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+        });
+
+    });
+</script>
+<!--End-slider-script-->
+<!--news start-->
+@Html.Action("WallPaper", "News", null)
+<!--news end-->
 
 @Html.Action("ProductsList", "Products", null)

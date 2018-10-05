@@ -107,3 +107,4 @@ C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Rel
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\WebApp.csproj.CopyComplete
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\WebApp.dll
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\WebApp.pdb
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\ClockStore.DTO.Migrations.UpdateNews.resources
