@@ -108,3 +108,9 @@ C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\Aza
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\Azami.Utility.pdb
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.UpdateDTO.resources
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.UpdateNews.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\Stimulsoft.Base.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\Stimulsoft.Report.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\Stimulsoft.Report.Mvc.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\Stimulsoft.Base.xml
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\Stimulsoft.Report.xml
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\Stimulsoft.Report.Mvc.xml

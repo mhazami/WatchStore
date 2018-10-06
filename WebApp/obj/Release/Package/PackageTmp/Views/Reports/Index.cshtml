@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ClockStore.DTO.Customer>
+
+@{
+    ViewBag.Title = "Reports";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+<style>
+    .logo {
+        text-align: center;
+        padding: 25px 0 20px 0px;
+        border-bottom: 1px solid #DEDEDE;
+    }
+
+        .logo h1 {
+            font-size: 32px;
+            color: #000000;
+            margin: 0;
+            font-family: 'Lora-Regular';
+            text-transform: uppercase;
+            display: inline-block;
+        }
+</style>
+
+<div class="logo">
+    <a href="/Reports/ReportAll" class="btn btn-default" id="btnPrint">Get Report</a>
+</div>
+
+<div class="container-table100">
+    <div class="wrap-table100">
+        <div class="table100">
+            <table>
+                <tr class="table100-head">
+                    <th class="column1">
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </th>
+
+                    <th class="column2">
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+
+
+                    <th class="column3">
+                        @Html.DisplayNameFor(model => model.TotalAmount)
+                    </th>
+                    <th class="column4">
+                        Shoping List
+                    </th>
+                    <th class="column5"></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="column1">
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+
+                        <td class="column2">
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+
+
+                        <td class="column3">
+                            @Html.DisplayFor(modelItem => item.TotalAmount)
+                        </td>
+                        <th class="column4">
+                            <a href="/Baskets/PrintCustomerApprov?id=@item.CustomerId" target="_blank" class="btn btn-warning">Shoping List</a>
+                        </th>
+                        <td class="column5">
+                            @Html.ActionLink("Details", "Details", new { id = item.CustomerId }, new { @class = "btn btn-primary" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+
+        </div>
+    </div>
+</div>

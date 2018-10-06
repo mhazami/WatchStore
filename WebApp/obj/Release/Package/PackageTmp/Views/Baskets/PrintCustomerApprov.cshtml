@@ -1,0 +1,110 @@
+﻿@model IEnumerable<ClockStore.DTO.Basket>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PrintCustomerApprov</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/js/jquery-1.11.0.min.js"></script>
+    
+    <script>
+        function Print() {
+            //$("#btnPrint").hide();
+            window.print();
+        }
+    </script>
+    <style>
+        .logo {
+            text-align: center;
+            padding: 25px 0 20px 0px;
+            border-bottom: 1px solid #DEDEDE;
+        }
+
+            .logo h1 {
+                font-size: 32px;
+                color: #000000;
+                margin: 0;
+                font-family: 'Lora-Regular';
+                text-transform: uppercase;
+                display: inline-block;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>TREND WATCH</h1>
+        </div>
+
+        <div class="clearfix"> </div>
+
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>
+                    Customer Name
+                </th>
+                <th>
+                    Product Name
+                </th>
+                <th>
+                    Product Code
+                </th>
+                <th>
+                    Order Registration Date
+                </th>
+                <th>
+                    Off
+                </th>
+                <th>
+                    The amount payable
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaveDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Off)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.PriceWithOffForFacror)
+                    </td>
+                </tr>
+            }
+            <tr style="background-color:#686363;color:white">
+                <td>Total Amount</td>
+                <td>@ViewBag.TotalAmount</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="logo">
+            <button class="btn btn-default" id="btnPrint" onclick="Print();">Print</button>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

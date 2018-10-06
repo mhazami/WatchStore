@@ -18,5 +18,15 @@ namespace ClockStore.DTO
                 return this.Price;
             }
         }
+
+        public string PriceWithOffForFacror
+        {
+            get
+            {
+                if (this.PriceWithOff != 0)
+                    return this.PriceWithOff.ToString("N0");
+                return "0";
+            }
+        }
     }
 }

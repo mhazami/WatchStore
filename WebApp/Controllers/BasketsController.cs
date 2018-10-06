@@ -20,7 +20,7 @@ namespace WebApp.Controllers
         public ActionResult Index()
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             var basket = db.Basket.Include(b => b.Customer).Include(b => b.Product);
             return View(basket.ToList());
         }
@@ -29,7 +29,7 @@ namespace WebApp.Controllers
         public ActionResult Details(Guid? id)
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -46,7 +46,7 @@ namespace WebApp.Controllers
         public ActionResult Create()
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             ViewBag.CustomerId = new SelectList(db.Customer, "CustomerId", "FirstName");
             ViewBag.ProductId = new SelectList(db.Product, "ProductId", "ProductName");
             return View();
@@ -76,7 +76,7 @@ namespace WebApp.Controllers
         public ActionResult Edit(Guid? id)
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -113,7 +113,7 @@ namespace WebApp.Controllers
         public ActionResult Delete(Guid? id)
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -149,7 +149,7 @@ namespace WebApp.Controllers
         public ActionResult CheckOut()
         {
             if (SessionParameters.Customer == null)
-                return Redirect("/Customers/Create");
+                return Redirect("/Customers/Signin");
             var basket = db.Basket.ToList().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId);
             return View(basket);
 
@@ -194,5 +194,27 @@ namespace WebApp.Controllers
             db.SaveChanges();
             return RedirectToAction("CheckOut");
         }
+
+        public ActionResult PrintCustomerApprov(Guid? id)
+        {
+            if (SessionParameters.Customer == null && SessionParameters.User == null)
+                return Redirect("/Customers/Signin");
+
+            if (id.HasValue)
+            {
+                var basket = db.Basket.ToList().Where(c => c.CustomerId == id);
+                ViewBag.TotalAmount = db.Basket.ToList().Where(c => c.CustomerId == id).Sum(c => c.Product.PriceWithOff).ToString("N0");
+                return View(basket);
+            }
+            else
+            {
+                var basket = db.Basket.ToList().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId);
+                ViewBag.TotalAmount = db.Basket.ToList().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId).Sum(c => c.Product.PriceWithOff).ToString("N0");
+                return View(basket);
+            }
+
+        }
+
+
     }
 }

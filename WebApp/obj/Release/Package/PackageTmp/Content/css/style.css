@@ -820,6 +820,18 @@ a.mask {
     }
 
 .srchbottom {
+    position: absolute;
+    bottom: 9%;
+    right: 16px;
+}
+    .srchbottom span {
+        background: #f58282;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 400;
+        padding: 10px 25px;
+    }
+    /*.srchbottom {
     background: #f58282;
     color: #fff;
     font-size: 15px;
@@ -828,7 +840,7 @@ a.mask {
     position: absolute;
     bottom: 9%;
     right: 16px;
-}
+}*/
     .srchbottom span {
         font-size: 13px;
         padding: 4px 12px;
@@ -1962,14 +1974,15 @@ span.add-cart {
     display: inline-block;
 }
 
-    a.add-cart:hover {
-        background: #73b6e1;
-        transition: 0.5s all;
-        -webkit-transition: 0.5s all;
-        -o-transition: 0.5s all;
-        -moz-transition: 0.5s all;
-        -ms-transition: 0.5s all;
-    }
+a.add-cart:hover {
+    background: #73b6e1;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
 span.add-cart:hover {
     background: #73b6e1;
     transition: 0.5s all;
@@ -2721,6 +2734,7 @@ h3.ghj {
     a.add-cart {
         font-size: 1em;
     }
+
     span.add-cart {
         font-size: 1em;
     }
@@ -2738,6 +2752,7 @@ h3.ghj {
     a.add-cart {
         font-size: 13px;
     }
+
     span.add-cart {
         font-size: 13px;
     }
