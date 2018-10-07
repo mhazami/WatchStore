@@ -27,12 +27,6 @@ namespace ClockStore.DTO
         public string Phone { get; set; }
 
 
-
-        [Required]
-        [MaxLength(50)]
-        public string Subject { get; set; }
-
-
         [Required]
         public string Message { get; set; }
     }

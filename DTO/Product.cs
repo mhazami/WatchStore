@@ -34,7 +34,9 @@ namespace ClockStore.DTO
 
         public string Code { get; set; }
 
-        //public Guid CategoryId { get; set; }
-        //public virtual Category Category { get; set; }
+        public bool IsDeals { get; set; }
+
+        public bool IsNewSeason { get; set; }
+
     }
 }

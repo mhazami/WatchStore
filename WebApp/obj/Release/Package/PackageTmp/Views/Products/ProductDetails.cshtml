@@ -49,32 +49,32 @@
 
                                 if ('@TempData["s"]' === "Added") {
                                     alertify.alert("Selected Item Added To Cart");
-                                       
+
                                 }
                                 if ('@TempData["s"]' === "Failed") {
                                     alertify.alert("Failed");
-                                        
+
                                 }
                                 $(".flex-direction-nav").remove();
                             });
-                          
+
                         </script>
                     </div>
                     <div class="col-md-7 single-top-right">
                         <div class="single-para simpleCart_shelfItem">
                             <h2>@Model.ProductName</h2>
                             <div class="star-on">
-                                <ul class="star-footer">
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                    <li><a href="#"><i> </i></a></li>
-                                </ul>
-                                @*<div class="review">
-                                        <a href="#"> 1 customer review </a>
+                              
+                                @{
+                                    if (Model.Count <= 0)
+                                    {
+                                        <div class="review">
+                                            <a href="#">This item is not available</a>
 
-                                    </div>*@
+                                        </div>
+                                    }
+                                }
+
                                 <div class="clearfix"> </div>
                             </div>
 

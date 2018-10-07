@@ -163,5 +163,11 @@ namespace WebApp.Controllers
             ViewBag.Alert = "Invalid UserName or PassWord!";
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            SessionParameters.Customer = null;
+            return Redirect("/Home/Index");
+        }
     }
 }

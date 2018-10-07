@@ -11,7 +11,110 @@
 
 <p>
     @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
+    <span>
+        <button type="button" data-toggle="collapse" class="btn btn-primary" data-target="#search">Search</button>
+
+    </span>
 </p>
+
+
+
+<div class="container">
+
+    <div class="clearfix"> </div>
+    <div id="search" class="collapse">
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+                <di class="col-md-6">
+                    <div class="col-md-2 text-left">
+                        Title
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="ProductName" id="ProductName" />
+                    </div>
+
+                </di>
+                <di class="col-md-6">
+                    <div class="col-md-2 text-left">
+                        Code
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="Code" id="Code" />
+                    </div>
+
+                </di>
+            </div>
+            <div style="margin-top:20px;"> </div>
+            <div class="row">
+                <di class="col-md-6">
+                    <div class="col-md-2 text-left">
+                        From Price
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="FromPrice" id="FromPrice" />
+                    </div>
+
+                </di>
+                <di class="col-md-6">
+                    <div class="col-md-2 text-left">
+                        To Price
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="ToPrice" id="ToPrice" />
+                    </div>
+
+                </di>
+            </div>
+
+            <div style="margin-top:20px;"> </div>
+            <div class="row">
+                <di class="col-md-6">
+                    <div class="col-md-2 text-left">
+                        From Off
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="FromOff" id="FromOff" />
+                    </div>
+
+                </di>
+                <di class="col-md-6">
+                    <div class="col-md-2 text-left">
+                        To Off
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="ToOff" id="ToOff" />
+                    </div>
+
+                </di>
+            </div>
+             <div style="margin-top:20px;"> </div>
+
+            <div class="row">
+                <di class="col-md-6">
+                    <div class="col-md-2 text-left">
+                        Count
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="Count" id="Count" />
+                    </div>
+
+                </di>
+                <di class="col-md-6">
+                    <div class="col-md-2 text-left">
+                       
+                    </div>
+                    <div class="col-md-4">
+                        <input type="submit" value="Search" class="btn btn-warning" />
+                    </div>
+
+                </di>
+            </div>
+
+
+        }
+    </div>
+</div>
 <div class="container-table100">
     <div class="wrap-table100">
         <div class="table100">
@@ -36,26 +139,26 @@
 
                 @foreach (var item in Model)
                 {
-                <tr>
+                    <tr>
 
-                    <td class="column1">
-                        <img alt="@item.ProductName" src="@FileManager.ImageHandler(item.FileId)" style="max-height:100px;max-width:100px;" />
-                    </td>
-                    <td class="column2">
-                        @Html.DisplayFor(modelItem => item.ProductName)
-                    </td>
-                    <td class="column3">
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td class="column4">
-                        <a href="/ExtraImages/ProductImages?id=@item.ProductId" class="btn btn-primary">Add Image</a>
-                    </td>
-                    <td class="column5">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
-                    </td>
-                </tr>
+                        <td class="column1">
+                            <img alt="@item.ProductName" src="@FileManager.ImageHandler(item.FileId)" style="max-height:100px;max-width:100px;" />
+                        </td>
+                        <td class="column2">
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td class="column3">
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td class="column4">
+                            <a href="/ExtraImages/ProductImages?id=@item.ProductId" class="btn btn-primary">Add Image</a>
+                        </td>
+                        <td class="column5">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                        </td>
+                    </tr>
                 }
 
             </table>

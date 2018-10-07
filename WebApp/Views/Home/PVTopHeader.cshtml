@@ -1,0 +1,65 @@
+﻿
+
+
+
+
+
+<style>
+    .cart box_1 a:hover {
+        text-decoration: none;
+    }
+</style>
+
+
+<div class="top-header">
+    <div class="container">
+        <div class="top-header-main">
+            <div class="col-md-6 top-header-left">
+                <div class="drop">
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-md-6 top-header-left">
+                <div class="cart box_1">
+                    <a href="/Baskets/CheckOut">
+                        <div class="total">
+                            @*<span class="simpleCart_total"></span>*@
+                        </div>
+                        <img src="~/images/cart-1.png" alt="" />
+                    </a>
+                    @{
+                        if (Session["Customer"] != null)
+                        {
+                            <a href="/Customers/Logout" title="Logout">
+                                <div class="total">
+                                    @*<span class="simpleCart_total"></span>*@
+                                </div>
+                                <img src="~/images/icon/if_exit.png" alt="" />
+                            </a>
+                        }
+                    }
+
+                    <p><a href="/Baskets/CheckOut" class="simpleCart_empty">@ViewBag.Cart</a></p>
+                    @{
+                        if (Session["Customer"] != null)
+                        {
+                            var customer = (ClockStore.DTO.Customer)Session["Customer"];
+                            <p style="color:white">@customer.FullName</p>
+                        }
+                        else
+                        {
+                            <p>
+                                <a style="color:white" href="/Customers/Signin">Signin /</a>
+
+                                <a style="color:white" href="/Customers/Create">Register</a>
+
+                            </p>
+                        }
+                    }
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

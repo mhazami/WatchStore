@@ -176,12 +176,19 @@ namespace WebApp.Controllers
                 Status = 0,
                 IsArchive = false
             };
+            //new BasketBO().Insert(basket)
+            db.Basket.Add(basket);
 
-            if (new BasketBO().Insert(basket))
+            var product = db.Product.Find(id);
+            product.Count--;
+            db.Entry(product).State = EntityState.Modified;
+            if (db.SaveChanges() > 0)
             {
                 TempData["s"] = "Added";
                 return Redirect("/Products/ProductDetails?id=" + id + "");
             }
+                
+
             TempData["s"] = "Failed";
             return Redirect("/Products/ProductDetails?id=" + id + "");
 
@@ -190,6 +197,9 @@ namespace WebApp.Controllers
         public ActionResult RemoveFromCart(Guid id)
         {
             Basket basket = db.Basket.Find(id);
+            var product = db.Product.Find(basket.ProductId);
+            product.Count++;
+            db.Entry(product).State = EntityState.Modified;
             db.Basket.Remove(basket);
             db.SaveChanges();
             return RedirectToAction("CheckOut");

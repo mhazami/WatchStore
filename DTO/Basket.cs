@@ -20,8 +20,7 @@ namespace ClockStore.DTO
         public Guid CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
 
-        //[Required]
-        //public int Quantity { get; set; }
+       
 
         [Required]
         public DateTime SaveDate { get; set; }

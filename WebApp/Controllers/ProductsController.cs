@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using ClockStore.BLL;
@@ -19,7 +20,7 @@ namespace WebApp.Controllers
         public ActionResult Index()
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             var product = new ProductBO().GetAll();
             return View(product);
         }
@@ -28,7 +29,7 @@ namespace WebApp.Controllers
         public ActionResult Details(Guid? id)
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -45,7 +46,7 @@ namespace WebApp.Controllers
         public ActionResult Create()
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             ViewBag.CategoryId = new SelectList(new CategoryBO().GetAll(), "CategoryId", "CategoryName");
             return View();
         }
@@ -55,7 +56,7 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,Code")] Product product, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,Code,Count")] Product product, HttpPostedFileBase file)
         {
 
             product.ProductId = Guid.NewGuid();
@@ -75,7 +76,7 @@ namespace WebApp.Controllers
         public ActionResult Edit(Guid? id)
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -95,7 +96,7 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,Code")] Product product, HttpPostedFileBase file)
+        public ActionResult Edit([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,Code,Count")] Product product, HttpPostedFileBase file)
         {
             var fileid = db.Product.Find(product.ProductId).FileId;
             if (file != null)
@@ -118,7 +119,7 @@ namespace WebApp.Controllers
         public ActionResult Delete(Guid? id)
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -179,5 +180,93 @@ namespace WebApp.Controllers
             return Redirect("/Customers/Signin");
         }
         #endregion Method
+
+        [HttpPost]
+        public ActionResult Index(string ProductName, string FromPrice, string ToPrice, string Code, string Count, string FromOff, string ToOff)
+        {
+            StringBuilder query = new StringBuilder();
+            var list = new List<Product>();
+            query.Append("select * from Products ");
+            if (string.IsNullOrEmpty(ProductName)
+                && string.IsNullOrEmpty(Code)
+                && string.IsNullOrEmpty(FromOff)
+                && string.IsNullOrEmpty(ToPrice)
+                && string.IsNullOrEmpty(Count)
+                && string.IsNullOrEmpty(ToOff)
+                && string.IsNullOrEmpty(FromPrice))
+            {
+                list = db.Product.SqlQuery(query.ToString()).ToList();
+                return View(list.ToList());
+            }
+            else
+            {
+                query.Append("Where ");
+            }
+            if (!string.IsNullOrEmpty(ProductName))
+                query.Append($"ProductName LIKE '%{ProductName.Trim()}%' ");
+
+
+
+            if (!string.IsNullOrEmpty(Code))
+            {
+                if (!string.IsNullOrEmpty(ProductName))
+                    query.Append($"AND Code = {Code} ");
+                else
+                    query.Append($"Code = {Code} ");
+            }
+
+
+
+            if (!string.IsNullOrEmpty(Count))
+            {
+                if (!string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
+                    query.Append($"AND Count = {int.Parse(Count)} ");
+                else
+                    query.Append($"Count = {int.Parse(Count)} ");
+            }
+
+
+            if (!string.IsNullOrEmpty(FromPrice))
+            {
+                if (!string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
+                    query.Append($"AND Price > {decimal.Parse(FromPrice.Trim())} ");
+                else
+                    query.Append($"Price > {decimal.Parse(FromPrice.Trim())} ");
+            }
+
+
+            if (!string.IsNullOrEmpty(ToPrice))
+            {
+                if (!string.IsNullOrEmpty(FromPrice) || !string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
+                    query.Append($"AND Price < {decimal.Parse(ToPrice)} ");
+
+                else
+                    query.Append($"Price < {decimal.Parse(ToPrice)} ");
+            }
+
+            if (!string.IsNullOrEmpty(FromOff))
+            {
+                if (!string.IsNullOrEmpty(ToPrice) || !string.IsNullOrEmpty(FromPrice) || !string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
+                    query.Append($"AND [Off] > {int.Parse(FromOff)} ");
+
+                else
+                    query.Append($"[Off] > {int.Parse(FromOff)} ");
+            }
+
+
+            if (!string.IsNullOrEmpty(ToOff))
+            {
+                if (!string.IsNullOrEmpty(FromOff) || !string.IsNullOrEmpty(ToPrice) || !string.IsNullOrEmpty(FromPrice) || !string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
+                    query.Append($"AND [Off] < {int.Parse(ToOff.Trim())}");
+
+                else
+                    query.Append($"[Off] < {int.Parse(ToOff.Trim())}");
+            }
+
+
+
+            list = db.Product.SqlQuery(query.ToString()).ToList();
+            return View(list.ToList());
+        }
     }
 }

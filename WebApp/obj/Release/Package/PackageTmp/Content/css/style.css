@@ -15,6 +15,11 @@ body {
         -o-transition: 0.5s all;
         -moz-transition: 0.5s all;
         -ms-transition: 0.5s all;
+        text-decoration:none;
+    }
+
+    body a:hover{
+        text-decoration:none;
     }
 
 @font-face {
@@ -1883,14 +1888,16 @@ ul.star-footer li i {
     float: left;
     margin-left: 2em;
 }
-
-.single-para h5 {
-    color: #000;
-    font-size: 2.3em;
-    border-bottom: 1px solid #E6E6E6;
-    margin: 0;
-    padding: 17px 0 6px 0;
-}
+    .review a{
+        color:red;
+    }
+    .single-para h5 {
+        color: #000;
+        font-size: 2.3em;
+        border-bottom: 1px solid #E6E6E6;
+        margin: 0;
+        padding: 17px 0 6px 0;
+    }
 
 .single-para p {
     font-size: 15px;
