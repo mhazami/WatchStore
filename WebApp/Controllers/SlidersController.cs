@@ -15,6 +15,7 @@ namespace WebApp.Controllers
     public class SlidersController : Controller
     {
         // GET: Sliders
+        private ClockStoreContext db = new ClockStoreContext();
         public ActionResult Index()
         {
             if (SessionParameters.User == null)
@@ -91,9 +92,20 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "SliderId,Title,Description,FileId,IsMainSlider")] Slider slider, HttpPostedFileBase file)
         {
-            new FileBO().UpDate(slider.FileId, file);
+            var fileid = db.Slider.Find(slider.SliderId).FileId;
+            if (file != null)
+            {
+
+                new FileBO().UpDate(fileid, file);
+
+            }
+
+            slider.FileId = fileid;
+
             if (new SliderBO().Update(slider))
                 return RedirectToAction("Index");
+
+            //ViewBag.CategoryId = new SelectList(new CategoryBO().GetAll(), "CategoryId", "CategoryName", product.CategoryId);
             return View(slider);
         }
 

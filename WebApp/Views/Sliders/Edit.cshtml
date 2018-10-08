@@ -1,5 +1,5 @@
 ﻿@model ClockStore.DTO.Slider
-
+@using WebApp.App_Code.Base;
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
@@ -7,10 +7,10 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Sliders", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Slider</h4>
         <hr />
@@ -36,8 +36,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FileId, "FileId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("FileId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.FileId, "", new { @class = "text-danger" })
+                <input type="file" id="file" name="file" />
+
+                <img src="@FileManager.ImageHandler(Model.FileId)" style="width:100px;height:100px; margin-top:20px;" class="thumbnail" />
             </div>
         </div>
 
@@ -60,5 +61,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index","",new { @class= "btn  btn-success" })
+    @Html.ActionLink("Back to List", "Index", "", new { @class = "btn  btn-success" })
 </div>
