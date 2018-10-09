@@ -17,5 +17,19 @@ namespace WebApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Session_Start(Object sender, EventArgs e)
+        {
+
+        }
+
+       
+        protected void Session_End(object sender, EventArgs e)
+        {
+            
+                
+            
+        }
+
     }
 }

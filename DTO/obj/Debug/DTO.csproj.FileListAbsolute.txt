@@ -1,4 +1,3 @@
-C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\bin\Debug\ClockStore.DTO.dll.config
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\bin\Debug\ClockStore.DTO.dll

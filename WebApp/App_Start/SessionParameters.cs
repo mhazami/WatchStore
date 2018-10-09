@@ -1,4 +1,5 @@
 ﻿using ClockStore.DTO;
+using ClockStore.DTO.DBContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,23 @@ namespace WebApp
                 HttpContext.Current.Session["Customer"] = value;
             }
         }
+
+        public static void ClearBasket()
+        {
+            var db = new ClockStoreContext();
+            var list = Basket;
+            if (list.Any())
+            {
+                foreach (var item in list)
+                {
+                    db.Basket.Remove(item);
+                    db.SaveChanges();
+                }
+            }
+            Basket = null;
+        }
+
+     
 
 
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -159,6 +160,7 @@ namespace WebApp.Controllers
 
         public ActionResult AddToCard(Guid id)
         {
+            var list = new List<Basket>();
             if (SessionParameters.Customer == null)
             {
                 TempData["s"] = "null";
@@ -185,9 +187,13 @@ namespace WebApp.Controllers
             if (db.SaveChanges() > 0)
             {
                 TempData["s"] = "Added";
+                if (SessionParameters.Basket != null)
+                    list = SessionParameters.Basket;
+                list.Add(basket);
+                SessionParameters.Basket = list;
                 return Redirect("/Products/ProductDetails?id=" + id + "");
             }
-                
+
 
             TempData["s"] = "Failed";
             return Redirect("/Products/ProductDetails?id=" + id + "");
@@ -202,6 +208,13 @@ namespace WebApp.Controllers
             db.Entry(product).State = EntityState.Modified;
             db.Basket.Remove(basket);
             db.SaveChanges();
+            if (SessionParameters.Basket != null)
+            {
+                var list = new List<Basket>();
+                list = SessionParameters.Basket;
+                list.Remove(list.Single(c=>c.BasketId==id));
+                SessionParameters.Basket = list;
+            }
             return RedirectToAction("CheckOut");
         }
 
@@ -223,6 +236,20 @@ namespace WebApp.Controllers
                 return View(basket);
             }
 
+        }
+
+        public void ClearCheckout()
+        {
+            var list = SessionParameters.Basket;
+            if (list.Any())
+            {
+                foreach (var item in list)
+                {
+                    db.Basket.Remove(item);
+                    db.SaveChanges();
+                }
+            }
+            SessionParameters.Basket = null;
         }
 
 

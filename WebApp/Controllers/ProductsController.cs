@@ -21,10 +21,104 @@ namespace WebApp.Controllers
         {
             if (SessionParameters.User == null)
                 return Redirect("/Users/Login");
-            var product = new ProductBO().GetAll();
-            return View(product);
+            var product = db.Product.Where(c => c.Count > 0);
+            return View(product.ToList());
         }
 
+        [HttpPost]
+        public ActionResult Index(string ProductName, string FromPrice, string ToPrice, string Code, string Count, string FromOff, string ToOff)
+        {
+            StringBuilder query = new StringBuilder();
+            var list = new List<Product>();
+            query.Append("select * from Products ");
+            if (string.IsNullOrEmpty(ProductName)
+                && string.IsNullOrEmpty(Code)
+                && string.IsNullOrEmpty(FromOff)
+                && string.IsNullOrEmpty(ToPrice)
+                && string.IsNullOrEmpty(Count)
+                && string.IsNullOrEmpty(ToOff)
+                && string.IsNullOrEmpty(FromPrice))
+            {
+                list = db.Product.SqlQuery(query.ToString()).ToList();
+                return View(list.ToList());
+            }
+            else
+            {
+                query.Append("Where ");
+            }
+            if (!string.IsNullOrEmpty(ProductName))
+                query.Append($"ProductName LIKE '%{ProductName.Trim()}%' ");
+
+
+
+            if (!string.IsNullOrEmpty(Code))
+            {
+                if (!string.IsNullOrEmpty(ProductName))
+                    query.Append($"AND Code = {Code} ");
+                else
+                    query.Append($"Code = {Code} ");
+            }
+
+
+
+            if (!string.IsNullOrEmpty(Count))
+            {
+                if (!string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
+                    query.Append($"AND Count = {int.Parse(Count)} ");
+                else
+                    query.Append($"Count = {int.Parse(Count)} ");
+            }
+
+
+            if (!string.IsNullOrEmpty(FromPrice))
+            {
+                if (!string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
+                    query.Append($"AND Price > {decimal.Parse(FromPrice.Trim())} ");
+                else
+                    query.Append($"Price > {decimal.Parse(FromPrice.Trim())} ");
+            }
+
+
+            if (!string.IsNullOrEmpty(ToPrice))
+            {
+                if (!string.IsNullOrEmpty(FromPrice) || !string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
+                    query.Append($"AND Price < {decimal.Parse(ToPrice)} ");
+
+                else
+                    query.Append($"Price < {decimal.Parse(ToPrice)} ");
+            }
+
+            if (!string.IsNullOrEmpty(FromOff))
+            {
+                if (!string.IsNullOrEmpty(ToPrice) || !string.IsNullOrEmpty(FromPrice) || !string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
+                    query.Append($"AND [Off] > {int.Parse(FromOff)} ");
+
+                else
+                    query.Append($"[Off] > {int.Parse(FromOff)} ");
+            }
+
+
+            if (!string.IsNullOrEmpty(ToOff))
+            {
+                if (!string.IsNullOrEmpty(FromOff) || !string.IsNullOrEmpty(ToPrice) || !string.IsNullOrEmpty(FromPrice) || !string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
+                    query.Append($"AND [Off] < {int.Parse(ToOff.Trim())}");
+
+                else
+                    query.Append($"[Off] < {int.Parse(ToOff.Trim())}");
+            }
+
+
+
+            list = db.Product.SqlQuery(query.ToString()).ToList();
+            return View(list.ToList());
+        }
+
+
+        public ActionResult ProductListOfEmpty()
+        {
+            var list = db.Product.Where(c => c.Count <= 0);
+            return View(list.ToList());
+        }
         // GET: Products/Details/5
         public ActionResult Details(Guid? id)
         {
@@ -160,8 +254,8 @@ namespace WebApp.Controllers
         #region Method
         public ActionResult ProductsList()
         {
-            var list = new ProductBO().GetAll();
-            return PartialView("PVProductsList", list);
+            var list = db.Product.Where(c => c.Count > 0);
+            return PartialView("PVProductsList", list.ToList());
         }
 
         public ActionResult ProductDetails(Guid id)
@@ -181,92 +275,6 @@ namespace WebApp.Controllers
         }
         #endregion Method
 
-        [HttpPost]
-        public ActionResult Index(string ProductName, string FromPrice, string ToPrice, string Code, string Count, string FromOff, string ToOff)
-        {
-            StringBuilder query = new StringBuilder();
-            var list = new List<Product>();
-            query.Append("select * from Products ");
-            if (string.IsNullOrEmpty(ProductName)
-                && string.IsNullOrEmpty(Code)
-                && string.IsNullOrEmpty(FromOff)
-                && string.IsNullOrEmpty(ToPrice)
-                && string.IsNullOrEmpty(Count)
-                && string.IsNullOrEmpty(ToOff)
-                && string.IsNullOrEmpty(FromPrice))
-            {
-                list = db.Product.SqlQuery(query.ToString()).ToList();
-                return View(list.ToList());
-            }
-            else
-            {
-                query.Append("Where ");
-            }
-            if (!string.IsNullOrEmpty(ProductName))
-                query.Append($"ProductName LIKE '%{ProductName.Trim()}%' ");
-
-
-
-            if (!string.IsNullOrEmpty(Code))
-            {
-                if (!string.IsNullOrEmpty(ProductName))
-                    query.Append($"AND Code = {Code} ");
-                else
-                    query.Append($"Code = {Code} ");
-            }
-
-
-
-            if (!string.IsNullOrEmpty(Count))
-            {
-                if (!string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
-                    query.Append($"AND Count = {int.Parse(Count)} ");
-                else
-                    query.Append($"Count = {int.Parse(Count)} ");
-            }
-
-
-            if (!string.IsNullOrEmpty(FromPrice))
-            {
-                if (!string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
-                    query.Append($"AND Price > {decimal.Parse(FromPrice.Trim())} ");
-                else
-                    query.Append($"Price > {decimal.Parse(FromPrice.Trim())} ");
-            }
-
-
-            if (!string.IsNullOrEmpty(ToPrice))
-            {
-                if (!string.IsNullOrEmpty(FromPrice) || !string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
-                    query.Append($"AND Price < {decimal.Parse(ToPrice)} ");
-
-                else
-                    query.Append($"Price < {decimal.Parse(ToPrice)} ");
-            }
-
-            if (!string.IsNullOrEmpty(FromOff))
-            {
-                if (!string.IsNullOrEmpty(ToPrice) || !string.IsNullOrEmpty(FromPrice) || !string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
-                    query.Append($"AND [Off] > {int.Parse(FromOff)} ");
-
-                else
-                    query.Append($"[Off] > {int.Parse(FromOff)} ");
-            }
-
-
-            if (!string.IsNullOrEmpty(ToOff))
-            {
-                if (!string.IsNullOrEmpty(FromOff) || !string.IsNullOrEmpty(ToPrice) || !string.IsNullOrEmpty(FromPrice) || !string.IsNullOrEmpty(Count) || !string.IsNullOrEmpty(ProductName) || !string.IsNullOrEmpty(Code))
-                    query.Append($"AND [Off] < {int.Parse(ToOff.Trim())}");
-
-                else
-                    query.Append($"[Off] < {int.Parse(ToOff.Trim())}");
-            }
-
-
-
-            list = db.Product.SqlQuery(query.ToString()).ToList();
-            return View(list.ToList());
-        }
+        
     }
 }
