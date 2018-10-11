@@ -20,7 +20,8 @@ namespace WebApp.Controllers
         {
             if (SessionParameters.Customer!=null)
             {
-                ViewBag.Cart= db.Customer.ToList().Sum(c => c.TotalAmountdecimal).ToString("N0");
+                var list = db.Basket.Where(c => c.CustomerId == SessionParameters.Customer.CustomerId).ToList();
+                ViewBag.Cart = list.Sum(c => c.Product.PriceWithOff).ToString("N0");
             }
             else
             {

@@ -252,6 +252,15 @@ namespace WebApp.Controllers
             SessionParameters.Basket = null;
         }
 
+        public ActionResult FinalApproval()
+        {
+            if (SessionParameters.Customer == null)
+                return Redirect("/Customers/Signin");
+            var list = db.Basket.Where(c => c.CustomerId == SessionParameters.Customer.CustomerId).ToList();
+            ViewBag.TotalAmount = list.Sum(c => c.Product.PriceWithOff);
+            return View(list);
+        }
+
 
     }
 }

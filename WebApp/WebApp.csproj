@@ -206,6 +206,10 @@
     <Compile Include="Migrations\201810071917239_Update_cantact.Designer.cs">
       <DependentUpon>201810071917239_Update_cantact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810110647155_Create_Language.cs" />
+    <Compile Include="Migrations\201810110647155_Create_Language.Designer.cs">
+      <DependentUpon>201810110647155_Create_Language.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -388,6 +392,7 @@
     <Content Include="Views\Cantacts\Index.cshtml" />
     <Content Include="Views\Home\PVTopHeader.cshtml" />
     <Content Include="Views\Products\ProductListOfEmpty.cshtml" />
+    <Content Include="Views\Baskets\FinalApproval.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -440,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810071917239_Update_cantact.resx">
       <DependentUpon>201810071917239_Update_cantact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810110647155_Create_Language.resx">
+      <DependentUpon>201810110647155_Create_Language.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

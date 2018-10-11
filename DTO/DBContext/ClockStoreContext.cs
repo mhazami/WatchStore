@@ -29,6 +29,9 @@ namespace ClockStore.DTO.DBContext
 
         public virtual DbSet<ExtraImages> ExtraImages { get; set; }
 
+        public virtual DbSet<Language> Language { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
