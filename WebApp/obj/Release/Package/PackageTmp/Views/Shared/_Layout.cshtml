@@ -5,11 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trend WATCH</title>
     <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    @{
+        if (System.Globalization.CultureInfo.CurrentCulture.Name == "fa-IR")
+        {
+            <link href="~/Content/bootstrap.rtl.min.css" rel="stylesheet" />
+            <link href="~/Content/css/style.rlt.css" rel="stylesheet" />
+        }
+        else
+        {
+            <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+        }
+    }
     <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
     <script src="~/Scripts/js/jquery-1.11.0.min.js"></script>
     <!--Custom-Theme-files-->
     <!--theme-style-->
-    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!--//theme-style-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,22 +47,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-  
+
     </script>
     <!--dropdown-->
     <script src="~/Scripts/js/jquery.easydropdown.js"></script>
     <script src="~/Scripts/js/alertify.js"></script>
- <style>
-     a{
-         text-decoration:none;
-     }
- </style>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 
 </head>
 <body>
 
 
-    @Html.Action("TopHeader", "Home",null)
+    @Html.Action("TopHeader", "Home", null)
     <!--top-header-->
     <!--start-logo-->
     <div class="logo">
@@ -62,32 +73,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="header-bottom">
         <div class="container">
             <div class="header">
-                <div class="col-md-9 header-left">
+                <div class="col-md-10 header-left">
                     <div class="top-nav">
                         <ul class="memenu skyblue">
-                            <li class="active"><a href="/Home/Index">Home</a></li>
-                            <li class="grid"><a href="/Home/Index">Products</a></li>
-                            <li class="grid"><a href="#">Deals</a></li>
-                            <li class="grid"><a href="#">New Season</a></li>
-                            <li class="grid"><a href="/Cantacts/Create">Contact</a></li>
-                            
+                            <li class="active"><a href="/Home/Index">@WebApp.Resources.Design.Design.Home</a></li>
+                            <li class="grid"><a href="/Home/Index">@WebApp.Resources.Design.Design.Products</a></li>
+                            <li class="grid"><a href="#">@WebApp.Resources.Design.Design.Sales</a></li>
+                            <li class="grid"><a href="#">@WebApp.Resources.Design.Design.NewSeason</a></li>
+                            <li class="grid"><a href="/Cantacts/Create">@WebApp.Resources.Design.Design.Contact</a></li>
+                            @*<li class="grid"><a href="/Home/TestVideo?id=5dcb8512-dc30-4654-aa58-21071da10710">@WebApp.Resources.Design.Design.TestOfVideo</a></li>*@
+
                         </ul>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
-                @*<div class="col-md-3 header-right">
-                        <div class="search-bar">
-                            <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-                            <input type="submit" value="">
-                        </div>
-                    </div>*@
+                <div class="col-md-2 header-right">
+
+
+                </div>
                 <div class="clearfix"> </div>
             </div>
         </div>
     </div>
     <!--Menu-header-->
 
-   
+
 
 
 

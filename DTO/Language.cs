@@ -11,6 +11,12 @@ namespace ClockStore.DTO
     {
         [Key]
         public int LanguageId { get; set; }
+
+        [Required]
+        [MaxLength(5)]
         public string LangId { get; set; }
+
+        [Required]
+        public string Title { get; set; }
     }
 }

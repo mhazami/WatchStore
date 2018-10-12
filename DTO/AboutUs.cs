@@ -13,5 +13,9 @@ namespace ClockStore.DTO
         public Guid AboutUsId { get; set; }
 
         public string Description { get; set; }
+
+        [Required]
+        [MaxLength(5)]
+        public string LangId { get; set; }
     }
 }

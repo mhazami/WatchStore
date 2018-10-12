@@ -14,12 +14,11 @@
 <div class="top-header">
     <div class="container">
         <div class="top-header-main">
-            <div class="col-md-6 top-header-left">
-                <div class="drop">
-                    <div class="clearfix"></div>
-                </div>
+            <div class="col-md-6 top-header-left" style="float:left">
+                @*@Html.Action("Loadlanguages", "Language", null)*@
+
             </div>
-            <div class="col-md-6 top-header-left">
+            <div class="col-md-6 top-header-left" style="float:left">
                 <div class="cart box_1">
                     <a href="/Baskets/CheckOut">
                         <div class="total">
@@ -49,9 +48,9 @@
                         else
                         {
                             <p>
-                                <a style="color:white" href="/Customers/Signin">Signin /</a>
+                                <a style="color:white" href="/Customers/Signin">@WebApp.Resources.Design.Design.Signin</a>
 
-                                <a style="color:white" href="/Customers/Create">Register</a>
+                                <a style="color:white" href="/Customers/Create">@WebApp.Resources.Design.Design.Register</a>
 
                             </p>
                         }

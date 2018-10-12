@@ -157,6 +157,7 @@ namespace WebApp.Controllers
             var image = new FileBO().Insert(file);
             product.FileId = image.FileId;
             product.File = image;
+            product.LangId = "en-US";
             db.Product.Add(product);
             if (db.SaveChanges() > 0)
                 return RedirectToAction("Index");

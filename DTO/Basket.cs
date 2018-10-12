@@ -29,6 +29,10 @@ namespace ClockStore.DTO
         public Int16 Status { get; set; }
 
         public bool? IsArchive { get; set; }
-        
+
+        [Required]
+        [MaxLength(5)]
+        public string LangId { get; set; }
+
     }
 }

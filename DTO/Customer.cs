@@ -41,5 +41,9 @@ namespace ClockStore.DTO
 
         [Required]
         public string Address { get; set; }
+
+        [Required]
+        [MaxLength(5)]
+        public string LangId { get; set; }
     }
 }

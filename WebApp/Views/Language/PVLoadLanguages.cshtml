@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ClockStore.DTO.Language>
+
+
+
+
+
+<div class="drop">
+
+    <div class="box1">
+        <select tabindex="4" id="drpLanguage" class="dropdown">
+
+            @{
+                foreach (var item in Model)
+                {
+                    <option value="@item.LangId">@item.Title</option>
+                }
+            }
+
+        </select>
+    </div>
+    <div class="clearfix"></div>
+    <input type="hidden" value="@ViewBag.LangId" id="hiden" />
+</div>
+
+<script>
+    $(document).ready(function () {
+        //LoadLanguage();
+
+        $("#drpLanguage").change(function () {
+            var value = $("#drpLanguage").val();
+            //var currentLang = "";
+            $.get('/Language/ChangeLanguage', { langId: value, url: location.href }, function () {
+                debugger;
+                location.href = location.href
+                //currentLang = data;
+            });
+            //value = currentLang;
+        });
+        //function LoadLanguage() {
+        //    //debugger;
+        //    //var value = $("#drpLanguage").val(); 
+        //    var hiden = $("#hiden").val();
+            
+        //    //$.get('/Language/ChangeLanguage', { langId: hiden, url: location.href }, function () { });
+        //    //debugger;
+        //    $("option[value=" + hiden + "]").attr('selected', 'selected');
+        //}
+
+
+    });
+</script>

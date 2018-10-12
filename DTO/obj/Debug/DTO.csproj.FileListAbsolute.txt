@@ -9,4 +9,3 @@ C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\bin\Debug\
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Debug\DTO.csproj.CopyComplete
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Debug\ClockStore.DTO.dll
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Debug\ClockStore.DTO.pdb
-C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Debug\DTO.csprojAssemblyReference.cache

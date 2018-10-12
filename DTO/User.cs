@@ -30,5 +30,9 @@ namespace ClockStore.DTO
         [Required]
         [MaxLength(50)]
         public string PassWord { get; set; }
+
+        [Required]
+        [MaxLength(5)]
+        public string LangId { get; set; }
     }
 }

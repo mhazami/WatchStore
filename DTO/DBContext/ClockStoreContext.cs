@@ -20,6 +20,8 @@ namespace ClockStore.DTO.DBContext
         public virtual DbSet<Category> Category { get; set; }
 
         public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<WallPaper> WallPaper { get; set; }
+
         public virtual DbSet<News> News { get; set; }
 
         public virtual DbSet<Product> Product { get; set; }

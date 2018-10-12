@@ -38,5 +38,13 @@ namespace ClockStore.DTO
 
         public bool IsNewSeason { get; set; }
 
+        [Required]
+        [MaxLength(5)]
+        public string LangId { get; set; }
+
+        public bool IsBlocked { get; set; }
+
+
+
     }
 }

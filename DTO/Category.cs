@@ -15,5 +15,13 @@ namespace ClockStore.DTO
         [Required]
         [MaxLength(50)]
         public string CategoryName { get; set; }
+
+        [Required]
+        [MaxLength(5)]
+        public string LangId { get; set; }
+
+        public Guid FileId { get; set; }
+
+       
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+
 using ClockStore.DTO.DBContext;
 
 
@@ -22,6 +24,19 @@ namespace WebApp.App_Code.Base
                 return imagesrc;
             }
             return string.Empty;
+        }
+
+        public static FileResult VideoHandler(Guid fileId)
+        {
+            ClockStoreContext db = new ClockStoreContext();
+            var file = db.File.FirstOrDefault(x => x.FileId == fileId);
+            if (file != null)
+            {
+                FileContentResult res = new FileContentResult(file.Context,file.ContextType);
+                res.FileDownloadName = file.Title;
+                return res;
+            }
+            return null;
         }
     }
 }

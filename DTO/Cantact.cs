@@ -29,5 +29,9 @@ namespace ClockStore.DTO
 
         [Required]
         public string Message { get; set; }
+
+        [Required]
+        [MaxLength(5)]
+        public string LangId { get; set; }
     }
 }

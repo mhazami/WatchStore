@@ -58,6 +58,7 @@
     <Compile Include="File.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="News.cs" />
+    <Compile Include="WallPaper.cs" />
     <Compile Include="Partial\Customer.cs" />
     <Compile Include="Partial\Product.cs" />
     <Compile Include="Product.cs" />

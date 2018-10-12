@@ -1,0 +1,58 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+        $(document).ready(function () {
+            $('.customer-logos').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                arrows: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }, {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }]
+            });
+        });
+</script>
+
+
+
+<body>
+    <div class="container" style="direction:ltr;">
+        <h2>Our  Partners</h2>
+        <section class="customer-logos slider">
+            <div class="slide"><img src="~/images/Brands/brand1.jpg"></div>
+            <div class="slide"><img src="~/images/Brands/brand2.png"></div>
+            <div class="slide"><img src="~/images/Brands/brand3.jpg"></div>
+            <div class="slide"><img src="~/images/Brands/brand4.jpg"></div>
+            <div class="slide"><img src="~/images/Brands/brand5.jpg"></div>
+            <div class="slide"><img src="~/images/Brands/brand6.jpg"></div>
+            <div class="slide"><img src="~/images/Brands/brand7.jpg"></div>
+            <div class="slide"><img src="~/images/Brands/brand8.jpg"></div>
+            <div class="slide"><img src="~/images/Brands/brand9.jpg"></div>
+        </section>
+    </div>
+
+</body>

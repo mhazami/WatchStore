@@ -25,5 +25,9 @@ namespace ClockStore.DTO
         public virtual File File { get; set; }
 
         public bool IsMainSlider { get; set; }
+
+        [Required]
+        [MaxLength(5)]
+        public string LangId { get; set; }
     }
 }

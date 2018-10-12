@@ -153,6 +153,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Migrations\201810122035164_Add_File_To_Catgory.cs" />
+    <Compile Include="Migrations\201810122035164_Add_File_To_Catgory.Designer.cs">
+      <DependentUpon>201810122035164_Add_File_To_Catgory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Design\Design.fa-IR.Designer.cs">
+      <DependentUpon>Design.fa-IR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Design\Design.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Design.resx</DependentUpon>
+    </Compile>
     <Content Include="App_Code\Base\FileManager.cs" />
     <Content Include="App_Code\Base\ValidateCustomer.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -166,7 +181,8 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ExtraImagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
+    <Compile Include="Controllers\WallPaperController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\SlidersController.cs" />
@@ -210,6 +226,14 @@
     <Compile Include="Migrations\201810110647155_Create_Language.Designer.cs">
       <DependentUpon>201810110647155_Create_Language.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810112318326_UpdateDB.cs" />
+    <Compile Include="Migrations\201810112318326_UpdateDB.Designer.cs">
+      <DependentUpon>201810112318326_UpdateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810112333187_Add_LangId_To_News.cs" />
+    <Compile Include="Migrations\201810112333187_Add_LangId_To_News.Designer.cs">
+      <DependentUpon>201810112333187_Add_LangId_To_News.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -218,11 +242,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\css\alertify.bootstrap.css" />
     <Content Include="Content\css\alertify.core.css" />
     <Content Include="Content\css\alertify.default.css" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\ErrorPage.css" />
     <Content Include="Content\css\flexslider.css" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
@@ -231,6 +257,8 @@
     <Content Include="Content\css\perfect-scrollbar.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\css\slick.css" />
+    <Content Include="Content\css\style.rlt.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\util.css" />
     <Content Include="favicon.ico" />
@@ -245,6 +273,17 @@
     <Content Include="images\bnr-1.jpg" />
     <Content Include="images\bnr-2.jpg" />
     <Content Include="images\bnr-3.jpg" />
+    <Content Include="images\Brands\brand1.jpg" />
+    <Content Include="images\Brands\brand2.png" />
+    <Content Include="images\Brands\brand3.jpg" />
+    <Content Include="images\Brands\brand4.jpg" />
+    <Content Include="images\Brands\brand5.jpg" />
+    <Content Include="images\Brands\brand6.jpg" />
+    <Content Include="images\Brands\brand7.jpg" />
+    <Content Include="images\Brands\brand8.jpg" />
+    <Content Include="images\Brands\brand9.jpg" />
+    <Content Include="images\Brands\ENamad.jpg" />
+    <Content Include="images\Brands\ENamad2.jpg" />
     <Content Include="images\c-1.jpg" />
     <Content Include="images\c-2.jpg" />
     <Content Include="images\c-3.jpg" />
@@ -253,6 +292,12 @@
     <Content Include="images\cart-3.png" />
     <Content Include="images\close.png" />
     <Content Include="images\crossword.png" />
+    <Content Include="images\Error\bg.png" />
+    <Content Include="images\Error\label.png" />
+    <Content Include="images\Error\woody-404.jpg" />
+    <Content Include="images\Error\woody-404.png" />
+    <Content Include="images\icon\en-icon.png" />
+    <Content Include="images\icon\fa-icon.png" />
     <Content Include="images\icon\if_exit.png" />
     <Content Include="images\icon\if_Remove_372905.png" />
     <Content Include="images\p-1.png" />
@@ -284,6 +329,7 @@
     <Content Include="fonts\Philosopher-Regular.ttf" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile10.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile3.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile4.pubxml" />
@@ -293,6 +339,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile8.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile9.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.rtl.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -315,6 +362,7 @@
     <Content Include="Scripts\js\prompt.test.js" />
     <Content Include="Scripts\js\responsiveslides.min.js" />
     <Content Include="Scripts\js\simpleCart.min.js" />
+    <Content Include="Scripts\js\slick.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -375,12 +423,11 @@
     <Content Include="Views\ExtraImages\Edit.cshtml" />
     <Content Include="Views\ExtraImages\Index.cshtml" />
     <Content Include="Views\ExtraImages\ProductImages.cshtml" />
-    <Content Include="Views\News\Create.cshtml" />
-    <Content Include="Views\News\Delete.cshtml" />
-    <Content Include="Views\News\Details.cshtml" />
-    <Content Include="Views\News\Edit.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\News\PVWallPaper.cshtml" />
+    <Content Include="Views\WallPaper\Create.cshtml" />
+    <Content Include="Views\WallPaper\Delete.cshtml" />
+    <Content Include="Views\WallPaper\Details.cshtml" />
+    <Content Include="Views\WallPaper\Edit.cshtml" />
+    <Content Include="Views\WallPaper\Index.cshtml" />
     <Content Include="Views\Customers\Signin.cshtml" />
     <Content Include="Views\Baskets\PrintCustomerApprov.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
@@ -393,10 +440,17 @@
     <Content Include="Views\Home\PVTopHeader.cshtml" />
     <Content Include="Views\Products\ProductListOfEmpty.cshtml" />
     <Content Include="Views\Baskets\FinalApproval.cshtml" />
+    <Content Include="Views\Home\TestVideo.cshtml" />
+    <Content Include="Views\WallPaper\PVWallPaper.cshtml" />
+    <Content Include="Views\Language\PVLoadLanguages.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Home\PVBrandsSlider.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Resources\KookWatch\" />
+    <Folder Include="Resources\Messages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -448,6 +502,23 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810110647155_Create_Language.resx">
       <DependentUpon>201810110647155_Create_Language.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810112318326_UpdateDB.resx">
+      <DependentUpon>201810112318326_UpdateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810112333187_Add_LangId_To_News.resx">
+      <DependentUpon>201810112333187_Add_LangId_To_News.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810122035164_Add_File_To_Catgory.resx">
+      <DependentUpon>201810122035164_Add_File_To_Catgory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Design\Design.fa-IR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Design.fa-IR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Design\Design.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Design.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

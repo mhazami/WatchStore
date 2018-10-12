@@ -1,0 +1,21 @@
+﻿@using ClockStore.DTO;
+@using WebApp.App_Code.Base;
+@model Product
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestVideo</title>
+</head>
+<body>
+    <div>
+        <video id="VideoPlayer" src="@Url.Action("DownloadFile", "Home", new {fileId = Model.FileId})" controls="true"
+               width="400" height="350" loop="true"/>
+    </div>
+</body>
+</html>

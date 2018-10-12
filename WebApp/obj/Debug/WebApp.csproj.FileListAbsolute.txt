@@ -111,3 +111,10 @@ C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Deb
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Update_Products.resources
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Update_cantact.resources
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Create_Language.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.UpdateDB.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Add_LangId_To_News.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\fa-IR\WebApp.resources.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\WebApp.Resources.Design.Design.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\WebApp.Resources.Design.Design.fa-IR.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\fa-IR\WebApp.resources.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Add_File_To_Catgory.resources

@@ -12,19 +12,18 @@ namespace ClockStore.DTO
         [Key]
         public Guid NewsId { get; set; }
 
-        [Required]
-        [MaxLength(100)]
         public string Title { get; set; }
+        public string Content { get; set; }
 
+        public Guid ImageId { get; set; }
+        public virtual File Image { get; set; }
+
+        public Guid VideoId { get; set; }
+        public virtual File Video { get; set; }
 
         [Required]
-        public Int16 Position { get; set; }
+        [MaxLength(5)]
+        public string LangId { get; set; }
 
-        [Required]
-        public Guid FileId { get; set; }
-        public virtual File File { get; set; }
-
-        [Required]
-        public string Description { get; set; }
     }
 }

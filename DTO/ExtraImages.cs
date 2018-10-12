@@ -20,5 +20,9 @@ namespace ClockStore.DTO
         public Guid ProductId { get; set; }
         public virtual Product Product { get; set; }
 
+        [Required]
+        [MaxLength(5)]
+        public string LangId { get; set; }
+
     }
 }

@@ -1,0 +1,44 @@
+﻿@using WebApp.App_Code.Base;
+@model IEnumerable<ClockStore.DTO.WallPaper>
+
+<div class="about">
+    <div class="container">
+        <div class="about-top grid-1">
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="col-md-4 about-left">
+                        <figure class="effect-bubba">
+                            <img class="img-responsive" src="@FileManager.ImageHandler(item.FileId)" alt="@item.Title" />
+                            <figcaption>
+                                <h2>@item.Title</h2>
+                                <p>@item.Description</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                }
+            }
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
