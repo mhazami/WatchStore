@@ -123,6 +123,9 @@
   <data name="EmptyCart" xml:space="preserve">
     <value>سبد شما خالی است</value>
   </data>
+  <data name="EXPLORENOW" xml:space="preserve">
+    <value>حالا کشف کن</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>صفحه اصلی</value>
   </data>
@@ -143,5 +146,113 @@
   </data>
   <data name="TestOfVideo" xml:space="preserve">
     <value>تست ویدیو</value>
+  </data>
+  <data name="ACCOUNT" xml:space="preserve">
+    <value>حساب کاربری</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>وبلاگ</value>
+  </data>
+  <data name="CHECKOUT" xml:space="preserve">
+    <value>سبد خرید</value>
+  </data>
+  <data name="ContactTitle" xml:space="preserve">
+    <value>با ما در ارتباط باشید</value>
+  </data>
+  <data name="CreateAccountMessage" xml:space="preserve">
+    <value>با ایجاد یک حساب کاربری در فروشگاه ما، شما می توانید از طریق فرآیند پرداخت سریع تر، مشاهده و پیگیری سفارشات خود را در حساب خود و موارد دیگری نیز داشته باشید.</value>
+  </data>
+  <data name="CreateanAccount" xml:space="preserve">
+    <value>ثبت نام</value>
+  </data>
+  <data name="Delivered" xml:space="preserve">
+    <value>تحویل طی 2-3 کاری</value>
+  </data>
+  <data name="DeliveryDetails" xml:space="preserve">
+    <value>جزئیات تحویل</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>ایمیل</value>
+  </data>
+  <data name="ExistingUser" xml:space="preserve">
+    <value>ورود به حساب کاربری</value>
+  </data>
+  <data name="FINALAPPROVAL" xml:space="preserve">
+    <value>تایید نهایی</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>رایگان</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>کالا</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="luxury" xml:space="preserve">
+    <value>لاکچری</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>پیام</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="NewUser" xml:space="preserve">
+    <value>کاربر جدید هستید ؟ ثبت نام کنید</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>مرحله ی بعد</value>
+  </data>
+  <data name="OurPartners" xml:space="preserve">
+    <value>همکاران ما</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>رمز عبور</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>تلفن</value>
+  </data>
+  <data name="PriceSign" xml:space="preserve">
+    <value>ریال</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>نام کالا</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>ثبت نام</value>
+  </data>
+  <data name="RepeatPassWord" xml:space="preserve">
+    <value>تکرار رمز عبور</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>ثبت نام</value>
+  </data>
+  <data name="SUBMITMessage" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>قیمت واحد</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+  <data name="ADDTOCART" xml:space="preserve">
+    <value>افزودن به سبد خرید</value>
+  </data>
+  <data name="MoreInfo" xml:space="preserve">
+    <value>ادامه مطلب</value>
+  </data>
+  <data name="RECENTPOST" xml:space="preserve">
+    <value>مطالب اخیر</value>
   </data>
 </root>

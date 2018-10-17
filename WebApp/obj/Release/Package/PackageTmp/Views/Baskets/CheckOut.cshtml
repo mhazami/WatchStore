@@ -1,24 +1,26 @@
 ﻿@using WebApp.App_Code.Base;
 @model IEnumerable<ClockStore.DTO.Basket>
+@using WebApp.Resources.Design;
+@using System.Globalization;
 @{
-    ViewBag.Title = "CheckOut";
+    ViewBag.Title = @Design.CHECKOUT;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-<div class="ckeckout">
+<div class="ckeckout" style="direction:ltr;">
     <div class="container">
         <div class="ckeck-top heading">
-            <h2>CHECKOUT</h2>
+            <h2>@Design.CHECKOUT</h2>
         </div>
         <div class="ckeckout-top">
             <div class="cart-items">
                 <h3>
                     @*My Shopping Bag (@Model.Count())*@ <span>
                         <a href="/Baskets/PrintCustomerApprov" target="_blank" class="btn btn-primary">
-                            FINAL APPROVAL
+                            @Design.FINALAPPROVAL
                         </a>
-                        <a href="/Baskets/FinalApproval" class="btn btn-success">Next</a>
+                        <a href="/Baskets/FinalApproval" class="btn btn-success">@Design.Next</a>
                     </span>
                 </h3>
                 <script>
@@ -46,10 +48,10 @@
 
                 <div class="in-check">
                     <ul class="unit">
-                        <li><span>Item</span></li>
-                        <li><span>Product Name</span></li>
-                        <li><span>Unit Price</span></li>
-                        <li><span>Delivery Details</span></li>
+                        <li><span>@Design.Item</span></li>
+                        <li><span>@Design.ProductName</span></li>
+                        <li><span>@Design.UnitPrice</span></li>
+                        <li><span>@Design.DeliveryDetails</span></li>
                         <li> </li>
                         <div class="clearfix"> </div>
                     </ul>
@@ -63,10 +65,10 @@
                                     <a href="/Products/ProductDetails?id=@item.ProductId"><img src="@FileManager.ImageHandler(item.Product.FileId)" class="img-responsive" alt="@item.Product.ProductName"></a>
                                 </li>
                                 <li><span class="name">@item.Product.ProductName</span></li>
-                                <li><span class="cost">$ @item.Product.PriceWithOff.ToString("N0")</span></li>
+                                <li><span class="cost">@Design.PriceSign @item.Product.PriceWithOff.ToString("N0")</span></li>
                                 <li>
-                                    <span>Free</span>
-                                    <p>Delivered in 2-3 business days</p>
+                                    <span>@Design.Free</span>
+                                    <p id="Delivered">@Design.Delivered</p>
                                 </li>
                                 <div class="clearfix"> </div>
                             </ul>
@@ -75,7 +77,23 @@
                     }
 
 
+                    @{
+                        if (CultureInfo.CurrentCulture.Name == "fa-IR")
+                        {
+                            <script src="~/Scripts/js/jQuery.persianNumbers-1.0.js"></script>
+                            <script>
+                                $(document).ready(function () {
 
+                                    var price = $.persianNumbers($(".cost").text());
+                                    $(".cost").text(price);
+
+                                    var delivered = $.persianNumbers($("#Delivered").text());
+                                    $("#Delivered").text(delivered);
+                                })
+                            </script>
+
+                        }
+                    }
 
 
 
@@ -84,7 +102,7 @@
                     <h3>
                         @*My Shopping Bag (@Model.Count())*@ <span>
                             <a href="/Baskets/PrintCustomerApprov" target="_blank" class="btn btn-primary">
-                                FINAL APPROVAL
+                                @Design.FINALAPPROVAL
                             </a>
                         </span>
                     </h3>

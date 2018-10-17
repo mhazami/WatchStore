@@ -53,5 +53,13 @@ namespace WebApp.Controllers
         }
 
 
+        public ActionResult GenerateLanguageDropDownList()
+        {
+            var list = db.Language.ToList();
+            ViewBag.List = new SelectList(list, "LangId", "Title");
+            return PartialView("PVLanguageDropDownList");
+        }
+
+
     }
 }

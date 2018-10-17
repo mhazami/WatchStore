@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -19,16 +20,12 @@ namespace WebApp.Controllers
         // GET: News
         public ActionResult Index()
         {
-            if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
             return View(db.News.ToList());
         }
 
         // GET: News/Details/5
-        public ActionResult Details(Guid? id)
+        public ActionResult Details(long? id)
         {
-            if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -44,8 +41,6 @@ namespace WebApp.Controllers
         // GET: News/Create
         public ActionResult Create()
         {
-            if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
             return View();
         }
 
@@ -54,26 +49,24 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NewsId,Title,Position,Description")] News news, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "Title,Content,LangId")] News news, HttpPostedFileBase imageid, HttpPostedFileBase videoid)
         {
-            news.NewsId = Guid.NewGuid();
-            var image = new FileBO().Insert(file);
-            news.FileId = image.FileId;
-            news.File = image;
+            var image = new FileBO().NewsInsert(imageid);
+            var video = new FileBO().NewsInsert(videoid);
+            news.ImageId = image.FileId;
+            news.VideoId = video.FileId;
+            news.SaveDate = Utility.CurrentDate(DateTime.Now, news.LangId);
             db.News.Add(news);
             if (db.SaveChanges() > 0)
                 return RedirectToAction("Index");
-
 
 
             return View(news);
         }
 
         // GET: News/Edit/5
-        public ActionResult Edit(Guid? id)
+        public ActionResult Edit(long? id)
         {
-            if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -91,29 +84,20 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "NewsId,Title,Position,Description")] News news, HttpPostedFileBase file)
+        public ActionResult Edit([Bind(Include = "NewsId,Title,Content,ImageId,VideoId,LangId")] News news)
         {
-            var fileid = db.Product.Find(news.NewsId).FileId;
-            if (file != null)
+            if (ModelState.IsValid)
             {
-
-                new FileBO().UpDate(fileid, file);
-
-            }
-
-            news.FileId = fileid;
-
-            if (new NewsBO().Update(news))
+                db.Entry(news).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
-
+            }
             return View(news);
         }
 
         // GET: News/Delete/5
-        public ActionResult Delete(Guid? id)
+        public ActionResult Delete(long? id)
         {
-            if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -129,15 +113,12 @@ namespace WebApp.Controllers
         // POST: News/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
+        public ActionResult DeleteConfirmed(long id)
         {
-            var news = db.News.Find(id);
+            News news = db.News.Find(id);
             db.News.Remove(news);
             db.SaveChanges();
-
-            if (new FileBO().Delete(news.FileId))
-                return RedirectToAction("Index");
-            return View(news);
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
@@ -149,25 +130,24 @@ namespace WebApp.Controllers
             base.Dispose(disposing);
         }
 
-
-        public ActionResult WallPaper()
+        public ActionResult Blog()
         {
-            var count = db.News.Count();
-            if (count <= 3)
+            var list = db.News.Where(c => c.LangId == CultureInfo.CurrentCulture.Name).ToList().OrderByDescending(c => c.NewsId);
+            return View(list);
+        }
+
+        public ActionResult MoreInfo(long? id)
+        {
+            if (id.HasValue)
             {
-                var list = db.News.ToList();
-                return PartialView("PVWallPaper", list);
+                var news = db.News.Find(id);
+                return View(news);
             }
             else
             {
-                var res =new List<News>();
-                var list = db.News.ToList().OrderBy(c => c.Position);
-                for (int i = 0; i < 3; i++)
-                {
-                    res.Add(list.ToList()[i]);
-                }
-                return PartialView("PVWallPaper", res);
+                return Redirect("Blog");
             }
+           
         }
     }
 }

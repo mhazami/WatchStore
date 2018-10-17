@@ -31,6 +31,24 @@ namespace ClockStore.BLL
             return file;
         }
 
+        public File NewsInsert(HttpPostedFileBase image)
+        {
+            var file = new File();
+            file.FileId = Guid.NewGuid();
+            if (image != null)
+            {
+                file.Context = new byte[image.ContentLength];
+                image.InputStream.Read(file.Context, 0, image.ContentLength);
+                file.ContextType = image.ContentType;
+                file.Title = image.FileName;
+            }
+            var d = new ClockStoreContext();
+            d.File.Add(file);
+
+            d.SaveChanges();
+            return file;
+        }
+
         public bool UpDate(Guid id, HttpPostedFileBase image)
         {
             var file = new ClockStoreContext().File.Find(id);

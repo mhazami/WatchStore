@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "MoreInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <video id="" src="@Url.Action("DownloadFile", "Home", new {fileId = new Guid()})" controls="true"
+                   width="100%" height="350px" loop="true"></video>
+        </div>
+        <div class="col-md-4">
+            <img class="thumbnail" style="height:350px; width:100%" src="~/images/abt-1.jpg" />
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-8">
+            <p>
+                In publishing and graphic design, lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document without relying on meaningful content. Replacing the actual content with placeholder text allows designers to design the form of the content before the content itself has been produced
+            </p>
+        </div>
+        <div class="col-md-4"></div>
+
+    </div>
+
+</div>
+

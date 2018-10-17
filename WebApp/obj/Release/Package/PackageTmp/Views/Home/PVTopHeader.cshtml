@@ -1,5 +1,5 @@
 ﻿
-
+@using System.Globalization;
 
 
 
@@ -15,7 +15,7 @@
     <div class="container">
         <div class="top-header-main">
             <div class="col-md-6 top-header-left" style="float:left">
-                @*@Html.Action("Loadlanguages", "Language", null)*@
+                @Html.Action("Loadlanguages", "Language", null)
 
             </div>
             <div class="col-md-6 top-header-left" style="float:left">
@@ -60,5 +60,22 @@
             </div>
             <div class="clearfix"></div>
         </div>
+
+        @{
+            if (CultureInfo.CurrentCulture.Name == "fa-IR")
+            {
+                <script src="~/Scripts/js/jQuery.persianNumbers-1.0.js"></script>
+                <script>
+                    $(document).ready(function () {
+
+                        var price = $.persianNumbers($(".simpleCart_empty").text());
+                        $(".simpleCart_empty").text(price);
+
+                    })
+                </script>
+
+            }
+        }
+
     </div>
 </div>

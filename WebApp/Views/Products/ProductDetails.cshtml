@@ -1,5 +1,6 @@
-﻿
+﻿@using WebApp.Resources.Design;
 @using WebApp.App_Code.Base;
+@using System.Globalization;
 @model ClockStore.DTO.Product
 
 @{
@@ -17,13 +18,13 @@
                         <div class="flexslider">
                             <ul class="slides">
                                 <li data-thumb="@FileManager.ImageHandler(Model.FileId)">
-                                    <div class="thumb-image"> <img src="@FileManager.ImageHandler(Model.FileId)" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                    <div class="thumb-image"> <img src="@FileManager.ImageHandler(Model.FileId)" data-imagezoom="true" class="img-responsive" alt="@Model.ProductName" /> </div>
                                 </li>
                                 @{
                                     foreach (var item in Model.ExtraImages)
                                     {
                                         <li data-thumb="@FileManager.ImageHandler(item.FileId)">
-                                            <div class="thumb-image"> <img src="@FileManager.ImageHandler(item.FileId)" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+                                            <div class="thumb-image"> <img src="@FileManager.ImageHandler(item.FileId)" data-imagezoom="true" class="img-responsive" alt="@Model.ProductName" /> </div>
                                         </li>
                                     }
                                 }
@@ -64,7 +65,7 @@
                         <div class="single-para simpleCart_shelfItem">
                             <h2>@Model.ProductName</h2>
                             <div class="star-on">
-                              
+
                                 @{
                                     if (Model.Count <= 0)
                                     {
@@ -82,19 +83,21 @@
                                 @{
                                     if (Model.Off > 0)
                                     {
-                                        <s>$@Model.Price.ToString("N0")</s>
-                                        <span>$@Model.PriceWithOff.ToString("N0")</span>
+                                        <s>@Design.PriceSign @Model.Price.ToString("N0")</s>
+                                        <span id="price">@Design.PriceSign @Model.PriceWithOff.ToString("N0")</span>
 
                                     }
                                     else
                                     {
-                                        <span>$ @Model.Price.ToString("N0")</span>
+                                        <span id="currentprice">@Design.PriceSign @Model.Price.ToString("N0")</span>
                                     }
                                 }
                             </h5>
                             <p>@Model.Description</p>
 
-                            <a href="/Products/AddCart?id=@Model.ProductId" class="add-cart item_add">ADD TO CART</a>
+                            <a href="/Products/AddCart?id=@Model.ProductId" class="add-cart item_add">@Design.ADDTOCART</a>
+
+
 
                         </div>
                     </div>
@@ -102,7 +105,26 @@
                 </div>
 
             </div>
+            @{
+                if (CultureInfo.CurrentCulture.Name == "fa-IR")
+                {
+                    <script src="~/Scripts/js/jQuery.persianNumbers-1.0.js"></script>
+                    <script>
+                        $(document).ready(function () {
 
+                            var s = $.persianNumbers($("s").text());
+                            $("s").text(s);
+
+                            var price = $.persianNumbers($("#price").text());
+                            $("#price").text(price);
+
+                            var currentprice = $.persianNumbers($("#currentprice").text());
+                            $("#currentprice").text(currentprice);
+                        })
+                    </script>
+
+                }
+            }
             <div class="clearfix"> </div>
         </div>
     </div>

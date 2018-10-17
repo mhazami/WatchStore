@@ -12,6 +12,7 @@ namespace ClockStore.DTO.DBContext
         public ClockStoreContext() : base("name=ClockStoreConnectionString")
         { }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<VideoHandler> VideoHandler { get; set; }
         public virtual DbSet<AboutUs> AboutUs { get; set; }
         public virtual DbSet<Basket> Basket { get; set; }
 

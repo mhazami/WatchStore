@@ -12,6 +12,13 @@
     
 <div class="form-horizontal">
     <h4>create New Product</h4>
+    <div class="form-group">
+        @Html.LabelFor(model => model.LangId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.Action("GenerateLanguageDropDownList", "Language", null)
+        </div>
+    </div>
+    
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
@@ -68,7 +75,7 @@
             @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
         </div>
     </div>
-   
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-default" />

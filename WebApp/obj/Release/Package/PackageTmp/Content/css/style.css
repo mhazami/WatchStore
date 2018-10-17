@@ -1847,6 +1847,7 @@ span.name {
     color: #000;
     margin: 0 0 0 0;
     font-family: 'BreeSerif-Regular';
+    text-align:left;
 }
 
 .star-on {

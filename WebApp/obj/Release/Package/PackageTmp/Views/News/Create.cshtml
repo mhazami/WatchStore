@@ -6,13 +6,18 @@
 }
 
 
-
 @using (Html.BeginForm("Create", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Create WallPaper</h4>
+    <h4>create News</h4>
+    <div class="form-group">
+        @Html.LabelFor(model => model.LangId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.Action("GenerateLanguageDropDownList", "Language", null)
+        </div>
+    </div>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
@@ -24,27 +29,28 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Position, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.FileId, "FileId", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ImageId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <input type="file" id="file" name="file" />
+            <input type="file" id="imageid" name="imageid" />
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.VideoId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            <input type="file" id="videoid" name="videoid" />
         </div>
     </div>
+
+
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -55,5 +61,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index","",new { @class= "btn  btn-success" })
+    @Html.ActionLink("Back to List", "Index")
 </div>

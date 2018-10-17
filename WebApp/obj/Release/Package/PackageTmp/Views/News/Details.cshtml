@@ -1,5 +1,4 @@
-﻿@using WebApp.App_Code.Base;
-@model ClockStore.DTO.News
+﻿@model ClockStore.DTO.News
 
 @{
     ViewBag.Title = "Details";
@@ -21,32 +20,40 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Position)
+            @Html.DisplayNameFor(model => model.Content)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Position)
+            @Html.DisplayFor(model => model.Content)
         </dd>
 
         <dt>
-            Image
+            @Html.DisplayNameFor(model => model.ImageId)
         </dt>
 
         <dd>
-            <img src="@FileManager.ImageHandler(Model.FileId)" style="width:100px;height:100px; margin-top:20px;" class="thumbnail" />
+            @Html.DisplayFor(model => model.ImageId)
         </dd>
 
-
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.VideoId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.VideoId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LangId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LangId)
         </dd>
 
     </dl>
 </div>
 <p>
-        @Html.ActionLink("Back to List", "Index","",new { @class= "btn  btn-success" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NewsId }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

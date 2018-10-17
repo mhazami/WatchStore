@@ -1,5 +1,5 @@
 ﻿@model ClockStore.DTO.Cantact
-
+@using WebApp.Resources.Design;
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,17 +14,17 @@
     <div class="contact">
         <div class="container">
             <div class="contact-top heading">
-                <h2>CONTACT</h2>
+                <h2>@WebApp.Resources.Design.Design.ContactTitle</h2>
             </div>
             <div class="contact-text">
                 <div class="col-md-12 contact-right">
                     <form>
-                        <input type="text" name="FullName" id="FullName" placeholder="Name" required="">
-                        <input type="text" placeholder="Phone" name="Phone" id="Phone">
-                        <input type="text" placeholder="Email" name="Email" id="Email" required="">
-                        <textarea placeholder="Message" required="" name="Message" id="Message"></textarea>
+                        <input type="text" name="FullName" id="FullName" placeholder="@Design.Name" required="">
+                        <input type="text" placeholder="@Design.Phone" name="Phone" id="Phone">
+                        <input type="text" placeholder="@Design.Email" name="Email" id="Email" required="">
+                        <textarea placeholder="@Design.Message" required="" name="Message" id="Message"></textarea>
                         <div class="submit-btn">
-                            <input type="submit" value="SUBMIT">
+                            <input type="submit" value="@Design.SUBMITMessage">
                         </div>
                     </form>
                 </div>

@@ -61,11 +61,110 @@ namespace WebApp.Resources.Design {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ACCOUNT.
+        /// </summary>
+        public static string ACCOUNT {
+            get {
+                return ResourceManager.GetString("ACCOUNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ADD TO CART.
+        /// </summary>
+        public static string ADDTOCART {
+            get {
+                return ResourceManager.GetString("ADDTOCART", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blog.
+        /// </summary>
+        public static string Blog {
+            get {
+                return ResourceManager.GetString("Blog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CHECKOUT.
+        /// </summary>
+        public static string CHECKOUT {
+            get {
+                return ResourceManager.GetString("CHECKOUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
         public static string Contact {
             get {
                 return ResourceManager.GetString("Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CONTACT.
+        /// </summary>
+        public static string ContactTitle {
+            get {
+                return ResourceManager.GetString("ContactTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By creating an account with our store, you will be able to move through the checkout process faster, view and track your orders in your account and more..
+        /// </summary>
+        public static string CreateAccountMessage {
+            get {
+                return ResourceManager.GetString("CreateAccountMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create an Account.
+        /// </summary>
+        public static string CreateanAccount {
+            get {
+                return ResourceManager.GetString("CreateanAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivered in 2-3 business days.
+        /// </summary>
+        public static string Delivered {
+            get {
+                return ResourceManager.GetString("Delivered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivery Details.
+        /// </summary>
+        public static string DeliveryDetails {
+            get {
+                return ResourceManager.GetString("DeliveryDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
@@ -79,11 +178,119 @@ namespace WebApp.Resources.Design {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Existing User.
+        /// </summary>
+        public static string ExistingUser {
+            get {
+                return ResourceManager.GetString("ExistingUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXPLORE NOW.
+        /// </summary>
+        public static string EXPLORENOW {
+            get {
+                return ResourceManager.GetString("EXPLORENOW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FINAL APPROVAL.
+        /// </summary>
+        public static string FINALAPPROVAL {
+            get {
+                return ResourceManager.GetString("FINALAPPROVAL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Name.
+        /// </summary>
+        public static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Free.
+        /// </summary>
+        public static string Free {
+            get {
+                return ResourceManager.GetString("Free", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item.
+        /// </summary>
+        public static string Item {
+            get {
+                return ResourceManager.GetString("Item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        public static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Signin.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Luxury.
+        /// </summary>
+        public static string luxury {
+            get {
+                return ResourceManager.GetString("luxury", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message.
+        /// </summary>
+        public static string Message {
+            get {
+                return ResourceManager.GetString("Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More Info.
+        /// </summary>
+        public static string MoreInfo {
+            get {
+                return ResourceManager.GetString("MoreInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
             }
         }
         
@@ -97,6 +304,69 @@ namespace WebApp.Resources.Design {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New User? Create an Account.
+        /// </summary>
+        public static string NewUser {
+            get {
+                return ResourceManager.GetString("NewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our  Partners.
+        /// </summary>
+        public static string OurPartners {
+            get {
+                return ResourceManager.GetString("OurPartners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone.
+        /// </summary>
+        public static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to $.
+        /// </summary>
+        public static string PriceSign {
+            get {
+                return ResourceManager.GetString("PriceSign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Name.
+        /// </summary>
+        public static string ProductName {
+            get {
+                return ResourceManager.GetString("ProductName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Products.
         /// </summary>
         public static string Products {
@@ -106,11 +376,38 @@ namespace WebApp.Resources.Design {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RECENT POST.
+        /// </summary>
+        public static string RECENTPOST {
+            get {
+                return ResourceManager.GetString("RECENTPOST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to REGISTER.
+        /// </summary>
+        public static string RegisterTitle {
+            get {
+                return ResourceManager.GetString("RegisterTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat Password.
+        /// </summary>
+        public static string RepeatPassWord {
+            get {
+                return ResourceManager.GetString("RepeatPassWord", resourceCulture);
             }
         }
         
@@ -133,11 +430,47 @@ namespace WebApp.Resources.Design {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Submit {
+            get {
+                return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SUBMIT.
+        /// </summary>
+        public static string SUBMITMessage {
+            get {
+                return ResourceManager.GetString("SUBMITMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Test Of Video.
         /// </summary>
         public static string TestOfVideo {
             get {
                 return ResourceManager.GetString("TestOfVideo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit Price.
+        /// </summary>
+        public static string UnitPrice {
+            get {
+                return ResourceManager.GetString("UnitPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Name.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
             }
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using ClockStore.BLL;
 using ClockStore.DTO;
+using ClockStore.DTO.ViewModels;
 using ClockStore.DTO.DBContext;
 
 namespace WebApp.Controllers
@@ -150,14 +152,14 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,Code,Count")] Product product, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,Code,Count,LangId")] Product product, HttpPostedFileBase file)
         {
 
             product.ProductId = Guid.NewGuid();
             var image = new FileBO().Insert(file);
             product.FileId = image.FileId;
             product.File = image;
-            product.LangId = "en-US";
+            //product.LangId = "en-US";
             db.Product.Add(product);
             if (db.SaveChanges() > 0)
                 return RedirectToAction("Index");
@@ -191,7 +193,7 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,Code,Count")] Product product, HttpPostedFileBase file)
+        public ActionResult Edit([Bind(Include = "ProductId,ProductName,FileId,Price,Off,PriceWithOff,Description,Code,Count,LangId")] Product product, HttpPostedFileBase file)
         {
             var fileid = db.Product.Find(product.ProductId).FileId;
             if (file != null)
@@ -202,7 +204,7 @@ namespace WebApp.Controllers
             }
 
             product.FileId = fileid;
-
+            product.LangId = "fa-IR";
             if (new ProductBO().Update(product))
                 return RedirectToAction("Index");
 
@@ -255,7 +257,7 @@ namespace WebApp.Controllers
         #region Method
         public ActionResult ProductsList()
         {
-            var list = db.Product.Where(c => c.Count > 0);
+            var list = db.Product.Where(c => c.Count > 0 && c.LangId == CultureInfo.CurrentCulture.Name);
             return PartialView("PVProductsList", list.ToList());
         }
 
@@ -274,8 +276,38 @@ namespace WebApp.Controllers
                 return Redirect("/Baskets/AddToCard?id=" + id + "");
             return Redirect("/Customers/Signin");
         }
+
+        public ActionResult Luxury()
+        {
+            var list = new VideoProduct()
+            {
+                ProductsList = db.Product.Where(c => c.Isluxury).ToList(),
+                VideoList = db.VideoHandler.Where(c => c.Position == Enums.VideoPosition.Luxtury).ToList()
+            };
+            return View(list);
+        }
+
+        public ActionResult Deals()
+        {
+            var list = new VideoProduct()
+            {
+                ProductsList = db.Product.Where(c => c.IsDeals).ToList(),
+                VideoList = db.VideoHandler.Where(c => c.Position == Enums.VideoPosition.Deals).ToList()
+            };
+            return View(list);
+        }
+
+        public ActionResult NewSeason()
+        {
+            var list = new VideoProduct()
+            {
+                ProductsList = db.Product.Where(c => c.IsNewSeason).ToList(),
+                VideoList = db.VideoHandler.Where(c => c.Position == Enums.VideoPosition.NewSeason).ToList()
+            };
+            return View(list);
+        }
         #endregion Method
 
-        
+
     }
 }

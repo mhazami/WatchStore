@@ -1,5 +1,5 @@
 ﻿@model ClockStore.DTO.Customer
-
+@using WebApp.Resources.Design;
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,37 +15,35 @@
         <div class="container">
 
             <div class="register-top heading">
-                <h2>REGISTER</h2>
+                <h2>@Design.RegisterTitle</h2>
             </div>
             <div class="register-main">
                 <div class="col-md-6 account-left">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <input placeholder="First name" id="FirstName" name="FirstName" type="text" tabindex="2" required>
-                    <input placeholder="Last name" id="LastName" name="LastName" type="text" tabindex="2" required>
-                    <input placeholder="User Name" id="UserName" name="UserName" type="text" tabindex="3" required>
+                    <input placeholder="@Design.FirstName" id="FirstName" name="FirstName" type="text" tabindex="2" required>
+                    <input placeholder="@Design.LastName" id="LastName" name="LastName" type="text" tabindex="2" required>
+                    <input placeholder="@Design.UserName" id="UserName" name="UserName" type="text" tabindex="3" required>
                     <label id="lblusername" style="color:red;"></label>
-                    <input placeholder="Email Address" id="Email" name="Email" type="text" tabindex="3" required>
+                    <input placeholder="@Design.Email" id="Email" name="Email" type="text" tabindex="3" required>
 
                 </div>
                 <div class="col-md-6 account-left">
 
-                    <input placeholder="PassWord" name="PassWord" data-rule-PassWord="true" id="PassWord" type="password" tabindex="4" required>
-                    <input placeholder="Retype password" id="RepeatPassWord" type="password" name="PassWord" data-rule-PassWord="true" data-rule-equalTo="#PassWord" tabindex="4" required>
-                    <input placeholder="Phone" id="Phone" name="Phone" type="text" tabindex="3" required>
-                    <input placeholder="Address" id="Address" name="Address" type="text" tabindex="3" required>
+                    <input placeholder="@Design.Password" name="PassWord" data-rule-PassWord="true" id="PassWord" type="password" tabindex="4" required>
+                    <input placeholder="@Design.RepeatPassWord" id="RepeatPassWord" type="password" name="PassWord" data-rule-PassWord="true" data-rule-equalTo="#PassWord" tabindex="4" required>
+                    <input placeholder="@Design.Phone" id="Phone" name="Phone" type="text" tabindex="3" required>
+                    <input placeholder="@Design.Address" id="Address" name="Address" type="text" tabindex="3" required>
                 </div>
                 <div class="clearfix"></div>
             </div>
             <div class="address submit">
-                <input id="btnsave" type="submit" value="Submit">
+                <input id="btnsave" type="submit" value="@Design.Submit">
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index","",new { @class= "btn  btn-success" })
-</div>
+
 <script>
   
     $(document).ready(function () {

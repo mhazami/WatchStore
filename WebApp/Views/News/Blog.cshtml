@@ -1,0 +1,146 @@
+﻿@using WebApp.Resources.Design;
+@using WebApp.App_Code.Base;
+@model IEnumerable<ClockStore.DTO.News>
+    @{
+        ViewBag.Title = "Blog";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+
+    <link href="~/Content/Blog.css" rel="stylesheet" />
+
+
+    <section id="blog-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        @*@{
+                            foreach (var item in Model)
+                            {
+                                <div class="col-lg-6 col-md-6">
+                                    <aside>
+                                        <video id="@item.NewsId" src="@Url.Action("DownloadFile", "Home", new {fileId = item.VideoId})" controls="true"
+                                               width="100%" height="257.14px" loop="true" ></video>
+                                        <div class="content-title">
+                                            <div class="text-center">
+                                                <h3><a href="#">@item.Title</a></h3>
+                                            </div>
+                                        </div>
+                                        <div class="content-footer">
+                                            <img class="user-small-img" src="@FileManager.ImageHandler(item.ImageId)" alt="@item.Title">
+                                            <a href="/News/MoreInfo?id=@item.NewsId">
+                                                <span style="font-size: 16px;color: #fff;">@Design.MoreInfo</span>
+                                            </a>
+
+                                        </div>
+                                    </aside>
+                                </div>
+                            }
+                        }*@
+
+
+                        <div class="col-lg-6 col-md-6">
+                            <aside>
+                               
+                                <video id="News1" src="#" controls="true"
+                                       width="100%" height="257.14px"></video>
+                                <div class="content-title">
+                                    <div class="text-center">
+                                        <h3><a href="#">Niki Postingan Sing Kepisan Njeh, Perdana Ngoten</a></h3>
+                                    </div>
+                                </div>
+                                <div class="content-footer">
+                                    <img class="user-small-img" src="~/images/abt-1.jpg">
+                                    <span style="font-size: 16px;color: #fff;">@Design.MoreInfo</span>
+
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <aside>
+                                
+                                <video id="News2" src="#" controls="true"
+                                       width="100%" height="257.14px"></video>
+                                <div class="content-title">
+                                    <div class="text-center">
+                                        <h3><a href="#">Niki Postingan Sing Kepisan Njeh, Perdana Ngoten</a></h3>
+                                    </div>
+                                </div>
+                                <div class="content-footer">
+                                    <img class="user-small-img" src="~/images/abt-2.jpg">
+                                    <span style="font-size: 16px;color: #fff;">@Design.MoreInfo</span>
+
+                                </div>
+                            </aside>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--RECENT POST===========-->
+                <div class="col-lg-4">
+                    <div class="widget-sidebar">
+                        <h2 class="title-widget-sidebar">@Design.RECENTPOST</h2>
+                        <div class="content-widget-sidebar">
+                            <ul>
+                                @*@{
+                                    foreach (var item in Model)
+                                    {
+                                        <li class="recent-post">
+                                            <div class="post-img">
+                                                <a href="#@item.NewsId">
+                                                    <img src="@FileManager.ImageHandler(item.ImageId)" alt="@item.Title">
+
+                                                </a>
+                                            </div>
+                                            <a href="#"><h5>@item.Title</h5></a>
+                                            <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> @item.SaveDate</small></p>
+                                        </li>
+                                        <hr>
+                                    }
+                                }*@
+
+
+                                <li class="recent-post">
+                                    <div class="post-img">
+                                        <a href="#News1">
+                                            <img src="~/images/abt-1.jpg">
+                                        </a>
+                                    </div>
+                                    <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
+                                    <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
+                                </li>
+                                <hr>
+
+
+                                <li class="recent-post">
+                                    <div class="post-img">
+                                        <a href="#News2">
+                                            <img src="~/images/abt-2.jpg">
+
+                                        </a>
+                                    </div>
+                                    <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
+                                    <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
+                                </li>
+                                <hr>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+

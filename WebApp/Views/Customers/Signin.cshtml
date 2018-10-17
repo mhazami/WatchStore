@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Signin";
+﻿@using WebApp.Resources.Design;
+@{
+    ViewBag.Title = Design.Login;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,24 +10,24 @@
     <div class="account">
         <div class="container">
             <div class="account-top heading">
-                <h2>ACCOUNT</h2>
+                <h2>@Design.ACCOUNT</h2>
             </div>
             <div class="account-main">
                 <div class="col-md-6 account-left">
-                    <h3>Existing User</h3>
+                    <h3>@Design.ExistingUser</h3>
                     <div class="account-bottom">
-                        <input placeholder="Email" name="email" id="email" type="text" tabindex="3" required>
-                        <input placeholder="Password" name="password" id="password" type="password" tabindex="4" required>
+                        <input placeholder="@Design.Email" name="email" id="email" type="text" tabindex="3" required>
+                        <input placeholder="@Design.Password" name="password" id="password" type="password" tabindex="4" required>
                         <div class="address">
                             @*<a class="forgot" href="#">Forgot Your Password?</a>*@
-                            <input type="submit" value="Signin">
+                            <input type="submit" value="@Design.Login">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 account-right account-left">
-                    <h3>New User? Create an Account</h3>
-                    <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-                    <a href="/Customers/Create">Create an Account</a>
+                    <h3>@Design.NewUser</h3>
+                    <p>@Design.CreateAccountMessage</p>
+                    <a href="/Customers/Create">@Design.CreateanAccount</a>
                 </div>
                 <div class="clearfix"></div>
             </div>

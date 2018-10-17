@@ -123,6 +123,9 @@
   <data name="EmptyCart" xml:space="preserve">
     <value>Empty Cart</value>
   </data>
+  <data name="EXPLORENOW" xml:space="preserve">
+    <value>EXPLORE NOW</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
@@ -143,5 +146,113 @@
   </data>
   <data name="TestOfVideo" xml:space="preserve">
     <value>Test Of Video</value>
+  </data>
+  <data name="ACCOUNT" xml:space="preserve">
+    <value>ACCOUNT</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="CHECKOUT" xml:space="preserve">
+    <value>CHECKOUT</value>
+  </data>
+  <data name="ContactTitle" xml:space="preserve">
+    <value>CONTACT</value>
+  </data>
+  <data name="CreateAccountMessage" xml:space="preserve">
+    <value>By creating an account with our store, you will be able to move through the checkout process faster, view and track your orders in your account and more.</value>
+  </data>
+  <data name="CreateanAccount" xml:space="preserve">
+    <value>Create an Account</value>
+  </data>
+  <data name="Delivered" xml:space="preserve">
+    <value>Delivered in 2-3 business days</value>
+  </data>
+  <data name="DeliveryDetails" xml:space="preserve">
+    <value>Delivery Details</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ExistingUser" xml:space="preserve">
+    <value>Existing User</value>
+  </data>
+  <data name="FINALAPPROVAL" xml:space="preserve">
+    <value>FINAL APPROVAL</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Signin</value>
+  </data>
+  <data name="luxury" xml:space="preserve">
+    <value>Luxury</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewUser" xml:space="preserve">
+    <value>New User? Create an Account</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="OurPartners" xml:space="preserve">
+    <value>Our  Partners</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="PriceSign" xml:space="preserve">
+    <value>$</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>REGISTER</value>
+  </data>
+  <data name="RepeatPassWord" xml:space="preserve">
+    <value>Repeat Password</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="SUBMITMessage" xml:space="preserve">
+    <value>SUBMIT</value>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>Unit Price</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="ADDTOCART" xml:space="preserve">
+    <value>ADD TO CART</value>
+  </data>
+  <data name="MoreInfo" xml:space="preserve">
+    <value>More Info</value>
+  </data>
+  <data name="RECENTPOST" xml:space="preserve">
+    <value>RECENT POST</value>
   </data>
 </root>

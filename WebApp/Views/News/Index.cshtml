@@ -1,59 +1,58 @@
-﻿@using WebApp.App_Code.Base;
-@model IEnumerable<ClockStore.DTO.News>
+﻿@model IEnumerable<ClockStore.DTO.News>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
-
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
+    @Html.ActionLink("Create New", "Create")
 </p>
-<div class="container-table100">
-    <div class="wrap-table100">
-        <div class="table100">
-            <table>
-                <tr class="table100-head">
-                    <th class="column1">
-                        @Html.DisplayNameFor(model => model.Title)
-                    </th>
-                    <th class="column2">
-                        @Html.DisplayNameFor(model => model.Position)
-                    </th>
-                    <th class="column3">
-                        Image
-                    </th>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LangId)
+        </th>
+        <th></th>
+    </tr>
 
-                    <th class="column4"></th>
-                </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LangId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NewsId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NewsId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NewsId })
+        </td>
+    </tr>
+}
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td class="column1">
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </td>
-                        <td class="column2">
-                            @Html.DisplayFor(modelItem => item.Position)
-                        </td>
-                        <td class="column3">
-                            <img alt="@item.Title" src="@FileManager.ImageHandler(item.FileId)" style="max-height:100px;max-width:100px;" />
-                        </td>
-
-                        <td class="column4">
-                            @Html.ActionLink("Edit", "Edit", new { id = item.NewsId }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.NewsId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.NewsId })
-                        </td>
-                    </tr>
-                }
-
-            </table>
-            <p>
-                @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
-            </p>
-        </div>
-    </div>
-</div>
+</table>

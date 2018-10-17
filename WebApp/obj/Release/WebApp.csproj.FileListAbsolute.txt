@@ -117,3 +117,12 @@ C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Rel
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\WebApp.Resources.Design.Design.resources
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\WebApp.Resources.Design.Design.fa-IR.resources
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\fa-IR\WebApp.resources.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\RestSharp.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\ClockStore.DTO.Migrations.Add_File_To_Catgory.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\ClockStore.DTO.Migrations.Remove_News.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\ClockStore.DTO.Migrations.Add_News.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\ClockStore.DTO.Migrations.Remove_FileId_From_News.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\ClockStore.DTO.Migrations.Add_SaveDate_To_News.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\ClockStore.DTO.Migrations.SaveDatNews_To_DateTime.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\ClockStore.DTO.Migrations.SaveDateNews.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Release\ClockStore.DTO.Migrations.Add_IsLuxuty_To_Product.resources

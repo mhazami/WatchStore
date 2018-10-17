@@ -45,6 +45,8 @@ namespace ClockStore.DTO
         public bool IsBlocked { get; set; }
 
 
+        public bool Isluxury { get; set; }
+
 
     }
 }
