@@ -1,12 +1,27 @@
-﻿@model IEnumerable<ClockStore.DTO.Basket>
-    @{
-        ViewBag.Title = "FinalApproval";
-        Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@model ClockStore.DTO.ViewModels.CustomerBasket
+@using WebApp.Resources.Design;
+@using System.Globalization;
+@{
+    ViewBag.Title = "FinalApproval";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .table tr th {
+        width: 20%;
     }
 
+    .row {
+        margin-top: 20px;
+    }
+
+        .row div {
+            font-size: 1.1em;
+            font-weight: 200;
+        }
+</style>
 
 <div class="container">
-  
+
     <div class="clearfix"> </div>
 
     <table class="table table-bordered table-striped">
@@ -20,9 +35,7 @@
             <th>
                 Product Code
             </th>
-            <th>
-                Order Registration Date
-            </th>
+
             <th>
                 Off
             </th>
@@ -32,7 +45,7 @@
 
         </tr>
 
-        @foreach (var item in Model)
+        @foreach (var item in Model.Baskets)
         {
             <tr>
                 <td>
@@ -44,27 +57,147 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Product.Code)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SaveDate)
-                </td>
+
                 <td>
                     @Html.DisplayFor(modelItem => item.Product.Off)
                 </td>
-                <td>
+                <td id="@item.BasketId+price">
                     @Html.DisplayFor(modelItem => item.Product.PriceWithOffForFacror)
                 </td>
             </tr>
         }
         <tr style="background-color:#686363;color:white">
-            <td>Total Amount</td>
-            <td>@ViewBag.TotalAmount</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>@Design.TotalAmount</td>
+            <td id="TotalAmount" colspan="5">@ViewBag.TotalAmount.ToString("N0")</td>
+
         </tr>
     </table>
-    
 
+    <div style="margin-top:50px;" class="clearfix"> </div>
+
+    @using (Html.BeginForm("FinalApproval", "Baskets", FormMethod.Post, new { onsubmit = "return Validation(this)" }))
+    {
+        <input type="hidden" value="@Model.Customer.CustomerId" name="CustomerId" />
+        <div class="panel panel-info">
+            <div class="panel-heading text-center">
+                <h3>تایید اطلاعات</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-4 text-center">
+                            نام
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" value="@Model.Customer.FirstName" id="FirstName" name="FirstName" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-4 text-center">
+                            نام خانوادگی
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" value="@Model.Customer.LastName" id="LastName" name="LastName" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-4 text-center">
+                            ایمیل
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" id="Email" value="@Model.Customer.Email" name="Email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-4 text-center">
+                            تلفن تماس
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" id="Phone" value="@Model.Customer.Phone" name="Phone" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-2 text-center">
+                        آدرس
+                    </div>
+                    <div class="col-md-10">
+                        <textarea id="Address" name="Address" style="height:150px" class="form-control">@Model.Customer.Address</textarea>
+
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-4 text-center">
+
+                        </div>
+                        <div class="col-md-8">
+                            <input type="submit" value="تایید و پرداخت" class="btn btn-success" />
+
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+
+            </div>
+        </div>
+    }
+    <script>
+        function Validation(form) {
+            
+            var firstname = $("#FirstName").val();
+            var lastname = $("#LastName").val();
+            var email = $("#Email").val();
+            var address = $("#Address").val();
+            var phone = $("#Phone").val();
+            if (firstname === "") {
+                alertify.error("لطفا نام خود را وارد کنید");
+                return false;
+            } else if (lastname === "") {
+                alertify.error("لطفا نام خانوادگی خود را وارد کنید");
+                return false;
+            } else if (email === "") {
+                alertify.error("لطفا ایمیل خود را وارد کنید")
+                return false;
+            } else if (address === "") {
+                alertify.error("لطفا آدرس خود را وارد کنید")
+                return false;
+            } else if (phone === "") {
+                alertify.error("لطفا تلفن خود را وارد کنید")
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+
+    @{
+        if (CultureInfo.CurrentCulture.Name == "fa-IR")
+        {
+            <script src="~/Scripts/js/jQuery.persianNumbers-1.0.js"></script>
+            <script>
+                $(document).ready(function () {
+                    var value = $("#TotalAmount").text();
+                    var res = $.persianNumbers(value);
+                    $("#TotalAmount").text(res);
+
+
+                    $("td[id*=price]").each(function () {
+                        var value = $(this).text();
+                        var res = $.persianNumbers(value);
+                        $(this).text(res);
+                    })
+
+
+                })
+            </script>
+
+        }
+    }
 </div>
 

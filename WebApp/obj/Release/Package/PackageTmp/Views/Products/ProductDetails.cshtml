@@ -8,7 +8,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Head{
+    <link href="~/Content/bootstrap.min.css" rel="/stylesheet" />
+    <script src="~/Scripts/js/slick.js"></script>
+    <link href="~/Content/css/slick.css" rel="stylesheet" />
+    <meta property="og:type" content="video" />
+    <meta property="og:title" content="Title" />
+    <meta property="og:site_name" content="KOOK WATCH" />
+    <meta property="og:url" content="http://kookwatch.com/products/ProductDetails?id=@ViewBag.Id" />
+    <meta property="og:title" content="سرویس اشتراک گذاری سایت کوک واچ" />
 
+    <meta property="og:description" content="سرویس اشتراک گذاری سایت کوک واچ" />
+    <meta property="og:image" content="http://kookwatch.com/Home/ShowImage?id=@ViewBag.FileId" />
+    <meta property="og:image:secure_url" content="http://kookwatch.com/Home/ShowImage?id=@ViewBag.FileId">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="360">
+    <meta property="og:image:type" content="image/jpg">
+
+    @*<meta property="og:video" content="http://kookwatch.com/Home/DownloadFile?fileId=@ViewBag.VideoId">
+        <meta property="og:video:url" content="http://kookwatch.com/Home/DownloadFile?fileId=@ViewBag.VideoId">
+        <meta property="og:video:secure_url" content="http://kookwatch.com/Home/DownloadFile?fileId=@ViewBag.VideoId">
+        <meta property="og:video:type" content="video/mp4">
+        <meta property="og:video:width" content="640">
+        <meta property="og:video:height" content="360">*@
+
+}
+@*<script src="~/Scripts/js/imagezoom.js"></script>
+    <script src="~/Scripts/js/jquery.flexslider.js"></script>
+    <link href="~/Content/css/flexslider.css" rel="stylesheet" />*@
+<input type="hidden" id="Id" value="@Model.ProductId" />
 <div class="single contact">
     <div class="container">
         <div class="single-main">
@@ -17,14 +45,14 @@
                     <div class="col-md-5 single-top-left">
                         <div class="flexslider">
                             <ul class="slides">
-                                <li data-thumb="@FileManager.ImageHandler(Model.FileId)">
-                                    <div class="thumb-image"> <img src="@FileManager.ImageHandler(Model.FileId)" data-imagezoom="true" class="img-responsive" alt="@Model.ProductName" /> </div>
+                                <li data-thumb="@Url.Action("ShowImage", "Home", new { id = Model.FileId })">
+                                    <div class="thumb-image"> <img src="@Url.Action("ShowImage", "Home", new { id = Model.FileId })" data-imagezoom="true" class="img-responsive" alt="@Model.ProductName" /> </div>
                                 </li>
                                 @{
                                     foreach (var item in Model.ExtraImages)
                                     {
-                                        <li data-thumb="@FileManager.ImageHandler(item.FileId)">
-                                            <div class="thumb-image"> <img src="@FileManager.ImageHandler(item.FileId)" data-imagezoom="true" class="img-responsive" alt="@Model.ProductName" /> </div>
+                                        <li data-thumb="@Url.Action("ShowImage", "Home", new { id = Model.FileId })">
+                                            <div class="thumb-image"> <img src="@Url.Action("ShowImage", "Home", new { id = Model.FileId })" data-imagezoom="true" class="img-responsive" alt="@Model.ProductName" /> </div>
                                         </li>
                                     }
                                 }
@@ -34,8 +62,7 @@
                         <!-- FlexSlider -->
                         <script src="~/Scripts/js/imagezoom.js"></script>
                         <script defer src="~/Scripts/js/jquery.flexslider.js"></script>
-                        <link rel="stylesheet" href="~/Content/css/flexslider.css" type="text/css" media="screen" />
-
+                        <link rel="stylesheet" href="/Content/css/flexslider.css" type="text/css" media="screen" />
                         <script>
                             // Can also be used with $(document).ready()
                             $(window).load(function () {
@@ -49,17 +76,22 @@
                                 }
 
                                 if ('@TempData["s"]' === "Added") {
-                                    alertify.alert("Selected Item Added To Cart");
+                                    alertify.alert('@Design.SelectedItemAddedToCart');
 
                                 }
                                 if ('@TempData["s"]' === "Failed") {
-                                    alertify.alert("Failed");
+                                    alertify.alert('@Design.Erroraddingproducttocart');
+
+                                }
+                                if ('@TempData["s"]' === "Block") {
+                                    alertify.alert('@Design.ThisProductIsBlocked');
 
                                 }
                                 $(".flex-direction-nav").remove();
                             });
 
                         </script>
+
                     </div>
                     <div class="col-md-7 single-top-right">
                         <div class="single-para simpleCart_shelfItem">
@@ -94,39 +126,69 @@
                                 }
                             </h5>
                             <p>@Model.Description</p>
+                            <div style="display:block">
+                                <a href="/Products/AddCart?id=@Model.ProductId" class="add-cart item_add col-sm-12 col-xs-12">@Design.ADDTOCART</a>
+                                <div id="DivColor" style="margin-right:20px;display:inline;border:1px solid #ccc;height:34.88px;padding: 0.4em 0.8em;width:100%">
+                                    <span style="font-size:1.15em;right:0;">رنگ</span>
+                                    <a class="color" style="background-color:#3cc4d2;color:#3cc4d2">آبی</a>
+                                    <a class="color" style="background-color:#e4de1f;color:#e4de1f">زرد</a>
+                                    <a class="color" style="background-color:#e4281f;color:#e4281f">قرمز</a>
+                                    <a class="color" style="background-color:#34e41f;color:#34e41f">سبز</a>
 
-                            <a href="/Products/AddCart?id=@Model.ProductId" class="add-cart item_add">@Design.ADDTOCART</a>
+                                </div>
+                                <div style="margin-right:20px;display:inline;height:34.88px;padding: 0.4em 0.8em;width:100%;">
+                                    <a target="_blank" class="fa fa-share-alt" title="به اشتراک گذاری" href="https://t.me/share/url?url=http://kookwatch.com/products/ProductDetails?id=@ViewBag.Id&text=@Model.ProductName">
+                                        <img src="~/images/icon/telegram.png" width="35px" />
+                                    </a>
+                                    <a target="_blank" class="fa fa-share-alt" title="به اشتراک گذاری" href="#">
+                                        <img src="~/images/icon/whatsapp.png" width="35px" />
+                                    </a>
+                                </div>
 
-
-
+                            </div>
                         </div>
+                        <div class="clearfix"> </div>
                     </div>
-                    <div class="clearfix"> </div>
+
                 </div>
+                @{
+                    if (CultureInfo.CurrentCulture.Name == "fa-IR")
+                    {
+                        <script src="~/Scripts/js/jQuery.persianNumbers-1.0.js"></script>
+                        <script>
+                            $(document).ready(function () {
 
-            </div>
-            @{
-                if (CultureInfo.CurrentCulture.Name == "fa-IR")
-                {
-                    <script src="~/Scripts/js/jQuery.persianNumbers-1.0.js"></script>
-                    <script>
-                        $(document).ready(function () {
+                                var s = $.persianNumbers($("s").text());
+                                $("s").text(s);
 
-                            var s = $.persianNumbers($("s").text());
-                            $("s").text(s);
+                                var price = $.persianNumbers($("#price").text());
+                                $("#price").text(price);
 
-                            var price = $.persianNumbers($("#price").text());
-                            $("#price").text(price);
+                                var currentprice = $.persianNumbers($("#currentprice").text());
+                                $("#currentprice").text(currentprice);
+                            })
+                        </script>
 
-                            var currentprice = $.persianNumbers($("#currentprice").text());
-                            $("#currentprice").text(currentprice);
-                        })
-                    </script>
-
+                    }
                 }
-            }
+                <div class="clearfix"> </div>
+            </div>
             <div class="clearfix"> </div>
+            <hr />
+            <div>
+                @Html.Action("ProductDetailsBottom", "Products", null)
+            </div>
         </div>
     </div>
-</div>
 
+    <script>
+        $(function () {
+            $.get('/Products/GetColor', { id: '@Model.ProductId' }, function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var a = $('<a>').addClass('color').css('color', data[i].Code).css('background-color', data[i].Code).attr('data-id', data[i].ColorId);
+                    $('#DivColor').append(a);
+                }
+            })
+        })
+    </script>
+    

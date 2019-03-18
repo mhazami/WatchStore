@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ClockStore.DTO.ViewModels.VideoProduct>
+﻿@model ClockStore.DTO.ViewModels.VideoProduct
 @using WebApp.Resources.Design;
 @{
     ViewBag.Title = Design.NewSeason;
@@ -7,3 +7,31 @@
 
 
 
+<style>
+    .nav {
+        padding-right: 45% !important;
+        margin-bottom: 0;
+        list-style: none;
+    }
+</style>
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#video">ویدیو ها</a></li>
+
+        <li><a data-toggle="tab" href="#product">محصولات</a></li>
+    </ul>
+
+
+
+    <div class="tab-content">
+        <div id="video" class="tab-pane fade in active">
+
+
+        </div>
+
+        <div id="product" class="tab-pane fade">
+
+        </div>
+    </div>
+</div>

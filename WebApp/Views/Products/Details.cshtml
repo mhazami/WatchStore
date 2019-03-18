@@ -6,70 +6,116 @@
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
-<h2>Details</h2>
+
 
 <div>
-    <h4>Product</h4>
+    
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Code)
-        </dt>
+    <div class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.Code)
-        </dd>
+        <div class="container">
 
-        <dt>
-            Image
-        </dt>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        نام کالا
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="ProductName" value="@Model.ProductName" name="ProductName" class="form-control" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        تصویر کالا
+                    </div>
+                    <div class="col-md-8">
+                        <img src="@Url.Action("ShowImage", "Home", new { id = Model.FileId })" class="thumbnail" width="100" height="100" />
+                    </div>
+                </div>
+            </div>
 
-        <dd>
-            <img src="@FileManager.ImageHandler(Model.FileId)" style="width:100px;height:100px; margin-top:20px;" class="thumbnail" />
-        </dd>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        قیمت کالا
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Price" value="@Model.Price.ToString("N0")" name="Price" class="form-control" readonly="readonly" />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        درصد تخفیف
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Off" value="@Model.Off" readonly="readonly" name="Off" class="form-control" />
 
-        <dd>
-            @Html.DisplayFor(model => model.ProductName)
-        </dd>
+                    </div>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        موجودی در انبار
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Count" value="@Model.Count" readonly="readonly" name="Count" class="form-control" />
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        کد کالا
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Code" name="Code" value="@Model.Code" class="form-control" readonly="readonly" />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Off)
-        </dt>
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Off)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PriceWithOff)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PriceWithOff)
-        </dd>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            <div class="row">
 
-    </dl>
+                <div class="col-md-2 text-center">
+                    توضیحات
+                </div>
+                <div class="col-md-10">
+                    <textarea id="Description" name="Description" style="height:200px" readonly="readonly" class="form-control">@Model.Description</textarea>
+
+                </div>
+
+
+            </div>
+           
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-4 text-center">
+
+                        </div>
+                        <div class="col-md-8">
+                           
+                            @Html.ActionLink("بازگشت", "Index", "", new { @class = "btn  btn-primary" })
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+
+            
+
+        </div>
+
+
+
+
+
+
+
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Back to List", "Index","",new { @class= "btn  btn-success" })
-</p>
+

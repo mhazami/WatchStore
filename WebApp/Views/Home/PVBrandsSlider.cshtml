@@ -15,28 +15,28 @@
 
 
 <script>
-        $(document).ready(function () {
-            $('.customer-logos').slick({
-                slidesToShow: 6,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 1500,
-                arrows: false,
-                dots: false,
-                pauseOnHover: false,
-                responsive: [{
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 4
-                    }
-                }, {
-                    breakpoint: 520,
-                    settings: {
-                        slidesToShow: 3
-                    }
-                }]
-            });
+    $(document).ready(function () {
+        $('.customer-logos').slick({
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 1500,
+            arrows: false,
+            dots: false,
+            pauseOnHover: false,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 4
+                }
+            }, {
+                breakpoint: 520,
+                settings: {
+                    slidesToShow: 3
+                }
+            }]
         });
+    });
 </script>
 
 
@@ -45,25 +45,20 @@
     <div class="container" style="direction:ltr;">
         <h2>@Design.OurPartners</h2>
         <section class="customer-logos slider">
-            @*@{
+            @{
                 foreach (var item in Model)
                 {
-                    <div class="slide"><img src="@FileManager.ImageHandler(item.FileId)" alt="@item.CategoryName"></div>
+                    <div class="slide">
+                        <a href="@Url.Action("ProductsList","Categories",new { id=item.CategoryId})">
+                            <img class="img-footer-brand" src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" alt="@item.CategoryName">
+                        </a>
+                    </div>
                 }
-            }*@
+            }
 
 
 
 
-            <div class="slide"><img src="~/images/Brands/brand1.jpg"></div>
-            <div class="slide"><img src="~/images/Brands/brand2.png"></div>
-            <div class="slide"><img src="~/images/Brands/brand3.jpg"></div>
-            <div class="slide"><img src="~/images/Brands/brand4.jpg"></div>
-            <div class="slide"><img src="~/images/Brands/brand5.jpg"></div>
-            <div class="slide"><img src="~/images/Brands/brand6.jpg"></div>
-            <div class="slide"><img src="~/images/Brands/brand7.jpg"></div>
-            <div class="slide"><img src="~/images/Brands/brand8.jpg"></div>
-            <div class="slide"><img src="~/images/Brands/brand9.jpg"></div>
         </section>
     </div>
 

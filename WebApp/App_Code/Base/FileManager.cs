@@ -22,6 +22,7 @@ namespace WebApp.App_Code.Base
                 var base64 = Convert.ToBase64String(file.Context);
                 var imagesrc = string.Format("data:image/gif;base64,{0}", base64);
                 return imagesrc;
+                //return File(model.Context, "image/jpg");
             }
             return string.Empty;
         }

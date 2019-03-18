@@ -64,12 +64,23 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -157,8 +168,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\Base\ExtentionMethods.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Connected Services\ZarinPal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ColorsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\UserCommentsController.cs" />
     <Compile Include="Migrations\201810122035164_Add_File_To_Catgory.cs" />
     <Compile Include="Migrations\201810122035164_Add_File_To_Catgory.Designer.cs">
       <DependentUpon>201810122035164_Add_File_To_Catgory.cs</DependentUpon>
@@ -194,6 +214,46 @@
     <Compile Include="Migrations\201810171905156_Create_VideoHandler.cs" />
     <Compile Include="Migrations\201810171905156_Create_VideoHandler.Designer.cs">
       <DependentUpon>201810171905156_Create_VideoHandler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810221642568_Create_TimeCounter.cs" />
+    <Compile Include="Migrations\201810221642568_Create_TimeCounter.Designer.cs">
+      <DependentUpon>201810221642568_Create_TimeCounter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810221726548_Create_Order_And_BasketOrder.cs" />
+    <Compile Include="Migrations\201810221726548_Create_Order_And_BasketOrder.Designer.cs">
+      <DependentUpon>201810221726548_Create_Order_And_BasketOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810222120340_FixedDB.cs" />
+    <Compile Include="Migrations\201810222120340_FixedDB.Designer.cs">
+      <DependentUpon>201810222120340_FixedDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811081922096_Full_prop_Product.cs" />
+    <Compile Include="Migrations\201811081922096_Full_prop_Product.Designer.cs">
+      <DependentUpon>201811081922096_Full_prop_Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811161312582_Add_UserComment.cs" />
+    <Compile Include="Migrations\201811161312582_Add_UserComment.Designer.cs">
+      <DependentUpon>201811161312582_Add_UserComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811161834552_Update_UseComment.cs" />
+    <Compile Include="Migrations\201811161834552_Update_UseComment.Designer.cs">
+      <DependentUpon>201811161834552_Update_UseComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811220925327_add_Count_To_Basket.cs" />
+    <Compile Include="Migrations\201811220925327_add_Count_To_Basket.Designer.cs">
+      <DependentUpon>201811220925327_add_Count_To_Basket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811301243338_add_link_slider.cs" />
+    <Compile Include="Migrations\201811301243338_add_link_slider.Designer.cs">
+      <DependentUpon>201811301243338_add_link_slider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812071714115_Ad_COlor.cs" />
+    <Compile Include="Migrations\201812071714115_Ad_COlor.Designer.cs">
+      <DependentUpon>201812071714115_Ad_COlor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901151727306_add_clock_desktop.cs" />
+    <Compile Include="Migrations\201901151727306_add_clock_desktop.Designer.cs">
+      <DependentUpon>201901151727306_add_clock_desktop.cs</DependentUpon>
     </Compile>
     <Compile Include="Resources\Design\Design.fa-IR.Designer.cs">
       <DependentUpon>Design.fa-IR.resx</DependentUpon>
@@ -275,22 +335,33 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\ZarinPal\configuration91.svcinfo" />
+    <None Include="Connected Services\ZarinPal\configuration.svcinfo" />
+    <None Include="Connected Services\ZarinPal\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\Blog.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\css\AdminPanelStyle.css" />
     <Content Include="Content\css\alertify.bootstrap.css" />
     <Content Include="Content\css\alertify.core.css" />
     <Content Include="Content\css\alertify.default.css" />
     <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\BNazanin.css" />
+    <Content Include="Content\css\bootstrap.colorpickersliders.css" />
+    <Content Include="Content\css\bootstrap.colorpickersliders.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\ErrorPage.css" />
     <Content Include="Content\css\flexslider.css" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\memenu.rtl.css" />
     <Content Include="Content\css\memenu.css" />
     <Content Include="Content\css\perfect-scrollbar.css" />
     <Content Include="Content\css\select2.css" />
@@ -299,14 +370,19 @@
     <Content Include="Content\css\style.rlt.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\util.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\css\vazir.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\11.png" />
     <Content Include="images\abt-1.jpg" />
     <Content Include="images\abt-2.jpg" />
     <Content Include="images\abt-3.jpg" />
+    <Content Include="images\arrow-left.png" />
     <Content Include="images\arrow.png" />
     <Content Include="images\bnr-1.jpg" />
     <Content Include="images\bnr-2.jpg" />
@@ -336,9 +412,26 @@
     <Content Include="images\Error\woody-404.png" />
     <Content Include="images\icon\en-icon.png" />
     <Content Include="images\icon\fa-icon.png" />
+    <Content Include="images\icon\icon-shiping.png" />
+    <Content Include="images\icon\icon-suport.jpeg" />
+    <Content Include="images\icon\icon-us-dollar.png" />
     <Content Include="images\icon\if_exit.png" />
     <Content Include="images\icon\if_Remove_372905.png" />
+    <Content Include="images\icon\like.png" />
     <Content Include="images\icon\moreinfo.png" />
+    <Content Include="images\icon\share.png" />
+    <Content Include="images\icon\shopping-bag.png" />
+    <Content Include="images\icon\telegram.png" />
+    <Content Include="images\icon\whatsapp.png" />
+    <Content Include="images\Menu\classic.jpeg" />
+    <Content Include="images\Menu\Clock.jpg" />
+    <Content Include="images\Menu\deals.jpg" />
+    <Content Include="images\Menu\DesktopClock.jpg" />
+    <Content Include="images\Menu\kids.jpg" />
+    <Content Include="images\Menu\men.jpg" />
+    <Content Include="images\Menu\newseason.jpg" />
+    <Content Include="images\Menu\sport.jpg" />
+    <Content Include="images\Menu\women.jpg" />
     <Content Include="images\p-1.png" />
     <Content Include="images\p-2.png" />
     <Content Include="images\p-3.png" />
@@ -366,6 +459,60 @@
     <Content Include="fonts\Lora-Regular.ttf" />
     <Content Include="fonts\Muli-Regular.ttf" />
     <Content Include="fonts\Philosopher-Regular.ttf" />
+    <None Include="Connected Services\ZarinPal\PaymentGatewayImplementationService.wsdl" />
+    <Content Include="Connected Services\ZarinPal\WebApp.ZarinPal.GetUnverifiedTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\WebApp.ZarinPal.PaymentRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\WebApp.ZarinPal.PaymentRequestWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\WebApp.ZarinPal.PaymentVerificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\WebApp.ZarinPal.PaymentVerificationWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\WebApp.ZarinPal.RefreshAuthorityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\Vazir-Black.eot" />
+    <Content Include="fonts\Vazir-Black.ttf" />
+    <Content Include="fonts\Vazir-Black.woff" />
+    <Content Include="fonts\Vazir-Black.woff2" />
+    <Content Include="fonts\Vazir-Bold.eot" />
+    <Content Include="fonts\Vazir-Bold.ttf" />
+    <Content Include="fonts\Vazir-Bold.woff" />
+    <Content Include="fonts\Vazir-Bold.woff2" />
+    <Content Include="fonts\Vazir-Light.eot" />
+    <Content Include="fonts\Vazir-Light.ttf" />
+    <Content Include="fonts\Vazir-Light.woff" />
+    <Content Include="fonts\Vazir-Light.woff2" />
+    <Content Include="fonts\Vazir-Medium.eot" />
+    <Content Include="fonts\Vazir-Medium.ttf" />
+    <Content Include="fonts\Vazir-Medium.woff" />
+    <Content Include="fonts\Vazir-Medium.woff2" />
+    <Content Include="fonts\Vazir-Thin.eot" />
+    <Content Include="fonts\Vazir-Thin.ttf" />
+    <Content Include="fonts\Vazir-Thin.woff" />
+    <Content Include="fonts\Vazir-Thin.woff2" />
+    <Content Include="fonts\Vazir.eot" />
+    <Content Include="fonts\Vazir.ttf" />
+    <Content Include="fonts\Vazir.woff" />
+    <Content Include="fonts\Vazir.woff2" />
+    <Content Include="fonts\BNazanin.ttf" />
+    <Content Include="fonts\BNazanin.woff" />
+    <Content Include="fonts\BNazanin.woff2" />
+    <Content Include="fonts\BNaznnBd.ttf" />
+    <Content Include="fonts\BNaznnBd.woff" />
+    <Content Include="fonts\BNaznnBd.woff2" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile10.pubxml" />
@@ -373,7 +520,13 @@
     <None Include="Properties\PublishProfiles\FolderProfile12.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile13.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile14.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile15.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile16.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile17.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile18.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile19.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile20.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile3.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile4.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile5.pubxml" />
@@ -394,21 +547,30 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js\alert.test.js" />
     <Content Include="Scripts\js\alertify.js" />
+    <Content Include="Scripts\js\ColorPicker\bootstrap.colorpickersliders.js" />
+    <Content Include="Scripts\js\ColorPicker\bootstrap.colorpickersliders.min.js" />
+    <Content Include="Scripts\js\ColorPicker\run_prettify.js" />
+    <Content Include="Scripts\js\ColorPicker\tinycolor.js" />
     <Content Include="Scripts\js\confirm.test.js" />
     <Content Include="Scripts\js\global.test.js" />
     <Content Include="Scripts\js\imagezoom.js" />
     <Content Include="Scripts\js\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\js\jquery.countdown.js" />
+    <Content Include="Scripts\js\jquery.countdown.min.js" />
     <Content Include="Scripts\js\jquery.easydropdown.js" />
     <Content Include="Scripts\js\jquery.flexslider.js" />
     <Content Include="Scripts\js\jQuery.persianNumbers-1.0.js" />
     <Content Include="Scripts\js\log.test.js" />
     <Content Include="Scripts\js\memenu.js" />
+    <Content Include="Scripts\js\Message.js" />
     <Content Include="Scripts\js\prompt.test.js" />
     <Content Include="Scripts\js\responsiveslides.min.js" />
     <Content Include="Scripts\js\simpleCart.min.js" />
     <Content Include="Scripts\js\slick.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -500,6 +662,28 @@
     <Content Include="Views\Products\Luxury.cshtml" />
     <Content Include="Views\Products\Deals.cshtml" />
     <Content Include="Views\Products\NewSeason.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Payment\Verify.cshtml" />
+    <Content Include="Views\Products\PVProductDetailsBottom.cshtml" />
+    <Content Include="Views\UserComments\PVModify.cshtml" />
+    <Content Include="Views\AboutUs\AboutUS.cshtml" />
+    <Content Include="Views\Home\TermsAndConditions.cshtml" />
+    <Content Include="Views\Home\ReturnGoods.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Home\Garantee.cshtml" />
+    <Content Include="Views\Home\SendingGood.cshtml" />
+    <Content Include="Views\Home\PVSearch.cshtml" />
+    <Content Include="Views\Products\SearchResult.cshtml" />
+    <Content Include="Views\Home\PVFlowMenu.cshtml" />
+    <Content Include="Views\Categories\ProductsList.cshtml" />
+    <Content Include="Views\Categories\Brands.cshtml" />
+    <Content Include="Views\Colors\Create.cshtml" />
+    <Content Include="Views\Colors\Delete.cshtml" />
+    <Content Include="Views\Colors\Details.cshtml" />
+    <Content Include="Views\Colors\Edit.cshtml" />
+    <Content Include="Views\Colors\Index.cshtml" />
+    <Content Include="Views\Home\PVGetMenu.cshtml" />
+    <Content Include="Views\Products\ProducsList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -591,14 +775,51 @@
     <EmbeddedResource Include="Migrations\201810171905156_Create_VideoHandler.resx">
       <DependentUpon>201810171905156_Create_VideoHandler.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810221642568_Create_TimeCounter.resx">
+      <DependentUpon>201810221642568_Create_TimeCounter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810221726548_Create_Order_And_BasketOrder.resx">
+      <DependentUpon>201810221726548_Create_Order_And_BasketOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810222120340_FixedDB.resx">
+      <DependentUpon>201810222120340_FixedDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811081922096_Full_prop_Product.resx">
+      <DependentUpon>201811081922096_Full_prop_Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811161312582_Add_UserComment.resx">
+      <DependentUpon>201811161312582_Add_UserComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811161834552_Update_UseComment.resx">
+      <DependentUpon>201811161834552_Update_UseComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811220925327_add_Count_To_Basket.resx">
+      <DependentUpon>201811220925327_add_Count_To_Basket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811301243338_add_link_slider.resx">
+      <DependentUpon>201811301243338_add_link_slider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812071714115_Ad_COlor.resx">
+      <DependentUpon>201812071714115_Ad_COlor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901151727306_add_clock_desktop.resx">
+      <DependentUpon>201901151727306_add_clock_desktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Design\Design.fa-IR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Design.fa-IR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Design\Design.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Design.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ZarinPal\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

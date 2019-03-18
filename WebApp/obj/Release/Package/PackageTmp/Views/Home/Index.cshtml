@@ -10,9 +10,11 @@
 
 <script src="~/Scripts/js/responsiveslides.min.js"></script>
 
+
 <script>
     // You can also use "$(window).load(function() {"
     $(function () {
+    
         // Slideshow 4
         $("#slider4").responsiveSlides({
             auto: true,
@@ -35,9 +37,12 @@
 @Html.Action("WallPaper", "WallPaper", null)
 <!--news end-->
 
-@Html.Action("ProductsList", "Products", null)
+@Html.Action("FlowMenu", "Home", null)
 
-@*@Html.Action("GenerateLanguageDropDownList", "Language", null)*@
+@*@Html.Action("ProductsList", "Products", null)*@
+
+@Html.Action("BrandsSlider", "Home", null)
+
 
 
 

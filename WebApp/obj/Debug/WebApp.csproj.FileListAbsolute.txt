@@ -127,3 +127,163 @@ C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Deb
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.SaveDateNews.resources
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Add_IsLuxuty_To_Product.resources
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Create_VideoHandler.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Create_TimeCounter.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Create_Order_And_BasketOrder.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.FixedDB.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Full_prop_Product.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Add_UserComment.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Update_UseComment.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.add_Count_To_Basket.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.add_link_slider.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Ad_COlor.resources
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\System.Net.Http.Formatting.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\System.Web.Http.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\System.Web.Http.WebHost.dll
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\System.Net.Http.Formatting.xml
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\System.Web.Http.xml
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\bin\System.Web.Http.WebHost.xml
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.add_clock_desktop.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\ApplicationInsights.config
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\WebApp.dll.config
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\WebApp.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\WebApp.pdb
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\fa-IR\WebApp.resources.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\csc.exe
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\csc.exe.config
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\csc.rsp
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\csi.exe
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\csi.exe.config
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\csi.rsp
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.AppContext.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Console.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.IO.Compression.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Security.Claims.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.ValueTuple.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\vbc.exe
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\vbc.exe.config
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\vbc.rsp
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\VBCSCompiler.exe
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Antlr3.Runtime.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\ClockStore.BLL.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\ClockStore.DTO.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\EntityFramework.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\EntityFramework.SqlServer.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.AI.Web.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Newtonsoft.Json.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\RestSharp.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Net.Http.Formatting.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Helpers.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Http.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Http.WebHost.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Mvc.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Optimization.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Razor.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.WebPages.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.WebPages.Razor.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\WebGrease.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\ClockStore.BLL.pdb
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\ClockStore.BLL.dll.config
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\ClockStore.DTO.pdb
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\ClockStore.DTO.dll.config
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Azami.Utility.pdb
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\EntityFramework.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\EntityFramework.SqlServer.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Newtonsoft.Json.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Net.Http.Formatting.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Http.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Http.WebHost.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Helpers.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Mvc.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Optimization.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.Razor.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.WebPages.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Web.WebPages.Razor.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Antlr3.Runtime.pdb
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.AI.Web.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Create_DB.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Create_ExtraImagesProduct_Table.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Eddit.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.UpdateProduct.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.UpdateDTO.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.UpdateNews.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Update_Products.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Update_cantact.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Create_Language.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.UpdateDB.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Add_LangId_To_News.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Add_File_To_Catgory.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Remove_News.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Add_News.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Remove_FileId_From_News.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Add_SaveDate_To_News.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.SaveDatNews_To_DateTime.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.SaveDateNews.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Add_IsLuxuty_To_Product.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Create_VideoHandler.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Create_TimeCounter.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Create_Order_And_BasketOrder.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.FixedDB.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Full_prop_Product.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Add_UserComment.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Update_UseComment.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.add_Count_To_Basket.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.add_link_slider.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Ad_COlor.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.add_clock_desktop.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\WebApp.Resources.Design.Design.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\WebApp.Resources.Design.Design.fa-IR.resources
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\WebApp.csproj.GenerateResource.cache
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\fa-IR\WebApp.resources.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\WebApp.csproj.CopyComplete
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\WebApp.dll
+C:\Users\Radyn10\source\repos\ClockStore\WebApp\obj\Debug\WebApp.pdb

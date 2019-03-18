@@ -8,8 +8,9 @@
 
 
 
-<p>
-    @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
+<p style="margin:3% 50% 0 0;">
+    @Html.ActionLink("تعریف کاغذ دیواری جدید", "Create", "", new { @class = "btn btn-info" })
+   
 </p>
 <div class="container-table100">
     <div class="wrap-table100">
@@ -17,13 +18,13 @@
             <table>
                 <tr class="table100-head">
                     <th class="column1">
-                        @Html.DisplayNameFor(model => model.Title)
+                        عنوان
                     </th>
                     <th class="column2">
-                        @Html.DisplayNameFor(model => model.Position)
+                        ترتیب
                     </th>
                     <th class="column3">
-                        Image
+                        تصویر
                     </th>
 
                     <th class="column4"></th>
@@ -39,21 +40,19 @@
                             @Html.DisplayFor(modelItem => item.Position)
                         </td>
                         <td class="column3">
-                            <img alt="@item.Title" src="@FileManager.ImageHandler(item.FileId)" style="max-height:100px;max-width:100px;" />
+                            <img alt="@item.Title" src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" style="max-height:100px;max-width:100px;" />
                         </td>
 
                         <td class="column4">
-                            @Html.ActionLink("Edit", "Edit", new { id = item.NewsId }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.NewsId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.NewsId })
+                            @Html.ActionLink("ویرایش", "Edit", new { id = item.WallPaperId }) |
+                            @Html.ActionLink("جزییات", "Details", new { id = item.WallPaperId }) |
+                            @Html.ActionLink("حذف", "Delete", new { id = item.WallPaperId })
                         </td>
                     </tr>
                 }
 
             </table>
-            <p>
-                @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
-            </p>
+           
         </div>
     </div>
 </div>

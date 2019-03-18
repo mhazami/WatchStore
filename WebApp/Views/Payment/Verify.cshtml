@@ -1,0 +1,44 @@
+﻿
+@using WebApp.Resources.Design;
+@{
+    ViewBag.Title = "Verify";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @{ if (ViewBag.IsSuccess)
+        {
+            <div class="alert alert-success">
+                <div class="clearfix">
+                    سپاس از اعتماد شما
+                </div>
+                <div class="clearfix">
+                    @ViewBag.Status
+
+                </div>
+                <div class="clearfix">
+                    کد پیگیری  : @ViewBag.RefId
+                </div>
+                <div class="clearfix">
+                    <a href="/Baskets/PrintCustomerApprov" target="_blank" class="btn btn-primary">
+                        چاپ فاکتور
+                    </a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                
+                <div class="clearfix">
+                    @ViewBag.Status
+
+                </div>
+               
+            </div>
+        }
+    }
+</div>
+
+
+

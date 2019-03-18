@@ -1,0 +1,36 @@
+﻿@using WebApp.App_Code.Base;
+@using WebApp.Resources.Design;
+@model IEnumerable<ClockStore.DTO.Category>
+@{
+    ViewBag.Title = "Brands";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="about">
+    <div class="container">
+        <div class="about-top grid-1">
+            @{
+                foreach (var item in Model)
+                {
+            <div class="about-left col-md-4 menu-flow">
+                <a href="@Url.Action("ProductsList","Categories",new { id=item.CategoryId})">
+                    <figure class="effect-bubba">
+
+                        <img class="img-responsive img-menu" src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" alt="@item.CategoryName" />
+
+                        <figcaption>
+                            <h2>@item.CategoryName</h2>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+                }
+            }
+
+
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+

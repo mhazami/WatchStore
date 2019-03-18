@@ -1,7 +1,7 @@
 ﻿@model ClockStore.DTO.Product
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "تعریف محصول";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
@@ -9,81 +9,512 @@
 @using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>create New Product</h4>
-    <div class="form-group">
-        @Html.LabelFor(model => model.LangId, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.Action("GenerateLanguageDropDownList", "Language", null)
+
+    <div class="form-horizontal">
+        <div class="clearfix" style="margin-top:50px"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        <span class="text-danger">*</span>انتخاب زبان
+                    </div>
+                    <div class="col-md-8">
+                        @Html.Action("GenerateLanguageDropDownList", "Language", null)
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+
+            <hr />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        <span class="text-danger">*</span> نام کالا
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="ProductName" name="ProductName" class="form-control" required />
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        <span class="text-danger">*</span>تصویر کالا
+                    </div>
+                    <div class="col-md-8">
+                        <input type="file" id="file" class="form-control" name="file" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        <span class="text-danger">*</span> قیمت کالا
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Price" name="Price" class="form-control" required />
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        <span class="text-danger">*</span> برند
+                    </div>
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(model => model.CategoryId, (SelectList)ViewBag.CategoryId, new { @class = "form-control" })
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        نوع تخفیف
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EnumDropDownListFor(model => model.OfferType, new { @class = "form-control" })
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        درصد تخفیف
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Off" name="Off" class="form-control" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        نوع
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EnumDropDownListFor(model => model.Type, new { @class = "form-control" })
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        جنسیت
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EnumDropDownListFor(model => model.Sex, new { @class = "form-control" })
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        اصالت
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EnumDropDownListFor(model => model.Orginal, new { @class = "form-control" })
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        کشور سازنده
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="ManufacturingCountry" name="ManufacturingCountry" class="form-control" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        نوع موتور
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EnumDropDownListFor(model => model.Motor, new { @class = "form-control" })
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        منبع انرژی
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="EnergySource" name="EnergySource" class="form-control" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        فرم صفحه
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="PageForm" name="PageForm" class="form-control" />
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        رنگ
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Color" name="Color" class="form-control" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        ضخامت بدنه(میلیمتر)
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="ThicknessBody" value="0" name="ThicknessBody" class="form-control" />
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        جنس پشت قاب
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="BackFrame" name="BackFrame" class="form-control" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        قطر قاب/ عرض قاب
+                    </div>
+                    <div class="col-md-8">
+                        <input type="number" id="FrameWidth" value="0" name="FrameWidth" class="form-control" />
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        جنس شیشه
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Glass" name="Glass" class="form-control" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        جنس بزل
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Jerk" name="Jerk" class="form-control" />
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        رنگ بزل
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="JerkColor" name="JerkColor" class="form-control" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        جنس بدنه
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="BodyMaterial" name="BodyMaterial" class="form-control" />
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        رنگ بدنه
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="BodyColor" name="BodyColor" class="form-control" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        عرض بدنه
+                    </div>
+                    <div class="col-md-8">
+                        <input type="number" id="BodyWidth" value="0" name="BodyWidth" class="form-control" />
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        رنگ صفحه
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="PageColor" name="PageColor" class="form-control" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        نوع قفل
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="LockType" name="LockType" class="form-control" />
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        کرنوگراف
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Off" name="Off" class="form-control" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        مقاومت در برابر آب (متر)
+                    </div>
+                    <div class="col-md-8">
+                        <input type="number" id="WaterProf" value="0" name="WaterProf" class="form-control" />
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        وزن (گرم)
+                    </div>
+                    <div class="col-md-8">
+                        <input type="number" id="Weight" value="0" name="Weight" class="form-control" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        موجودی در انبار
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Count" value="0" name="Count" class="form-control" />
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        کد کالا
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Code" name="Code" class="form-control" required />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        آیا لاکچری است؟
+                    </div>
+                    <div class="col-md-8">
+                        بله   @Html.RadioButton("Isluxury", true)
+                        خیر @Html.RadioButton("Isluxury", false)
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        آیا حراجی است؟
+                    </div>
+                    <div class="col-md-8">
+                        بله   @Html.RadioButton("IsDeals", true)
+                        خیر @Html.RadioButton("IsDeals", false)
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-2 text-center">
+                    توضیحات
+                </div>
+                <div class="col-md-10">
+                    <textarea id="Description" name="Description" style="height:200px" class="form-control"></textarea>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col-md-6">
+
+            </div>
+
         </div>
-    </div>
-    
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-4 text-center">
+
+                </div>
+                <div class="col-md-8">
+                    <input type="submit" value="دخیره" class="btn btn-success" />
+                    @Html.ActionLink("بازگشت", "Index", "", new { @class = "btn  btn-primary" })
+                </div>
+            </div>
+            <div class="col-md-6"></div>
         </div>
+
+
+
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.FileId, "FileId", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="file" id="file" name="file" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Off, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Off, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Off, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Count, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Count, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Count, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
+<script>
+    $(function () {
+        $('#btnAddColor').on('click', function () {
+            debugger;
+            var value = $('#colorpicker').val();
+            var enable = $('#ColorEnable').val();
+            var name = $('#ColorName').val();
+            $.get('/Products/AddColor', { color: value, name: name, enable: enable }, function (data) {
+                debugger;
+                if (data === "true") {
+                    ShowSuccessMessage('', 'رنگ مورد نظر با موفقیت اضافه شد');
+                }
+                if (data === "false") {
+                    ShowErrorMessage('', 'خطا در اضافه کردن رنگ');
+                }
+            })
+        })
+    })
+</script>
+<div class="row">
+    <div class="col-md-6">
+        <div class="col-md-4 text-center">
+            رنگ بندی
+        </div>
+        <div class="col-md-8">
+            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">افزودن رنگ</button>
 
-<div>
-    @Html.ActionLink("Back to List", "Index","",new { @class= "btn  btn-success" })
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">لطفا رنگ مورد نظر خود را انتخاب و دکمه ی ذخیره را کلیک کنید</h4>
+                        </div>
+                        <div class="modal-body" style="height:250px;">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="colorpicker">رنگ</label>
+                                    <input type="text" id="colorpicker" class="colorpicker form-control" style="width:40%;" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="ColorName">اسم رنگ</label>
+                                    <input type="text" id="ColorName" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" id="ColorEnable" />فعال است؟</label>
+                                    </div>
+                                </div>
+                                <button id="btnAddColor" class="btn btn-default btn-sm">ذخیره</button>
+
+                            </form>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </div>

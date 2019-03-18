@@ -1,0 +1,230 @@
+﻿@using ClockStore.DTO;
+
+@model Product
+    
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#info">مشخصات محصول</a></li>
+
+    <li><a data-toggle="tab" href="#comment">نظرات</a></li>
+</ul>
+
+
+
+<div class="tab-content">
+    <div id="info" class="tab-pane fade in active">
+        <h3>مشخصات کلی</h3>
+        <table class="table table-bordered tbl-info">
+            <tbody>
+                <tr>
+                    <td class="tb-info">
+                        <strong>نوع ساعت</strong>
+                    </td>
+                    <td>
+                        @Model.WatchType.GetDescription()
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>دسته بندی</strong>
+                    </td>
+                    <td>
+                        @Model.MasterCategory.GetDescription()
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>جنسیت</strong>
+                    </td>
+                    <td>
+                        @Model.Sex.GetDescription()
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>اصالت</strong>
+                    </td>
+                    <td>
+                        @Model.Orginal.GetDescription()
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>کشور سازنده</strong>
+                    </td>
+                    <td>
+                        @Model.ManufacturingCountry
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong> نوع موتور</strong>
+                    </td>
+                    <td>
+                        @Model.Motor.GetDescription()
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>منبع انرژی</strong>
+                    </td>
+                    <td>
+                        @Model.EnergySource
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>فرم صفحه</strong>
+                    </td>
+                    <td>
+                        @Model.PageForm
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>رنگ</strong>
+                    </td>
+                    <td>
+                        @Model.Color
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>ضخامت بدنه (میلیمتر)</strong>
+                    </td>
+                    <td>
+                        @Model.ThicknessBody
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>جنس پشت قاب</strong>
+                    </td>
+                    <td>
+                        @Model.BackFrame
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>قطر قاب / عرض قاب (میلیمتر)</strong>
+                    </td>
+                    <td>
+                        @Model.FrameWidth
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>جنس شیشه</strong>
+                    </td>
+                    <td>
+                        @Model.Glass
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>جنس بزل</strong>
+                    </td>
+                    <td>
+                        @Model.Jerk
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>رنگ بزل</strong>
+                    </td>
+                    <td>
+                        @Model.JerkColor
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>جنس بدنه</strong>
+                    </td>
+                    <td>
+                        @Model.BodyMaterial
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>
+                            رنگ بدنه
+                        </strong>
+                    </td>
+                    <td>
+                        @Model.BodyColor
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>عرض بدنه</strong>
+                    </td>
+                    <td>
+                        @Model.BodyWidth
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>رنگ صفحه</strong>
+                    </td>
+                    <td>@Model.PageColor</td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>نوع قفل</strong>
+                    </td>
+                    <td>@Model.LockType</td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>کرنوگراف</strong>
+                    </td>
+                    <td>
+                        @(Model.Cranograph.Value ? "دارد" : "ندارد")
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>مقاومت در برابر آب (متر)</strong>
+                    </td>
+                    <td>
+                        @(Model.WaterProf <= 0 ? "ندارد" : Model.WaterProf.ToString())
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tb-info">
+                        <strong>وزن (گرم)</strong>
+                    </td>
+                    <td>
+                        @Model.Weight
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="comment" class="tab-pane fade">
+        <h3>نظرات</h3>
+        @Html.Action("Create", "UserComments", null)
+    </div>
+</div>

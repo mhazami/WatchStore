@@ -13,9 +13,13 @@
     <title>TestVideo</title>
 </head>
 <body>
-    <div>
+    @*<div>
         <video id="VideoPlayer" src="@Url.Action("DownloadFile", "Home", new {fileId = Model.FileId})" controls="true"
                width="400" height="350" loop="true"/>
+    </div>*@
+
+    <div>
+        <img width="100" height="100" src="@Url.Action("ShowImage", "Home", new { id = Model.FileId })" />
     </div>
 </body>
 </html>

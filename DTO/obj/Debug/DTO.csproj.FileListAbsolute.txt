@@ -9,3 +9,16 @@ C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\bin\Debug\
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Debug\DTO.csproj.CopyComplete
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Debug\ClockStore.DTO.dll
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Debug\ClockStore.DTO.pdb
+C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+C:\Users\Radyn10\source\repos\ClockStore\DTO\bin\Debug\ClockStore.DTO.dll.config
+C:\Users\Radyn10\source\repos\ClockStore\DTO\bin\Debug\ClockStore.DTO.dll
+C:\Users\Radyn10\source\repos\ClockStore\DTO\bin\Debug\ClockStore.DTO.pdb
+C:\Users\Radyn10\source\repos\ClockStore\DTO\bin\Debug\EntityFramework.dll
+C:\Users\Radyn10\source\repos\ClockStore\DTO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Radyn10\source\repos\ClockStore\DTO\bin\Debug\EntityFramework.xml
+C:\Users\Radyn10\source\repos\ClockStore\DTO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Radyn10\source\repos\ClockStore\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+C:\Users\Radyn10\source\repos\ClockStore\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\Radyn10\source\repos\ClockStore\DTO\obj\Debug\DTO.csproj.CopyComplete
+C:\Users\Radyn10\source\repos\ClockStore\DTO\obj\Debug\ClockStore.DTO.dll
+C:\Users\Radyn10\source\repos\ClockStore\DTO\obj\Debug\ClockStore.DTO.pdb

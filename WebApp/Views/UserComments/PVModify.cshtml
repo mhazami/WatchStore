@@ -1,0 +1,61 @@
+﻿
+@using WebApp.Resources.Design;
+
+<script>
+    $(function () {
+        $("#btn-send").on('click', function () {
+            debugger;
+            var id = $("#Id").val();
+            var name = $("#FullName").val();
+            var title = $("#Title").val();
+            var message = $("#Message").val()
+
+            $.get('/UserComments/AddComment', { id: id, name: name, title: title, message: message }, function (data) {
+                debugger;
+                if (data === "نطر شما با موفقیت ثبت شد") {
+                    alertify.alert(data);
+                    $("#Id").val('');
+                    $("#FullName").val('');
+                    $("#Title").val('');
+                    $("#Message").val('')
+                }
+                else {
+                    alertify.error(data);
+                }
+            })
+        })
+    })
+</script>
+
+@*@using (Html.BeginForm("AddComment", "UserComments", FormMethod.Post))
+{*@
+    <div class="container">
+
+        <div class="form-group">
+            <span style="color:red">*</span>
+            <label for="FullName">نام و نام خانوادگی</label>
+            <input type="text" style="width:50%;" class="form-control" name="FullName" id="FullName">
+        </div>
+
+
+        <div class="form-group">
+            <span style="color:red">*</span>
+            <label for="Title">عنوان</label>
+            <input type="text" style="width:50%;" name="Title" class="form-control" id="Title">
+        </div>
+
+        <div class="form-group">
+            <span style="color:red">*</span>
+            <label for="Message">نظر</label>
+            <textarea type="text" style="width:50%;" rows="8" name="Message" class="form-control" id="Message"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="button" id="btn-send" class="btn btn-primary">
+                <span class="glyphicon glyphicon-check"></span>
+                ذخیره
+            </button>
+        </div>
+
+    </div>
+@*  }*@

@@ -9,7 +9,7 @@
                 {
                     <div class="col-md-4 about-left">
                         <figure class="effect-bubba">
-                            <img class="img-responsive" src="@FileManager.ImageHandler(item.FileId)" alt="@item.Title" />
+                            <img class="img-responsive" src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" alt="@item.Title" />
                             <figcaption>
                                 <h2>@item.Title</h2>
                                 <p>@item.Description</p>

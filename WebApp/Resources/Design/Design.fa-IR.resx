@@ -255,4 +255,43 @@
   <data name="RECENTPOST" xml:space="preserve">
     <value>مطالب اخیر</value>
   </data>
+  <data name="Erroraddingproducttocart" xml:space="preserve">
+    <value>خطا در افزودن کالا به سبد خرید</value>
+  </data>
+  <data name="SelectedItemAddedToCart" xml:space="preserve">
+    <value>کالا ی انتخابی شما به سبد خرید شما اضافه شد</value>
+  </data>
+  <data name="ThisProductIsBlocked" xml:space="preserve">
+    <value>این کالا در سبد خرید مشتری دیگری رزرو شده است</value>
+  </data>
+  <data name="TotalAmount" xml:space="preserve">
+    <value>مبلغ قابل پرداخت</value>
+  </data>
+  <data name="Brands" xml:space="preserve">
+    <value>برندها</value>
+  </data>
+  <data name="Men" xml:space="preserve">
+    <value>مردانه</value>
+  </data>
+  <data name="Women" xml:space="preserve">
+    <value>زنانه</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="Classic" xml:space="preserve">
+    <value>کلاسیک</value>
+  </data>
+  <data name="Kids" xml:space="preserve">
+    <value>بچگانه</value>
+  </data>
+  <data name="Sport" xml:space="preserve">
+    <value>اسپورت</value>
+  </data>
+  <data name="Clock" xml:space="preserve">
+    <value>ساعت دیواری</value>
+  </data>
+  <data name="DesktopClock" xml:space="preserve">
+    <value>ساعت رومیزی</value>
+  </data>
 </root>

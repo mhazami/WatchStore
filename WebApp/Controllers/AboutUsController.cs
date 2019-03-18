@@ -132,5 +132,10 @@ namespace WebApp.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult AboutUS()
+        {
+            return View();
+        }
     }
 }

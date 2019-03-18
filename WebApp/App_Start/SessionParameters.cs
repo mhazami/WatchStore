@@ -2,8 +2,10 @@
 using ClockStore.DTO.DBContext;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Collections;
 
 namespace WebApp
 {
@@ -51,22 +53,31 @@ namespace WebApp
             }
         }
 
-        public static void ClearBasket()
+        public static void ClearBasket(Guid customerId)
         {
+
             var db = new ClockStoreContext();
-            var list = Basket;
-            if (list.Any())
+            var list = db.Basket.ToList().Where(c => c.CustomerId == customerId && c.IsArchive == false);
+            if (list != null)
             {
                 foreach (var item in list)
                 {
+
+                    if (item.Product.IsBlocked.HasValue && item.Product.IsBlocked.Value)
+                    {
+                        item.Product.IsBlocked = false;
+                        db.Entry(item.Product).State = EntityState.Modified;
+                        db.SaveChanges();
+
+                    }
                     db.Basket.Remove(item);
                     db.SaveChanges();
                 }
             }
-            Basket = null;
+
         }
 
-     
+
 
 
     }

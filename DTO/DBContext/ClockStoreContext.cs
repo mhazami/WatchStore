@@ -11,6 +11,11 @@ namespace ClockStore.DTO.DBContext
     {
         public ClockStoreContext() : base("name=ClockStoreConnectionString")
         { }
+        public virtual DbSet<TimeCounter> TimeCounter { get; set; }
+
+        public virtual DbSet<Color> Color { get; set; }
+        public virtual DbSet<BasketOrder> BasketOrder { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<VideoHandler> VideoHandler { get; set; }
         public virtual DbSet<AboutUs> AboutUs { get; set; }
@@ -34,7 +39,10 @@ namespace ClockStore.DTO.DBContext
 
         public virtual DbSet<Language> Language { get; set; }
 
+        public virtual DbSet<UserComments> UserComments { get; set; }
 
+        public virtual DbSet<Clock> Clocks { get; set; }
+        public virtual DbSet<Desktop> Desktops{ get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

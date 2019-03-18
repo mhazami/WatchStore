@@ -1,0 +1,110 @@
+﻿@using WebApp.App_Code.Base;
+@using System.Globalization;
+@model List<ClockStore.DTO.Product>
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="product">
+    <div class="container">
+        @{
+
+            if (!Model.Any())
+            {
+                <div class="jumbotron col-md-12 search-result">
+                    @ViewBag.Res
+                </div>
+            }
+        }
+
+        <div class="product-top">
+
+            @{
+                var rep = Model.Count() / 4;
+                var j = 0;
+                do
+                {
+                    <div class="product-one">
+                        @{
+
+                            for (int i = 0; i < Model.Count(); i++)
+                            {
+                                if (rep < (Model.Count() / 4))
+                                {
+                                    i = j + 1;
+                                }
+                                <div class="col-md-3 product-left">
+                                    <div class="product-main simpleCart_shelfItem">
+                                        <a href="/Products/ProductDetails?id=@Model[i].ProductId" class="mask"><img class="img-responsive zoom-img" src="@Url.Action("ShowImage", "Home", new { id = Model[i].FileId })" alt="@Model[i].ProductName" /></a>
+                                        <div class="product-bottom">
+                                            <h3>@Model[i].ProductName</h3>
+                                            <p>@WebApp.Resources.Design.Design.EXPLORENOW</p>
+                                            <h4>
+                                                <a class="item_add" href="#"><i></i></a> <span id="@Model[i].ProductId+price" class="item_price">@WebApp.Resources.Design.Design.PriceSign @Model[i].Price.ToString("N0")</span>
+                                                @{
+                                                    if (Model[i].Off != 0)
+                                                    {
+                                                        <div class="srchbottom">
+                                                            <span id="@Model[i].ProductId+off" style="color:white;">-@Model[i].Off%</span>
+
+                                                        </div>
+                                                    }
+                                                }
+                                            </h4>
+
+                                        </div>
+                                        @*<div class="srch">
+                                                <span>-50%</span>
+                                            </div>*@
+                                    </div>
+                                </div>
+
+
+                                j = i;
+                                if (((i + 1) % 4) == 0)
+                                {
+                                    <div class="clearfix"></div>
+                                    break;
+                                }
+                            }
+                        }
+                    </div>
+
+                    rep--;
+                } while (rep > 0 || j < Model.Count() - 1);
+            }
+
+
+
+            @{
+                if (CultureInfo.CurrentCulture.Name == "fa-IR")
+                {
+                    <script src="~/Scripts/js/jQuery.persianNumbers-1.0.js"></script>
+                    <script>
+                        $(document).ready(function () {
+                            debugger;
+                            $("span[id*=off]").each(function () {
+                                debugger;
+                                var value = $(this).text();
+                                var res = $.persianNumbers(value);
+                                $(this).text(res);
+                            })
+
+                            $("span[id*=price]").each(function () {
+                                var value = $(this).text();
+                                var res = $.persianNumbers(value);
+                                $(this).text(res);
+                            })
+
+
+                        })
+                    </script>
+
+                }
+            }
+
+
+        </div>
+    </div>
+</div>

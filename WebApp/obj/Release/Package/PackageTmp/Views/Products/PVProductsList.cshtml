@@ -26,17 +26,17 @@
                                 }
                                 <div class="col-md-3 product-left">
                                     <div class="product-main simpleCart_shelfItem">
-                                        <a href="/Products/ProductDetails?id=@Model[i].ProductId" class="mask"><img class="img-responsive zoom-img" src="@FileManager.ImageHandler(Model[i].FileId)" alt="@Model[i].ProductName" /></a>
+                                        <a href="/Products/ProductDetails?id=@Model[i].ProductId" class="mask"><img class="img-responsive zoom-img" src="@Url.Action("ShowImage", "Home", new { id = Model[i].FileId })" alt="@Model[i].ProductName" /></a>
                                         <div class="product-bottom">
                                             <h3>@Model[i].ProductName</h3>
                                             <p>@WebApp.Resources.Design.Design.EXPLORENOW</p>
                                             <h4>
-                                                <a class="item_add" href="#"><i></i></a> <span class="item_price">@WebApp.Resources.Design.Design.PriceSign @Model[i].Price.ToString("N0")</span>
+                                                <a class="item_add" href="#"><i></i></a> <span id="@Model[i].ProductId+price" class="item_price">@WebApp.Resources.Design.Design.PriceSign @Model[i].Price.ToString("N0")</span>
                                                 @{
                                                     if (Model[i].Off != 0)
                                                     {
                                                         <div class="srchbottom">
-                                                            <span id="off" style="color:white;">-@Model[i].Off%</span>
+                                                            <span id="@Model[i].ProductId+off" style="color:white;">-@Model[i].Off%</span>
 
                                                         </div>
                                                     }
@@ -74,12 +74,20 @@
                     <script>
                         $(document).ready(function () {
                             debugger;
-                            var off = $("span[id=off]").text();
-                            var res = $.persianNumbers(off);
-                            $("span[id=off]").text(res);
+                            $("span[id*=off]").each(function () {
+                                debugger;
+                                var value = $(this).text();
+                                var res = $.persianNumbers(value);
+                                $(this).text(res);
+                            })
 
-                            var price = $.persianNumbers($(".item_price").text());
-                            $(".item_price").text(price);
+                            $("span[id*=price]").each(function () {
+                                var value = $(this).text();
+                                var res = $.persianNumbers(value);
+                                $(this).text(res);
+                            })
+                       
+
                         })
                     </script>
 

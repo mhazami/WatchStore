@@ -1,0 +1,19 @@
+﻿
+<div class="search-bar">
+    <input type="text" id="txtSearch" value="@WebApp.Resources.Design.Design.Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '@WebApp.Resources.Design.Design.Search';}">
+    <input id="btnSearch" type="submit" value="">
+</div>
+
+
+<script>
+    $(function () {
+        $("#btnSearch").on('click', function () {
+            var value = $("#txtSearch").val();
+            debugger;
+            var orginalurl = location.origin;
+            var url = orginalurl + "/Products/SearchResult/" + value;
+            window.location = url;
+            
+        });
+    });
+</script>

@@ -9,11 +9,11 @@
 
 
 
-<p style="margin:3% 0 0 40%;">
-    @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
+<p style="margin:3% 40% 0 0">
+    @Html.ActionLink("تعریف کالای جدید", "Create", "", new { @class = "btn btn-info" })
     <span>
-        <button type="button" data-toggle="collapse" class="btn btn-primary" data-target="#search">Search</button>
-        <a href="/Products/Index" class="btn btn-success">Back</a>
+        <button type="button" data-toggle="collapse" class="btn btn-primary" data-target="#search">جستجو</button>
+        <a href="/Products/Index" class="btn btn-success">بازگشت</a>
     </span>
 </p>
 
@@ -27,85 +27,98 @@
         {
             <div class="row">
                 <di class="col-md-6">
-                    <div class="col-md-2 text-left">
-                        Title
+                    <div class="col-md-4 text-center">
+                        نام کالا
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input type="text" class="form-control" name="ProductName" id="ProductName" />
                     </div>
 
                 </di>
                 <di class="col-md-6">
-                    <div class="col-md-2 text-left">
-                        Code
+                    <div class="col-md-4 text-center">
+                        کد کالا
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input type="text" class="form-control" name="Code" id="Code" />
                     </div>
 
                 </di>
             </div>
-            <div style="margin-top:20px;"> </div>
             <div class="row">
                 <di class="col-md-6">
-                    <div class="col-md-2 text-left">
-                        From Price
+                    <div class="col-md-4 text-center">
+                        از قیمت
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input type="text" class="form-control" name="FromPrice" id="FromPrice" />
                     </div>
 
                 </di>
                 <di class="col-md-6">
-                    <div class="col-md-2 text-left">
-                        To Price
+                    <div class="col-md-4 text-center">
+                        تا قیمت
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input type="text" class="form-control" name="ToPrice" id="ToPrice" />
                     </div>
 
                 </di>
             </div>
 
-            <div style="margin-top:20px;"> </div>
             <div class="row">
                 <di class="col-md-6">
-                    <div class="col-md-2 text-left">
-                        From Off
+                    <div class="col-md-4 text-center">
+                        از درصد تخفیف
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input type="text" class="form-control" name="FromOff" id="FromOff" />
                     </div>
 
                 </di>
                 <di class="col-md-6">
-                    <div class="col-md-2 text-left">
-                        To Off
+                    <div class="col-md-4 text-center">
+                        تا درصد تخفیف
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input type="text" class="form-control" name="ToOff" id="ToOff" />
                     </div>
 
                 </di>
             </div>
-            <div style="margin-top:20px;"> </div>
 
             <div class="row">
                 <di class="col-md-6">
-                    <div class="col-md-2 text-left">
-                        Count
+                    <div class="col-md-4 text-center">
+                        موجودی در انبار
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input type="text" class="form-control" name="Count" id="Count" />
                     </div>
 
                 </di>
                 <di class="col-md-6">
-                    <div class="col-md-2 text-left">
+                    <div class="col-md-4 text-center">
+                        زبان
+                    </div>
+                    <div class="col-md-8">
+                        @Html.Action("GenerateLanguageDropDownList", "Language", null)
+                    </div>
+
+                </di>
+            </div>
+
+            <div class="row">
+                <di class="col-md-6">
+
+
+                </di>
+                <di class="col-md-6">
+                    <div class="col-md-4 text-center">
 
                     </div>
-                    <div class="col-md-4">
-                        <input type="submit" value="Search" class="btn btn-warning" />
+                    <div class="col-md-8">
+                        <input type="submit" value="جستجو" class="btn btn-warning" />
                     </div>
 
                 </di>
@@ -122,16 +135,16 @@
                 <tr class="table100-head">
 
                     <th class="column1">
-                        Image
+                        تصویر
                     </th>
                     <th class="column2">
-                        @Html.DisplayNameFor(model => model.ProductName)
+                        نام کالا
                     </th>
                     <th class="column3">
-                        @Html.DisplayNameFor(model => model.Price)
+                        قیمت
                     </th>
                     <th class="column4">
-                        Add ExteraImage
+                       افزودن تصویر
                     </th>
 
                     <th class="column5"></th>
@@ -142,29 +155,27 @@
                     <tr>
 
                         <td class="column1">
-                            <img alt="@item.ProductName" src="@FileManager.ImageHandler(item.FileId)" style="max-height:100px;max-width:100px;" />
+                            <img alt="@item.ProductName" src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" style="max-height:100px;max-width:100px;" />
                         </td>
                         <td class="column2">
-                            @Html.DisplayFor(modelItem => item.ProductName)
+                           @item.ProductName
                         </td>
                         <td class="column3">
-                            @Html.DisplayFor(modelItem => item.Price)
+                            @item.Price.ToString("N0")
                         </td>
                         <td class="column4">
-                            <a href="/ExtraImages/ProductImages?id=@item.ProductId" class="btn btn-primary">Add Image</a>
+                            <a href="/ExtraImages/ProductImages?id=@item.ProductId" class="btn btn-primary">افزودن تصویر</a>
                         </td>
                         <td class="column5">
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                            @Html.ActionLink("ویرایش", "Edit", new { id = item.ProductId }) |
+                            @Html.ActionLink("جزییات", "Details", new { id = item.ProductId }) |
+                            @Html.ActionLink("حذف", "Delete", new { id = item.ProductId })
                         </td>
                     </tr>
                 }
 
             </table>
-            <p>
-                @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
-            </p>
+          
         </div>
     </div>
 </div>

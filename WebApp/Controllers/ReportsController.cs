@@ -31,7 +31,7 @@ namespace WebApp.Controllers
             if (SessionParameters.User == null)
                 return Redirect("/Users/Login");
             var customers = db.Customer.ToList();
-            var list = db.Basket.Where(c => c.CustomerId == SessionParameters.Customer.CustomerId).ToList();
+            var list = db.Basket.ToList();
             ViewBag.TotalAmount = list.Sum(c => c.Product.PriceWithOff).ToString("N0");
             return View(customers);
         }

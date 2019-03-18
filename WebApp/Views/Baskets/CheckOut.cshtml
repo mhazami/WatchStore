@@ -17,9 +17,7 @@
             <div class="cart-items">
                 <h3>
                     @*My Shopping Bag (@Model.Count())*@ <span>
-                        <a href="/Baskets/PrintCustomerApprov" target="_blank" class="btn btn-primary">
-                            @Design.FINALAPPROVAL
-                        </a>
+                       
                         <a href="/Baskets/FinalApproval" class="btn btn-success">@Design.Next</a>
                     </span>
                 </h3>
@@ -62,10 +60,10 @@
 
                                 <div itemid="@item.BasketId" class="close1"> </div>
                                 <li class="ring-in">
-                                    <a href="/Products/ProductDetails?id=@item.ProductId"><img src="@FileManager.ImageHandler(item.Product.FileId)" class="img-responsive" alt="@item.Product.ProductName"></a>
+                                    <a href="/Products/ProductDetails?id=@item.ProductId"><img src="@Url.Action("ShowImage", "Home", new { id = item.Product.FileId })" class="img-responsive" alt="@item.Product.ProductName"></a>
                                 </li>
                                 <li><span class="name">@item.Product.ProductName</span></li>
-                                <li><span class="cost">@Design.PriceSign @item.Product.PriceWithOff.ToString("N0")</span></li>
+                                <li><span id="@item.ProductId+price" class="cost">@Design.PriceSign @item.Product.PriceWithOff.ToString("N0")</span></li>
                                 <li>
                                     <span>@Design.Free</span>
                                     <p id="Delivered">@Design.Delivered</p>
@@ -84,8 +82,11 @@
                             <script>
                                 $(document).ready(function () {
 
-                                    var price = $.persianNumbers($(".cost").text());
-                                    $(".cost").text(price);
+                                    $("span[id*=price]").each(function () {
+                                        var value = $(this).text();
+                                        var res = $.persianNumbers(value);
+                                        $(this).text(res);
+                                    })
 
                                     var delivered = $.persianNumbers($("#Delivered").text());
                                     $("#Delivered").text(delivered);
@@ -101,9 +102,7 @@
 
                     <h3>
                         @*My Shopping Bag (@Model.Count())*@ <span>
-                            <a href="/Baskets/PrintCustomerApprov" target="_blank" class="btn btn-primary">
-                                @Design.FINALAPPROVAL
-                            </a>
+                           
                         </span>
                     </h3>
 

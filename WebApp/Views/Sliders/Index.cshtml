@@ -2,7 +2,7 @@
 @model IEnumerable<ClockStore.DTO.Slider>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "اسلایدر";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
@@ -14,46 +14,52 @@
             <table>
                 <tr class="table100-head">
                     <th class="column1">
-                        Image
+                        تصویر
                     </th>
                     <th class="column2">
-                        @Html.DisplayNameFor(model => model.Title)
+                        عنوان
                     </th>
+                   
                     <th class="column3">
-                        @Html.DisplayNameFor(model => model.Description)
+                       اسلاید اصلی است؟
                     </th>
-                    <th class="column4">
-                        @Html.DisplayNameFor(model => model.IsMainSlider)
-                    </th>
-                    <th class="column5"></th>
+                    <th class="column4"></th>
                 </tr>
 
                 @foreach (var item in Model)
                 {
                     <tr>
                         <td class="column1">
-                            <img alt="@item.Title" src="@FileManager.ImageHandler(item.FileId)" style="max-height:100px;max-width:100px;" />
+                            <img alt="@item.Title" src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" style="max-height:100px;max-width:100px;" />
                         </td>
                         <td class="column2">
-                            @Html.DisplayFor(modelItem => item.Title)
+                            @item.Title
                         </td>
+                       
                         <td class="column3">
-                            @Html.DisplayFor(modelItem => item.Description)
+                            @{
+                                if (item.IsMainSlider)
+                                {
+                                    <span>بله</span>
+                                }
+                                else
+                                {
+                                    <span>خیر</span>
+                                }
+
+                            }
                         </td>
                         <td class="column4">
-                            @Html.DisplayFor(modelItem => item.IsMainSlider)
-                        </td>
-                        <td class="column5">
-                            @Html.ActionLink("Edit", "Edit", new { id = item.SliderId }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.SliderId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.SliderId })
+                            @Html.ActionLink("ویرایش", "Edit", new { id = item.SliderId }) |
+                            @Html.ActionLink("جزییات", "Details", new { id = item.SliderId }) |
+                            @Html.ActionLink("حذف", "Delete", new { id = item.SliderId })
                         </td>
                     </tr>
                 }
 
             </table>
             <p>
-                @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
+                @Html.ActionLink("تعریف اسلاید جدید", "Create", "", new { @class = "btn btn-info" })
             </p>
         </div>
     </div>

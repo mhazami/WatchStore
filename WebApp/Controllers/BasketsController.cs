@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClockStore.BLL;
 using ClockStore.DTO;
 using ClockStore.DTO.DBContext;
-
+using ClockStore.DTO.ViewModels;
 
 namespace WebApp.Controllers
 {
@@ -151,7 +153,8 @@ namespace WebApp.Controllers
         {
             if (SessionParameters.Customer == null)
                 return Redirect("/Customers/Signin");
-            var basket = db.Basket.ToList().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId);
+            var basket = db.Basket.ToList().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId && c.IsArchive == false);
+
             return View(basket);
 
 
@@ -167,7 +170,12 @@ namespace WebApp.Controllers
                 return Redirect("/Products/ProductDetails?id=" + id + "");
 
             }
-
+            var product = db.Product.Find(id);
+            if (product.Count == 1 && product.IsBlocked.HasValue && product.IsBlocked.Value)
+            {
+                TempData["s"] = "Block";
+                return Redirect("/Products/ProductDetails?id=" + id + "");
+            }
 
             var basket = new Basket()
             {
@@ -176,16 +184,20 @@ namespace WebApp.Controllers
                 ProductId = id,
                 SaveDate = DateTime.Now,
                 Status = 0,
-                IsArchive = false
+                IsArchive = false,
+                LangId = CultureInfo.CurrentCulture.Name
             };
-            //new BasketBO().Insert(basket)
-            db.Basket.Add(basket);
+            if (product.Count == 1 && !product.IsBlocked.Value)
+            {
+                product.IsBlocked = true;
 
-            var product = db.Product.Find(id);
-            product.Count--;
+            }
+
             db.Entry(product).State = EntityState.Modified;
             if (db.SaveChanges() > 0)
             {
+                db.Basket.Add(basket);
+                db.SaveChanges();
                 TempData["s"] = "Added";
                 if (SessionParameters.Basket != null)
                     list = SessionParameters.Basket;
@@ -202,17 +214,20 @@ namespace WebApp.Controllers
 
         public ActionResult RemoveFromCart(Guid id)
         {
-            Basket basket = db.Basket.Find(id);
+            var list = new List<Basket>();
+            if (SessionParameters.Basket != null)
+                list = SessionParameters.Basket;
+            Basket basket = list.Single(c => c.BasketId == id);
             var product = db.Product.Find(basket.ProductId);
-            product.Count++;
+            //product.Count++;
+            if (product.IsBlocked.Value)
+                product.IsBlocked = false;
             db.Entry(product).State = EntityState.Modified;
-            db.Basket.Remove(basket);
+            //db.Basket.Remove(basket);
             db.SaveChanges();
             if (SessionParameters.Basket != null)
             {
-                var list = new List<Basket>();
-                list = SessionParameters.Basket;
-                list.Remove(list.Single(c=>c.BasketId==id));
+                list.Remove(list.Single(c => c.BasketId == id));
                 SessionParameters.Basket = list;
             }
             return RedirectToAction("CheckOut");
@@ -256,9 +271,31 @@ namespace WebApp.Controllers
         {
             if (SessionParameters.Customer == null)
                 return Redirect("/Customers/Signin");
-            var list = db.Basket.Where(c => c.CustomerId == SessionParameters.Customer.CustomerId).ToList();
-            ViewBag.TotalAmount = list.Sum(c => c.Product.PriceWithOff);
+            var list = new CustomerBasket()
+            {
+                Customer = SessionParameters.Customer,
+                Baskets = db.Basket.Where(c => c.CustomerId == SessionParameters.Customer.CustomerId && c.IsArchive == false).ToList()
+
+            };
+
+            ViewBag.TotalAmount = list.Baskets.Sum(c => c.Product.PriceWithOff);
             return View(list);
+        }
+
+        [HttpPost]
+        public ActionResult FinalApproval(Guid CustomerId, string FirstName, string LastName, string Email, string Phone, string Address)
+        {
+            var cust = db.Customer.Find(CustomerId);
+            cust.FirstName = FirstName;
+            cust.LastName = LastName;
+            cust.Email = Email;
+            cust.Phone = Phone;
+            cust.LangId = CultureInfo.CurrentCulture.Name;
+            cust.Address = Address;
+            db.Entry(cust).State = EntityState.Modified;
+            if (db.SaveChanges() > 0)
+                return Redirect("/Payment/Index/" + CustomerId);
+            return View();
         }
 
 

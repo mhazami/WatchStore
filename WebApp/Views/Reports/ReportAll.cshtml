@@ -13,8 +13,9 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <script src="~/Scripts/js/jquery-1.11.0.min.js"></script>
-
+    <script src="~/Scripts/js/jquery.countdown.min.js"></script>
     <script>
+     
         function Print() {
             //$("#btnPrint").hide();
             window.print();
@@ -38,6 +39,52 @@
     </style>
 </head>
 <body>
+    مهلت خرید
+    <div id="getting-started" style="color: white;background-color: black;direction:ltr"></div>
+    <h2>دیگر</h2>
+    <div id="getting-startedf" style="color: white;background-color: black;direction:ltr"></div>
+    <script type="text/javascript">
+        debugger;
+        //"2018/10/23"
+        var val = 1 * 60 * 60 * 1000;
+        var date = new Date('2018/10/23').valueOf() - val;
+        $("#getting-started")
+
+            .countdown(date.toString(), function (event) {
+                $(this).text(
+
+                    event.strftime(' %D day %H : %M : %S ')
+                );
+            });
+        var val2 = 5 * 60 * 60 * 1000;
+        var date2 = new Date('2018/10/23').valueOf();
+        $("#getting-startedf")
+
+            .countdown(date2.toString(), function (event) {
+                $(this).text(
+
+                    event.strftime(' %D day %H : %M : %S ')
+                );
+            });
+
+        //$('#clock').countdown('2020/10/10 12:34:56')
+        //    .on('update.countdown', function (event) {
+        //        var format = '%H:%M:%S';
+        //        if (event.offset.totalDays > 0) {
+        //            format = '%-d day%!d ' + format;
+        //        }
+        //        if (event.offset.weeks > 0) {
+        //            format = '%-w week%!w ' + format;
+        //        }
+        //        $(this).html(event.strftime(format));
+        //    })
+        //    .on('finish.countdown', function (event) {
+        //        $(this).html('This offer has expired!')
+        //            .parent().addClass('disabled');
+
+        //    });
+    </script>
+
     <div class="container">
         <div class="logo">
             <h1>TREND WATCH</h1>
@@ -51,7 +98,7 @@
                     Customer Name
                 </th>
                 <th>
-                   Phone
+                    Phone
                 </th>
                 <th>
                     Address
@@ -59,10 +106,10 @@
                 <th>
                     Email
                 </th>
-                <th>
-                    Total Amount
-                </th>
-               
+                @*<th>
+                        Total Amount
+                    </th>*@
+
 
             </tr>
 
@@ -81,19 +128,17 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TotalAmount)
-                    </td>
-                    
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.TotalAmount)
+                        </td>*@
+
                 </tr>
             }
             <tr style="background-color:#686363;color:white">
                 <td>Total Amount</td>
-                <td>@ViewBag.TotalAmount</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td colspan="5">@*@ViewBag.TotalAmount*@</td>
+
+
             </tr>
         </table>
         <div class="logo">

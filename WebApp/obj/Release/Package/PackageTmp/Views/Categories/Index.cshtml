@@ -1,34 +1,46 @@
 ﻿@model IEnumerable<ClockStore.DTO.Category>
-
+@using WebApp.App_Code.Base;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
-<h2>Index</h2>
+<p style="margin:3% 40% 0 0;">
+    @Html.ActionLink("تعریف برند جدید", "Create", "", new { @class = "btn btn-info" })
 
-<p>
-    @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </th>
-        <th></th>
-    </tr>
+<div class="container-table100">
+    <div class="wrap-table100">
+        <div class="table100">
+            <table class="table">
+                <tr class="table100-head">
+                    <th class="column1">
+                        @Html.DisplayNameFor(model => model.CategoryName)
+                    </th>
+                    <th class="column2">
+                        تصویر
+                    </th>
+                    <th class="column3"></th>
+                </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryId })
-        </td>
-    </tr>
-}
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="column1">
+                            @Html.DisplayFor(modelItem => item.CategoryName)
+                        </td>
+                        <th class="column2">
+                            <img alt="@item.CategoryName" src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" style="max-height:100px;max-width:100px;" />
+                        </th>
+                        <td class="column3">
+                            @Html.ActionLink("ویرایش", "Edit", new { id = item.CategoryId }) |
+                            @Html.ActionLink("جزییات", "Details", new { id = item.CategoryId }) |
+                            @Html.ActionLink("حذف", "Delete", new { id = item.CategoryId })
+                        </td>
+                    </tr>
+                }
 
-</table>
+            </table>
+        </div>
+    </div>
+</div>

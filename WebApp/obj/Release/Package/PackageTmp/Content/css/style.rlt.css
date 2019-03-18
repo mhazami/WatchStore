@@ -1,12 +1,10 @@
-/*--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
+
+@import url('/Content/css/vazir.css');
+@import url('/Content/css/BNazanin.css');
+
 body {
     background: #fff;
-    font-family: 'Lato-Regular';
+    font-family: Arial;
 }
 
     body a {
@@ -15,33 +13,23 @@ body {
         -o-transition: 0.5s all;
         -moz-transition: 0.5s all;
         -ms-transition: 0.5s all;
-        text-decoration:none;
+        text-decoration: none;
     }
 
-    body a:hover{
-        text-decoration:none;
-    }
+        body a:hover {
+            text-decoration: none;
+        }
 
-@font-face {
-    font-family: 'Lora-Regular';
-    src: url(../fonts/Lora-Regular.ttf) format('truetype');
+li a {
+    font-size: 1.2em;
+    font-weight: 900;
 }
 
-@font-face {
-    font-family: 'Muli-Regular';
-    src: url(../fonts/Muli-Regular.ttf) format('truetype');
+
+p, h1, h2, h3, h4, h5, h6, samp, div, a {
+    font-family: Arial;
 }
 
-@font-face {
-    font-family: 'Lato-Regular';
-    src: url(../fonts/Lato-Regular.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: 'BreeSerif-Regular';
-    src: url(../fonts/BreeSerif-Regular.ttf) format('truetype');
-}
-/*--starts-logo--*/
 .logo {
     text-align: center;
     padding: 25px 0 20px 0px;
@@ -52,7 +40,7 @@ body {
         font-size: 32px;
         color: #000000;
         margin: 0;
-        font-family: 'Lora-Regular';
+        font-family: Arial;
         text-transform: uppercase;
         display: inline-block;
     }
@@ -76,13 +64,16 @@ body {
     -webkit-appearance: none;
     color: rgba(0, 0, 0, 0.74);
     font-size: 0.875em;
-    font-family: 'Lato', sans-serif;
     position: relative;
+    background-color: white;
+    font-family: Arial;
+    font-size: 14px;
 }
 
 .search-bar input[type="submit"] {
-    background: url(../images/search.png)no-repeat 0px 0px;
+    background: url('/images/search.png')no-repeat 0px 0px;
     outline: none;
+    background-color: white;
     -webkit-appearance: none;
     border: 0;
     display: inline-block;
@@ -91,12 +82,12 @@ body {
     width: 18px;
     height: 18px;
     top: 9px;
-    right: 10%;
+    right: 15%;
 }
 
 .search-bar {
     width: 93%;
-    float: right;
+    float: left;
 }
 /*----*/
 .itemContainer {
@@ -149,7 +140,7 @@ body {
 
 a.simpleCart_empty {
     color: rgba(255, 255, 255, 0.6);
-    font-family: 'Lato', sans-serif;
+    font-family: Arial;
     font-size: 11px;
 }
 
@@ -646,7 +637,7 @@ figure.effect-bubba {
         opacity: 0;
         color: #fff;
         font-size: 1.8em;
-        font-family: 'BreeSerif-Regular';
+        font-family: Arial;
     }
 
         figure.effect-bubba h4.gal {
@@ -668,7 +659,7 @@ figure.effect-bubba {
         transform: translate3d(0,20px,0);
         color: #fff;
         font-size: 1em;
-        font-family: 'Lato-Regular';
+        font-family: Arial;
     }
 
     figure.effect-bubba:hover figcaption::before,
@@ -710,14 +701,14 @@ figure.effect-bubba {
     color: #000;
     margin: 0;
     text-transform: uppercase;
-    font-family: 'BreeSerif-Regular';
+    font-family: Arial;
 }
 
 .product-bottom h4 span {
     font-size: 17px;
     color: #000;
     margin: 5px 0 0 0;
-    font-family: 'BreeSerif-Regular';
+    font-family: Arial;
 }
 
 .product-bottom h4 i {
@@ -826,16 +817,19 @@ a.mask {
 
 .srchbottom {
     position: absolute;
-    bottom: 9%;
-    left: 16px;
+    bottom: 20%;
+    left: 15px;
 }
+
     .srchbottom span {
-        background: #b71b2e;
-        color: white;
+        /*background: #b71b2e;*/
+        background: #ef5661;
         font-size: 15px;
         font-weight: 400;
         padding: 10px 0 0 25px;
+        border-top-right-radius: 10px;
     }
+
     /*.srchbottom {
     background: #f58282;
     color: #fff;
@@ -856,7 +850,7 @@ a.mask {
     font-size: 1.5em;
     color: #000;
     margin: 0 0 0 0;
-    font-family: 'BreeSerif-Regular';
+    font-family: Arial;
 }
 
 .infor-left ul li a span {
@@ -910,7 +904,7 @@ a.mask {
         .infor-left ul li a h6 {
             color: #999;
             font-size: 13px;
-            font-family: 'BreeSerif-Regular';
+            font-family: Arial;
             margin: 0 0 0 10px;
             display: inline-block;
             vertical-align: middle;
@@ -1014,8 +1008,78 @@ a.mask {
     }
 
 .footer {
-    padding: 3em 0px;
+    padding: 0px 0px 3em;
+    background-color: #ddd;
+    margin-top: 50px;
 }
+
+.icon-footer {
+    float: right;
+    width: 40px;
+    height: 40px;
+}
+
+.footer-top {
+    padding: 2em 0px;
+    top: 0;
+    background-color: #ccc;
+    min-height: 100px;
+}
+
+.icon-box {
+    padding-right: 80px;
+}
+
+.footer-top strong {
+    text-align: right;
+    line-height: 40px;
+    padding-right: 15px;
+    font-family: Arial;
+    font-size: medium;
+    font-family: Arial;
+}
+
+.top-footer {
+    color: #333;
+    font-size: medium;
+}
+
+    .top-footer:hover {
+        color: #333;
+        text-decoration: none;
+    }
+
+.footer-email-content {
+    margin-top: 20px;
+    padding: 0px 0px;
+}
+
+.footer-email-title {
+    padding-right: 15px;
+}
+
+.footer-bottom {
+    direction: rtl;
+    padding: 3em 3em !important;
+    text-align: right;
+}
+
+    .footer-bottom strong {
+        font-family: Arial;
+        font-size: 1.1em;
+        font-weight: 800;
+    }
+
+    .footer-bottom p {
+        text-align: right;
+        margin: 10px 0 0 !important;
+    }
+
+        .footer-bottom p a span {
+            font-family: Arial;
+            font-size: small;
+            color: #333333;
+        }
 
 .footer-right {
     text-align: right;
@@ -1160,7 +1224,7 @@ a.mask {
     text-transform: uppercase;
     margin-bottom: 0;
     font-size: 16px;
-    font-family: 'Lora-Regular';
+    font-family: Arial;
 }
 
 .sky-form section {
@@ -1568,7 +1632,7 @@ a.mask {
     padding: 15px 10px;
     outline: none;
     border: 1px solid #000;
-    font-family: 'Lato-Regular';
+    font-family: Arial;
 }
 
 .contact-right textarea {
@@ -1581,7 +1645,7 @@ a.mask {
     outline: none;
     border: 1px solid #000;
     margin-top: 1.4%;
-    font-family: 'Lato-Regular';
+    font-family: Arial;
 }
 
 .submit-btn input[type=submit] {
@@ -1592,7 +1656,7 @@ a.mask {
     margin: 20px 0 0 0px;
     border: 1px solid #000;
     background: none;
-    font-family: 'Lato-Regular';
+    font-family: Arial;
     outline: none;
 }
 
@@ -1656,7 +1720,7 @@ a.mask {
     font-size: 1.7em;
     color: #73b6e1;
     margin: 0 0 0 0;
-    font-family: 'BreeSerif-Regular';
+    font-family: Arial;
 }
 
 .account-top, .register-top {
@@ -1679,7 +1743,7 @@ a.mask {
     padding: 8px 10px;
     outline: none;
     border: 1px solid #000;
-    font-family: 'Lato-Regular';
+    font-family: Arial;
     font-size: 14px;
     margin-bottom: 20px;
 }
@@ -1696,7 +1760,7 @@ a.mask {
     font-size: 14px;
     color: #666;
     font-weight: 500;
-    font-family: 'Lato-Regular';
+    font-family: Arial;
     margin-right: 20px;
 }
 
@@ -1713,7 +1777,7 @@ a.mask {
     text-transform: uppercase;
     border: none;
     outline: none;
-    font-family: 'Lato-Regular';
+    font-family: Arial;
 }
 
     .address input[type="submit"]:hover {
@@ -1820,7 +1884,7 @@ span.cost {
         font-size: 2em;
         color: #000;
         margin: 0 0 0 0;
-        font-family: 'BreeSerif-Regular';
+        font-family: Arial;
     }
 
 .ckeck-top {
@@ -1846,8 +1910,8 @@ span.name {
     font-size: 2.2em;
     color: #000;
     margin: 0 0 0 0;
-    font-family: 'BreeSerif-Regular';
-    text-align:right;
+    font-family: Arial;
+    text-align: right;
 }
 
 .star-on {
@@ -1889,22 +1953,24 @@ ul.star-footer li i {
     float: left;
     margin-left: 2em;
 }
-    .review a{
-        color:red;
+
+    .review a {
+        color: red;
     }
-    .single-para h5 {
-        color: #000;
-        font-size: 2.3em;
-        border-bottom: 1px solid #E6E6E6;
-        margin: 0;
-        padding: 17px 0 6px 0;
-    }
+
+.single-para h5 {
+    color: #000;
+    font-size: 2.3em;
+    border-bottom: 1px solid #E6E6E6;
+    margin: 0;
+    padding: 17px 0 6px 0;
+}
 
 .single-para p {
     font-size: 15px;
     color: #000;
     line-height: 1.8em;
-    margin: 1em 0 0 0;
+    margin: 4em 0 0 0;
 }
 
 .available {
@@ -1953,7 +2019,7 @@ ul.tag-men {
         margin: 5px 0;
         font-weight: 300;
         font-size: 0.9em;
-        font-family: 'BreeSerif-Regular';
+        font-family: Arial;
     }
 
         ul.tag-men li span.women1 {
@@ -1969,6 +2035,18 @@ a.add-cart {
     text-transform: uppercase;
     margin-top: 2em;
     display: inline-block;
+}
+
+a.color {
+    text-decoration: none;
+    color: #fff;
+    /*background: #000;*/
+    padding: 0.1em 0.4em;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    margin-top: 2em;
+    display: inline-block;
+    border-radius: 50%;
 }
 
 span.add-cart {
@@ -2144,14 +2222,14 @@ h3.ghj {
     font-size: 1.8em;
     margin: 0 0 1em 0;
     color: #73B6E1;
-    font-family: 'BreeSerif-Regular';
+    font-family: Arial;
 }
 
 .heading h2 {
     font-size: 2.2em;
     margin: 0 0 0 0;
     color: #000;
-    font-family: 'BreeSerif-Regular';
+    font-family: Arial;
 }
 
 .typo-top {
@@ -2321,11 +2399,11 @@ h3.ghj {
     .header-right {
         padding: 0;
         width: 28%;
-        float: right;
+        float: left;
     }
 
     .header-left {
-        width: 72%;
+        width: 100%;
         float: left;
     }
 
@@ -2541,6 +2619,7 @@ h3.ghj {
 
     .memenu > li > .mepanel {
         padding: 20px 30px 20px 22px !important;
+        right: 0 !important;
     }
 
     .search-bar {
@@ -3221,7 +3300,7 @@ h3.ghj {
     }
 
     .header-left {
-        width: 65%;
+        width: 100%;
     }
 
     .search-bar input[type="text"] {
@@ -3405,7 +3484,7 @@ h3.ghj {
         }
 
     .header-left {
-        width: 60%;
+        width: 100%;
         padding-right: 10px;
     }
 
@@ -3766,4 +3845,65 @@ h3.ghj {
         font-size: 12px;
     }
 }
-/*--media-quaries-end-here--*/
+
+.item_price {
+    float: right;
+    padding-right: 0;
+    padding-left: 2%;
+}
+
+.tbl-info {
+    margin-top: 40px;
+}
+
+.tb-info {
+    width: 20%;
+    text-align: center;
+    font-family: Arial;
+}
+
+.img-footer-brand {
+    border-radius: 50%;
+}
+
+.Slider-side {
+    left: 33%;
+    bottom: 40px;
+    min-width: 20%;
+    max-width: 40%;
+    position: absolute;
+    padding: 10px;
+    font-weight: 900;
+    color: #d30909;
+    text-align: center;
+    font-family: Arial;
+    font-size: 22px;
+    border: solid 1px;
+    border-color: #f58282;
+    background-color: #f58282;
+    min-height: 60px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.search-result {
+    text-align: center;
+    font-family: Arial;
+    font-size: 28px;
+    height: 150px;
+}
+
+.menu-flow {
+    border: 1px solid #ccc;
+    padding: 0;
+}
+
+.img-menu {
+    width: 100% !important;
+    height: 300px;
+    padding: 0;
+}
+
+.memenu > li > .mepanel {
+    right: 0 !important;
+}

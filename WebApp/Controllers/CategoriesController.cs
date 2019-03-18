@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -14,7 +15,7 @@ namespace WebApp.Controllers
 {
     public class CategoriesController : Controller
     {
-
+        ClockStoreContext db = new ClockStoreContext();
         // GET: Categories
         public ActionResult Index()
         {
@@ -48,14 +49,28 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryId,CategoryName")] Category category)
+        public ActionResult Create([Bind(Include = "CategoryId,CategoryName,LangId")] Category category, HttpPostedFileBase image)
         {
-            if (ModelState.IsValid)
+            category.CategoryId = Guid.NewGuid();
+            var file = new File();
+            file.FileId = Guid.NewGuid();
+            if (image != null)
             {
-                category.CategoryId = Guid.NewGuid();
-                if (new CategoryBO().Insert(category))
-                    return RedirectToAction("Index");
+                file.Context = new byte[image.ContentLength];
+                image.InputStream.Read(file.Context, 0, image.ContentLength);
+                file.ContextType = image.ContentType;
+                file.Title = image.FileName;
             }
+
+            db.File.Add(file);
+
+
+            category.FileId = file.FileId;
+            db.Category.Add(category);
+            if (db.SaveChanges() > 0)
+                return RedirectToAction("Index");
+
+
 
             return View(category);
         }
@@ -81,13 +96,21 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryId,CategoryName")] Category category)
+        public ActionResult Edit([Bind(Include = "CategoryId,CategoryName,LangId")] Category category, HttpPostedFileBase image)
         {
-            if (ModelState.IsValid)
+            var fileid = db.Category.Find(category.CategoryId).FileId;
+            if (image != null)
             {
-                if (new CategoryBO().Update(category))
-                    return RedirectToAction("Index");
+
+                new FileBO().UpDate(fileid, image);
+
             }
+
+            category.FileId = fileid;
+
+            if (new CategoryBO().Update(category))
+                return RedirectToAction("Index");
+
             return View(category);
         }
 
@@ -112,9 +135,26 @@ namespace WebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            if (new CategoryBO().Delete(id))
+            var category = db.Category.Find(id);
+            db.Category.Remove(category);
+            db.SaveChanges();
+
+            if (new FileBO().Delete(category.FileId))
                 return RedirectToAction("Index");
-            return View(new CategoryBO().Get(id));
+            return View(category);
+        }
+
+
+        public ActionResult ProductsList(Guid id)
+        {
+            var list = db.Product.Where(c => c.Count > 0 && c.LangId == CultureInfo.CurrentCulture.Name && c.CategoryId == id).ToList();
+            return View(list);
+        }
+
+        public ActionResult Brands()
+        {
+            var list = db.Category.Where(c => c.LangId == CultureInfo.CurrentCulture.Name).ToList();
+            return View(list);
         }
 
         protected override void Dispose(bool disposing)

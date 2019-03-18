@@ -54,7 +54,7 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SliderId,Title,Description,FileId,IsMainSlider")] Slider slider, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "SliderId,Title,Description,FileId,IsMainSlider,LangId")] Slider slider, HttpPostedFileBase file)
         {
            
                 slider.SliderId = Guid.NewGuid();
@@ -90,7 +90,7 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SliderId,Title,Description,FileId,IsMainSlider")] Slider slider, HttpPostedFileBase file)
+        public ActionResult Edit([Bind(Include = "SliderId,Title,Description,FileId,IsMainSlider,LangId")] Slider slider, HttpPostedFileBase file)
         {
             var fileid = db.Slider.Find(slider.SliderId).FileId;
             if (file != null)

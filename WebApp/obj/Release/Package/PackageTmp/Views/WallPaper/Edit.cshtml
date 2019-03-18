@@ -1,5 +1,5 @@
 ﻿@model ClockStore.DTO.WallPaper
-
+@using WebApp.App_Code.Base;
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
@@ -7,57 +7,80 @@
 
 
 
-@using (Html.BeginForm("Create", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "WallPaper", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
     @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.WallPaperId)
+    @Html.HiddenFor(model => model.LangId)
 
-<div class="form-horizontal">
+    <div class="form-horizontal">
+        <div class="clearfix" style="margin-top:50px"></div>
+        <div class="container">
 
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.NewsId)
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        عنوان
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Title" value="@Model.Title" name="Title" class="form-control" required />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        تصویر
+                    </div>
+                    <div class="col-md-8">
+                        <input type="file" id="file" name="file" required />
+                        <img src="@Url.Action("ShowImage", "Home", new { id = Model.FileId })" style="width:100px;height:100px;" class="thumbnail" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+                        ترتیب
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="Position" value="@Model.Position" name="Position" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6">
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-2 text-center">
+                    توضیحات
+                </div>
+                <div class="col-md-10">
+                    <textarea id="Description" name="Description" style="height:200px" class="form-control">@Model.Description</textarea>
+
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4 text-center">
+
+                    </div>
+                    <div class="col-md-8">
+                        <input type="submit" value="دخیره" class="btn btn-success" />
+                        @Html.ActionLink("بازگشت", "Index", "", new { @class = "btn  btn-primary" })
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Position, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.FileId, "FileId", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="file" id="file" name="file" />
-            <img src="@FileManager.ImageHandler(Model.FileId)" style="width:100px;height:100px; margin-top:20px;" class="thumbnail" />
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
     </div>
-</div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index","",new { @class= "btn  btn-success" })
-</div>
+

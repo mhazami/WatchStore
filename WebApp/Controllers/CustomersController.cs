@@ -20,7 +20,7 @@ namespace WebApp.Controllers
         public ActionResult Index()
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             return View(db.Customer.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace WebApp.Controllers
         public ActionResult Details(Guid? id)
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -100,7 +100,7 @@ namespace WebApp.Controllers
         public ActionResult Delete(Guid? id)
         {
             if (SessionParameters.User == null)
-                 return Redirect("/Users/Login");
+                return Redirect("/Users/Login");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -151,13 +151,14 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Signin(string email,string password)
+        public ActionResult Signin(string email, string password)
         {
             var customer = db.Customer.FirstOrDefault(c => c.Email == email.ToLower() && c.PassWord == password.ToLower());
             if (customer != null)
             {
                 ViewBag.Alert = "";
                 SessionParameters.Customer = customer;
+
                 return Redirect("/Home/Index");
             }
             ViewBag.Alert = "Invalid UserName or PassWord!";
@@ -166,7 +167,18 @@ namespace WebApp.Controllers
 
         public ActionResult Logout()
         {
+            var list = db.Basket.Where(c => c.CustomerId == SessionParameters.Customer.CustomerId && c.IsArchive == false).ToList();
+            if (list != null)
+            {
+                foreach (var item in list)
+                {
+                    item.Product.IsBlocked = false;
+                    db.Entry(item).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
             SessionParameters.Customer = null;
+            SessionParameters.Basket = null;
             return Redirect("/Home/Index");
         }
     }

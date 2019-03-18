@@ -97,11 +97,38 @@ namespace WebApp.Resources.Design {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Brands.
+        /// </summary>
+        public static string Brands {
+            get {
+                return ResourceManager.GetString("Brands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CHECKOUT.
         /// </summary>
         public static string CHECKOUT {
             get {
                 return ResourceManager.GetString("CHECKOUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classic.
+        /// </summary>
+        public static string Classic {
+            get {
+                return ResourceManager.GetString("Classic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clock.
+        /// </summary>
+        public static string Clock {
+            get {
+                return ResourceManager.GetString("Clock", resourceCulture);
             }
         }
         
@@ -160,6 +187,15 @@ namespace WebApp.Resources.Design {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Desktop clock.
+        /// </summary>
+        public static string DesktopClock {
+            get {
+                return ResourceManager.GetString("DesktopClock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -174,6 +210,15 @@ namespace WebApp.Resources.Design {
         public static string EmptyCart {
             get {
                 return ResourceManager.GetString("EmptyCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error adding product to cart.
+        /// </summary>
+        public static string Erroraddingproducttocart {
+            get {
+                return ResourceManager.GetString("Erroraddingproducttocart", resourceCulture);
             }
         }
         
@@ -241,6 +286,15 @@ namespace WebApp.Resources.Design {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kids.
+        /// </summary>
+        public static string Kids {
+            get {
+                return ResourceManager.GetString("Kids", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Name.
         /// </summary>
         public static string LastName {
@@ -264,6 +318,15 @@ namespace WebApp.Resources.Design {
         public static string luxury {
             get {
                 return ResourceManager.GetString("luxury", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Men.
+        /// </summary>
+        public static string Men {
+            get {
+                return ResourceManager.GetString("Men", resourceCulture);
             }
         }
         
@@ -421,11 +484,38 @@ namespace WebApp.Resources.Design {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected Item Added To Cart.
+        /// </summary>
+        public static string SelectedItemAddedToCart {
+            get {
+                return ResourceManager.GetString("SelectedItemAddedToCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Signin /.
         /// </summary>
         public static string Signin {
             get {
                 return ResourceManager.GetString("Signin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sport.
+        /// </summary>
+        public static string Sport {
+            get {
+                return ResourceManager.GetString("Sport", resourceCulture);
             }
         }
         
@@ -457,6 +547,24 @@ namespace WebApp.Resources.Design {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This item has been booked in another customer&apos;s shopping cart.
+        /// </summary>
+        public static string ThisProductIsBlocked {
+            get {
+                return ResourceManager.GetString("ThisProductIsBlocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Amount.
+        /// </summary>
+        public static string TotalAmount {
+            get {
+                return ResourceManager.GetString("TotalAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unit Price.
         /// </summary>
         public static string UnitPrice {
@@ -471,6 +579,15 @@ namespace WebApp.Resources.Design {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Women.
+        /// </summary>
+        public static string Women {
+            get {
+                return ResourceManager.GetString("Women", resourceCulture);
             }
         }
     }

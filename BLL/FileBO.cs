@@ -26,8 +26,8 @@ namespace ClockStore.BLL
             }
             var d = new ClockStoreContext();
             d.File.Add(file);
-          
 
+            d.SaveChanges();
             return file;
         }
 
@@ -45,7 +45,7 @@ namespace ClockStore.BLL
             var d = new ClockStoreContext();
             d.File.Add(file);
 
-            d.SaveChanges();
+           
             return file;
         }
 

@@ -11,9 +11,26 @@
             @{
                 foreach (var item in Model)
                 {
-                    <li>
-                        <img src="@FileManager.ImageHandler(item.FileId)" alt="@item.Title" />
-                    </li>
+
+            <li>
+
+
+                <a href="@item.Link">
+                    <img src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" alt="@item.Title" />
+                </a>
+                @{
+                    if (!string.IsNullOrEmpty(item.Description))
+                    {
+                        <div class="Slider-side">
+                            @item.Description
+                        </div>
+                    }
+                }
+
+            </li>
+
+
+
                 }
             }
         </ul>
@@ -23,15 +40,3 @@
 
 
 
-
-@*<ul class="rslides" id="slider4">
-    <li>
-        <img src="~/images/bnr-1.jpg" alt="" />
-    </li>
-    <li>
-        <img src="~/images/bnr-2.jpg" alt="" />
-    </li>
-    <li>
-        <img src="~/images/bnr-3.jpg" alt="" />
-    </li>
-</ul>*@

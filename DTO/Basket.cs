@@ -28,7 +28,9 @@ namespace ClockStore.DTO
         [Required]
         public Int16 Status { get; set; }
 
-        public bool? IsArchive { get; set; }
+        public bool IsArchive { get; set; }
+
+        public int Count { get; set; }
 
         [Required]
         [MaxLength(5)]

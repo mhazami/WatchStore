@@ -1,25 +1,27 @@
 ﻿<!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#" xmlns:og="https://ogp.me/ns#">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trend WATCH</title>
+    <script src="~/Scripts/js/jquery-1.11.0.min.js"></script>
     <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     @{
         if (System.Globalization.CultureInfo.CurrentCulture.Name == "fa-IR")
         {
             <link href="~/Content/bootstrap.rtl.min.css" rel="stylesheet" />
+            <script src="~/Scripts/bootstrap.rtl.min.js"></script>
             <link href="~/Content/css/style.rlt.css" rel="stylesheet" />
-
+            <link href="~/Content/css/memenu.rtl.css" rel="stylesheet" type="text/css" media="all" />
         }
         else
         {
+            <script src="~/Scripts/bootstrap.min.js"></script>
             <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
-
+            <link href="~/Content/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
         }
     }
     <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
-    <script src="~/Scripts/js/jquery-1.11.0.min.js"></script>
     <!--Custom-Theme-files-->
     <!--theme-style-->
     <!--//theme-style-->
@@ -34,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!--start-menu-->
     <script src="~/Scripts/js/simpleCart.min.js"></script>
-    <link href="~/Content/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+
     <link href="~/Content/css/alertify.core.css" rel="stylesheet" />
     <link href="~/Content/css/alertify.bootstrap.css" rel="stylesheet" />
     <link href="~/Content/css/alertify.default.css" rel="stylesheet" />
@@ -61,6 +63,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     @*<link href="~/Content/bootstrap.min.css" rel="/stylesheet" />*@
     <script src="~/Scripts/js/slick.js"></script>
     <link href="~/Content/css/slick.css" rel="stylesheet" />
+    <script src="~/Scripts/js/Message.js"></script>
+
+
+    @RenderSection("Head", required: false)
 </head>
 <body>
 
@@ -76,26 +82,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="header-bottom">
         <div class="container">
             <div class="header">
-                <div class="col-md-10 header-left">
+                <div class="col-md-12 col-sm-12 col-xs-12 header-left">
                     <div class="top-nav">
                         <ul class="memenu skyblue">
-                            @*<li class="active"><a href="/Home/Index">@WebApp.Resources.Design.Design.Home</a></li>*@
-                            <li class="grid"><a href="/Home/Index">@WebApp.Resources.Design.Design.Products</a></li>
-                            <li class="grid"><a href="#">@WebApp.Resources.Design.Design.Sales</a></li>
-                            <li class="grid"><a href="#">@WebApp.Resources.Design.Design.NewSeason</a></li>
+                            <li class="grid">
+                                <a href="/Categories/Brands">@WebApp.Resources.Design.Design.Brands</a>
+                                @Html.Action("GenerateMenu", "Home", null)
+                            </li>
+                            <li class="grid">
+                                <a href="#">@WebApp.Resources.Design.Design.Men</a>
+                                @Html.Action("GenerateMenu", "Home", new { id = ClockStore.DTO.Enums.ProductSex.Men })
+                            </li>
+                            <li class="grid">
+                                <a href="#">@WebApp.Resources.Design.Design.Women</a>
+                                @Html.Action("GenerateMenu", "Home", new { id = ClockStore.DTO.Enums.ProductSex.Women })
+                            </li>
+                            <li class="grid"><a href="/Products/Deals">@WebApp.Resources.Design.Design.Sales</a></li>
+                            <li class="grid"><a href="/Products/NewSeason">@WebApp.Resources.Design.Design.NewSeason</a></li>
                             <li class="grid"><a href="/News/Blog">@WebApp.Resources.Design.Design.Blog</a></li>
-                            <li class="grid"><a href="#">@WebApp.Resources.Design.Design.luxury</a></li>
-                            <li class="grid"><a href="/Cantacts/Create">@WebApp.Resources.Design.Design.Contact</a></li>
-                            @*<li class="grid"><a href="/Home/TestVideo?id=5dcb8512-dc30-4654-aa58-21071da10710">@WebApp.Resources.Design.Design.TestOfVideo</a></li>*@
+                            <li class="grid"><a href="/Products/Luxury">@WebApp.Resources.Design.Design.luxury</a></li>
+                            @*<li class="grid"><a href="/Cantacts/Create">@WebApp.Resources.Design.Design.Contact</a></li>*@
 
                         </ul>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
-                <div class="col-md-2 header-right">
+                @*<div class="col-md-2 header-right">
 
 
-                </div>
+                    </div>*@
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -112,7 +127,159 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     @RenderBody()
 
 
-    @Html.Action("BrandsSlider", "Home", null)
+
+
+
+    <div class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="col-md-4 icon-box">
+                    <img class="icon-footer" src="~/images/icon/icon-shiping.png" />
+                    <strong>
+                        <a class="top-footer" href="/Home/SendingGood">
+                            ارسال به سراسر کشور
+                        </a>
+
+                    </strong>
+                </div>
+                <div class="col-md-4 icon-box">
+                    <img class="icon-footer" src="~/images/icon/icon-us-dollar.png" />
+                    <strong>
+                        <a href="/Home/Garantee" class="top-footer">
+                            گارانتی بازگشت وجه
+
+                        </a>
+                    </strong>
+                </div>
+                <div class="col-md-4 icon-box">
+                    <img class="icon-footer" src="~/images/icon/icon-suport.jpeg" />
+                    <strong>
+                        <a class="top-footer" href="#">
+                            پشتیبانی آنلاین
+
+                        </a>
+                    </strong>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="col-md-6">
+                    <div class="col-md-4">
+                        <strong>درباره ی کوک واچ </strong>
+                        <p>
+                            <a href="/AboutUs/AboutUS">
+                                <span>
+                                    درباره ی ما
+                                </span>
+                            </a>
+
+
+                        </p>
+                        <p>
+                            <a href="/Cantacts/Create">
+                                <span>
+                                    تماس با ما
+                                </span>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="/Home/TermsAndConditions">
+                                <span>
+                                    قوانین و مقررات
+                                </span>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="/Customers/SignIn">
+                                <span>
+                                    حساب من
+                                </span>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>@*تلفن تماس*@ </strong>
+                        <p>
+                            <a href="#">
+                                <span>
+                                    @*021-55555555*@
+                                </span>
+                            </a>
+
+
+                        </p>
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <strong>خدمات مشتریان </strong>
+                        <p>
+                            <a href="/Home/ReturnGoods">
+                                <span>
+                                    رویه های بازگشت کالا
+                                </span>
+                            </a>
+
+
+                        </p>
+
+                        <p>
+                            <a href="/Home/TermsAndConditions">
+                                <span>
+                                    شرایط استفاده از سایت
+                                </span>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="/Home/Privacy">
+                                <span>
+                                    حریم خصوصی
+                                </span>
+                            </a>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-12 footer-email-title">
+                        <strong>
+                            با عضویت در خبرنامه ما از آخرین اخبار و محصولات ما باخبر شوید!
+                        </strong>
+                    </div>
+                    <div class="col-md-12 footer-email-content">
+                        <form action="/Home/NewsPanel" method="post">
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" name="Email" id="Email" placeholder="ایمیل خود را وارد کنید" />
+
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary" type="submit">
+                                    اشتراک خبرنامه
+                                    <span class="glyphicon glyphicon-check"></span>
+                                </button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @{
+        if (System.Globalization.CultureInfo.CurrentCulture.Name == "fa-IR")
+        {
+            <script>
+                $(function () {
+                    $("span[class='title']").text("منو");
+                })
+
+            </script>
+        }
+
+    }
 
 </body>
 </html>

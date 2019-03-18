@@ -14,18 +14,18 @@
             <table>
                 <tr class="table100-head">
                     <th class="column1">
-                        @Html.DisplayNameFor(model => model.FirstName)
+                        نام
                     </th>
                     <th class="column2">
-                        @Html.DisplayNameFor(model => model.LastName)
+                        نام خانوادگی
                     </th>
                     <th class="column3">
-                        @Html.DisplayNameFor(model => model.UserName)
+                        نام کاربری
                     </th>
                    
                   
                     <th class="column4">
-                        @Html.DisplayNameFor(model => model.Phone)
+                        تلفن
                     </th>
                    
                     <th class="column5"></th>
@@ -35,23 +35,23 @@
                 {
                     <tr>
                         <td class="column1">
-                            @Html.DisplayFor(modelItem => item.FirstName)
+                            @item.FirstName
                         </td>
                         <td class="column2">
-                            @Html.DisplayFor(modelItem => item.LastName)
+                            @item.LastName
                         </td>
                         <td class="column3">
-                            @Html.DisplayFor(modelItem => item.UserName)
+                            @item.UserName
                         </td>
                        
                         
                         <td class="column4">
-                            @Html.DisplayFor(modelItem => item.Phone)
+                            @item.Phone
                         </td>
                        
                         <td class="column5">
                             @*@Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |*@
-                            @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) 
+                            @Html.ActionLink("جزییات", "Details", new { id = item.CustomerId }) 
                             @*@Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })*@
                         </td>
                     </tr>
@@ -59,9 +59,9 @@
 
             </table>
 
-            <p>
-                @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-info" })
-            </p>
+            @*<p>
+                @Html.ActionLink("تعریف مشتری", "Create", "", new { @class = "btn btn-info" })
+            </p>*@
         </div>
     </div>
 </div>

@@ -14,7 +14,7 @@ namespace ClockStore.DTO
             get
             {
                 if (this.Off > 0)
-                    return this.Price - (this.Price * Off / 100);
+                    return this.Price - (this.Price * Off.Value / 100);
                 return this.Price;
             }
         }

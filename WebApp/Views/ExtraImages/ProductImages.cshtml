@@ -56,7 +56,7 @@
                             @Html.DisplayFor(modelItem => item.Product.Code)
                         </td>
                         <td class="column2">
-                            <img alt="@item.Product.ProductName" src="@FileManager.ImageHandler(item.FileId)" style="max-height:100px;max-width:100px;" />
+                            <img alt="@item.Product.ProductName" src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" style="max-height:100px;max-width:100px;" />
                         </td>
                         <td class="column3">
                             @*@Html.ActionLink("Edit", "Edit", new { id = item.ExtraImagesId }) |*@

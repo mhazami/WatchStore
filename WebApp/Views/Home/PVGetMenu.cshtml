@@ -1,0 +1,42 @@
+﻿@model List<ClockStore.DTO.Category>
+@using ClockStore.DTO;
+
+<div class="mepanel">
+    <div class="row">
+
+        @{
+            var rep = Model.Count() / 6;
+            var j = 0;
+            do
+            {
+                <div class="col1 me-one">
+                    <ul>
+                        @{
+
+                            for (int i = 0; i < Model.Count(); i++)
+                            {
+                                if (rep < (Model.Count() / 6))
+                                {
+                                    i = j + 1;
+                                }
+
+                                <li><a href="/Products/ProducsList?id=@Model[i].CategoryId&cat=@ViewBag.Cat">@Model[i].CategoryName</a></li>
+
+                                j = i;
+                                if (((i + 1) % 6) == 0)
+                                {
+                                    <div class="clearfix"></div>
+                                    break;
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                rep--;
+            } while (rep > 0 || j < Model.Count() - 1);
+        }
+
+
+
+    </div>
+</div>

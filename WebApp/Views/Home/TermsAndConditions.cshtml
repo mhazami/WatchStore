@@ -1,0 +1,62 @@
+﻿@using System.Globalization;
+@{
+    ViewBag.Title = "TermsAndConditions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    p {
+        font-size: small;
+        text-align: justify;
+        margin-top: 20px;
+    }
+
+    .about-content {
+        margin-top: 50px;
+        padding: 10px;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    h4 {
+        margin-top: 20px;
+    }
+</style>
+
+
+<div class="container">
+    <div class="about-content jumbotron">
+        <h3><strong>قوانین و مقررات</strong></h3>
+        <p>ارسال کالا به تمام نقاط ایران از طریق اداره پست جمهوری اسلامی و تیپاکس انجام خواهد شد</p>
+        <p>پرداخت هزینه خرید فقط از طریق درگاه بانکی انجام می‌پذیرد</p>
+        <p>7 روز گارانتی تعویض</p>
+        <p>گارانتی یکساله محصولات</p>
+
+
+    </div>
+</div>
+
+@{
+    if (CultureInfo.CurrentCulture.Name == "fa-IR")
+    {
+        <script src="~/Scripts/js/jQuery.persianNumbers-1.0.js"></script>
+        <script>
+            $(document).ready(function () {
+                debugger;
+                $(".jumbotron > p").each(function () {
+                    debugger;
+                    var value = $(this).text();
+                    var res = $.persianNumbers(value);
+                    $(this).text(res);
+                })
+
+             
+
+
+            })
+        </script>
+
+    }
+}

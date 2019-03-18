@@ -1,9 +1,4 @@
-/*--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
+
 body {
     background: #fff;
     font-family: 'Lato-Regular';
@@ -15,31 +10,48 @@ body {
         -o-transition: 0.5s all;
         -moz-transition: 0.5s all;
         -ms-transition: 0.5s all;
-        text-decoration:none;
+        text-decoration: none;
     }
 
-    body a:hover{
-        text-decoration:none;
+        body a:hover {
+            text-decoration: none;
+        }
+
+
+li a {
+    font-size: 1.2em;
+    font-weight: 900;
+}
+
+.top-footer {
+    color: #333;
+    font-size: medium;
+}
+
+    .top-footer:hover {
+        color: #333;
+        text-decoration: none;
     }
 
 @font-face {
     font-family: 'Lora-Regular';
-    src: url(../fonts/Lora-Regular.ttf) format('truetype');
+    src: url(/fonts/Lora-Regular.ttf) format('truetype');
 }
+
 
 @font-face {
     font-family: 'Muli-Regular';
-    src: url(../fonts/Muli-Regular.ttf) format('truetype');
+    src: url(/fonts/Muli-Regular.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'Lato-Regular';
-    src: url(../fonts/Lato-Regular.ttf) format('truetype');
+    src: url(/fonts/Lato-Regular.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'BreeSerif-Regular';
-    src: url(../fonts/BreeSerif-Regular.ttf) format('truetype');
+    src: url(/fonts/BreeSerif-Regular.ttf) format('truetype');
 }
 /*--starts-logo--*/
 .logo {
@@ -78,10 +90,16 @@ body {
     font-size: 0.875em;
     font-family: 'Lato', sans-serif;
     position: relative;
+    background-color:white;
 }
-
+.search-result {
+    text-align: center;
+    font-family: Arial;
+    font-size: 28px;
+    height: 150px;
+}
 .search-bar input[type="submit"] {
-    background: url(../images/search.png)no-repeat 0px 0px;
+    background: url('/images/search.png')no-repeat 0px 0px;
     outline: none;
     -webkit-appearance: none;
     border: 0;
@@ -826,15 +844,17 @@ a.mask {
 
 .srchbottom {
     position: absolute;
-    bottom: 9%;
-    right: 16px;
+    bottom: 20%;
+    right: 15px;
 }
+
     .srchbottom span {
-        background: #b71b2e;
+        background: #ef5661;
         color: white;
         font-size: 15px;
         font-weight: 400;
         padding: 10px 25px;
+        border-top-left-radius: 10px;
     }
     /*.srchbottom {
     background: #f58282;
@@ -1015,6 +1035,13 @@ a.mask {
 
 .footer {
     padding: 3em 0px;
+    background-color: #ddd;
+    margin-top: 50px;
+}
+
+.footer-top {
+    background-color: #ccc;
+    min-height: 100px;
 }
 
 .footer-right {
@@ -1847,7 +1874,7 @@ span.name {
     color: #000;
     margin: 0 0 0 0;
     font-family: 'BreeSerif-Regular';
-    text-align:left;
+    text-align: left;
 }
 
 .star-on {
@@ -1889,23 +1916,88 @@ ul.star-footer li i {
     float: left;
     margin-left: 2em;
 }
-    .review a{
-        color:red;
+
+    .review a {
+        color: red;
     }
-    .single-para h5 {
-        color: #000;
-        font-size: 2.3em;
-        border-bottom: 1px solid #E6E6E6;
-        margin: 0;
-        padding: 17px 0 6px 0;
-    }
+
+.single-para h5 {
+    color: #000;
+    font-size: 2.3em;
+    border-bottom: 1px solid #E6E6E6;
+    margin: 0;
+    padding: 17px 0 6px 0;
+}
 
 .single-para p {
     font-size: 15px;
     color: #000;
     line-height: 1.8em;
-    margin: 1em 0 0 0;
+    margin: 4em 0 0 0;
 }
+
+.footer {
+    padding: 0px 0px 3em;
+    background-color: #ddd;
+    margin-top: 50px;
+}
+
+.icon-footer {
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.footer-top {
+    padding: 2em 0px;
+    top: 0;
+    background-color: #ccc;
+    min-height: 100px;
+}
+
+.icon-box {
+    padding-left: 80px;
+}
+
+.footer-top strong {
+    text-align: left;
+    line-height: 40px;
+    padding-left: 15px;
+    font-family: Arial;
+    font-size: medium;
+}
+
+.footer-email-content {
+    margin-top: 20px;
+    padding: 0px 0px;
+}
+
+.footer-email-title {
+    padding-left: 15px;
+}
+
+.footer-bottom {
+    direction: ltr;
+    padding: 3em 3em !important;
+    text-align: left;
+}
+
+    .footer-bottom strong {
+        font-family: Arial;
+        font-size: 1.1em;
+        font-weight: 800;
+    }
+
+    .footer-bottom p {
+        text-align: left;
+        margin: 10px 0 0 !important;
+    }
+
+        .footer-bottom p a span {
+            font-family: Arial;
+            font-size: small;
+            color: #333333;
+        }
 
 .available {
     padding: 1em 0;
@@ -2325,7 +2417,7 @@ h3.ghj {
     }
 
     .header-left {
-        width: 72%;
+        width: 100%;
         float: left;
     }
 
@@ -3221,7 +3313,7 @@ h3.ghj {
     }
 
     .header-left {
-        width: 65%;
+        width: 100%;
     }
 
     .search-bar input[type="text"] {
@@ -3405,7 +3497,7 @@ h3.ghj {
         }
 
     .header-left {
-        width: 60%;
+        width: 100%;
         padding-right: 10px;
     }
 
@@ -3766,4 +3858,50 @@ h3.ghj {
         font-size: 12px;
     }
 }
+
+.item_price {
+    float: left;
+    padding-left: 0;
+    padding-right: 2%;
+}
+
+.tbl-info {
+    margin-top: 40px;
+}
+
+    .tbl-info tr:first-child {
+        width: 150px;
+    }
 /*--media-quaries-end-here--*/
+.img-footer-brand {
+    border-radius: 50%;
+}
+.Slider-side {
+    left: 33%;
+    bottom: 40px;
+    min-width: 20%;
+    max-width: 40%;
+    position: absolute;
+    padding: 10px;
+    font-weight: 900;
+    color: #d30909;
+    text-align: center;
+    font-family: 'Lato-Regular';
+    font-size: 22px;
+    border: solid 1px;
+    border-color: #f58282;
+    background-color: #f58282;
+    min-height: 60px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.menu-flow {
+    border: 1px solid #ccc;
+    padding: 0;
+}
+
+.img-menu {
+    width: 100% !important;
+    height: 300px;
+    padding: 0;
+}

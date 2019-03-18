@@ -1,15 +1,31 @@
 ﻿@using WebApp.App_Code.Base;
 @model IEnumerable<ClockStore.DTO.WallPaper>
 
+<div class="banner-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="image-box-banner">
+                    <img style="object-fit: cover" class="img-responsive img-menu" src="~/images/Menu/classic.jpeg" />
+                    <div class="counter-product">
+                        <label>  18:11:00</label>
+                        <span>  زمان باقی مانده تا پایان سفارش</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="about">
     <div class="container">
+
         <div class="about-top grid-1">
             @{
                 foreach (var item in Model)
                 {
                     <div class="col-md-4 about-left">
                         <figure class="effect-bubba">
-                            <img class="img-responsive" src="@FileManager.ImageHandler(item.FileId)" alt="@item.Title" />
+                            <img class="img-responsive" src="@Url.Action("ShowImage", "Home", new {id = item.FileId})" alt="@item.Title" />
                             <figcaption>
                                 <h2>@item.Title</h2>
                                 <p>@item.Description</p>

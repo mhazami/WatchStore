@@ -29,5 +29,8 @@ namespace ClockStore.DTO
         [Required]
         [MaxLength(5)]
         public string LangId { get; set; }
+
+        [MaxLength(250)]
+        public string Link { get; set; }
     }
 }

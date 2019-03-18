@@ -140,7 +140,7 @@ table * {
   position: relative;
 }
 table td, table th {
-  padding-left: 8px;
+  padding-right: 8px;
 }
 table thead tr {
   height: 60px;
@@ -153,7 +153,7 @@ table tbody tr:last-child {
   border: 0;
 }
 table td, table th {
-  text-align: left;
+  text-align: center;
 }
 table td.l, table th.l {
   text-align: right;
@@ -173,6 +173,7 @@ table td.r, table th.r {
     line-height: 1.2;
     font-weight: unset;
     background-color:#7a7575;
+    text-align:center;
 }
 
 tbody tr:nth-child(even) {
@@ -195,7 +196,7 @@ tbody tr:hover {
 
 .column1 {
   width: 260px;
-  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .column2 {
