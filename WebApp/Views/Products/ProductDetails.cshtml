@@ -36,13 +36,37 @@
 @*<script src="~/Scripts/js/imagezoom.js"></script>
     <script src="~/Scripts/js/jquery.flexslider.js"></script>
     <link href="~/Content/css/flexslider.css" rel="stylesheet" />*@
+    <script>
+        $(document).ready(function () {
+            $('.item-product-content').slick({
+                slidesToShow: 4,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                rtl: true,
+                arrows: false, infinite: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                }, {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }]
+            });
+        });
+    </script>
 <input type="hidden" id="Id" value="@Model.ProductId" />
 <div class="single contact">
     <div class="container">
         <div class="single-main">
-            <div class="col-md-10 single-main-left">
+            <div class=" col-lg-12 col-xs-12 col-md-12 col-sm-12 single-main-left">
                 <div class="sngl-top">
-                    <div class="col-md-7 single-top-left col-xs-12">
+                    <div class="col-md-5 single-top-left col-xs-12">
                         <div class="flexslider img-product">
                             <ul class="slides">
                                 <li data-thumb="@Url.Action("ShowImage", "Home", new { id = Model.FileId })">
@@ -58,17 +82,17 @@
                                 }
 
                             </ul>
-                          
+
                         </div>
                         <div class="social-media" style="margin-right:20px;display:inline;height:34.88px;padding: 0.4em 0.8em;width:100%;">
                             <a class="btn btn-share" data-toggle="modal" data-target=".bs-example-modal-lg">
                                 <img src="~/images/icon/share.png" />
-                            </a>    
-                            
-                           
+                            </a>
+
+
                         </div>
-                     
-                    
+
+
                         <!-- FlexSlider -->
                         <script src="~/Scripts/js/imagezoom.js"></script>
                         <script defer src="~/Scripts/js/jquery.flexslider.js"></script>
@@ -103,7 +127,7 @@
                         </script>
 
                     </div>
-                    <div class="col-md-5 single-top-right col-xs-12">
+                    <div class="col-md-4 single-top-right col-xs-12">
                         <div class="single-para simpleCart_shelfItem">
                             <h2>@Model.ProductName</h2>
                             <div class="star-on">
@@ -133,7 +157,7 @@
                                     <a class="color" style="background-color:#34e41f;color:#34e41f"></a>
 
                                 </div>
-                            
+
                                 <div class="item_price">
                                     @{
                                         if (Model.Off > 0)
@@ -153,13 +177,13 @@
                                     <img src="~/images/icon/shopping-bag.png" />@Design.ADDTOCART
                                 </a>
                             </div>
-                            
-                           
+
+
 
                             <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content social-media-modal">
-                                        <div  style="margin-right:20px;display:inline;height:34.88px;padding: 0.4em 0.8em;width:100%;">
+                                        <div style="margin-right:20px;display:inline;height:34.88px;padding: 0.4em 0.8em;width:100%;">
                                             <a target="_blank" class="fa fa-share-alt" title="به اشتراک گذاری" href="https://t.me/share/url?url=http://kookwatch.com/products/ProductDetails?id=@ViewBag.Id&text=@Model.ProductName">
                                                 <img src="~/images/icon/telegram.png" width="35px" />
                                             </a>
@@ -172,7 +196,7 @@
                             </div>
 
                             <!-- Small modal -->
-                        
+
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -200,6 +224,137 @@
                 }
                 <div class="clearfix"> </div>
             </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="list-item-product">
+                    <div class="item-product-head">
+                        <span>پیشنهاد های شگفت انگیز</span>
+                        <input type="button" name="name" value="مشاهده تمامی تخفیف ها" />
+                    </div>
+                    <div class="item-product-content slider">
+
+                        <div class="item-product slide">
+                            <div>
+                                <img class="img-responsive" src="~/images/img-watch-1.jpg" />
+                            </div>
+                            <ul class="price-product">
+                                <li>
+                                    <ul>
+
+                                        <li>
+                                            <span>1,205,000 تومان</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>Casio</span>
+                                        <span>LTP-1303D-7BVDF</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="item-product slide">
+                            <div>
+                                <img class="img-responsive" src="~/images/img-watch-1.jpg" />
+                            </div>
+                            <ul class="price-product">
+                                <li>
+                                    <ul>
+
+                                        <li>
+                                            <span>1,205,000 تومان</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>Casio</span>
+                                        <span>LTP-1303D-7BVDF</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="item-product slide">
+                            <div>
+                                <img class="img-responsive" src="~/images/img-watch-1.jpg" />
+                            </div>
+                            <ul class="price-product">
+                                <li>
+                                    <ul>
+                                        <li>
+                                            <span>2,205,000 </span>
+                                        </li>
+                                        <li>
+                                            <span>1,205,000 </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>Casio</span>
+                                        <span>LTP-1303D-7BVDF</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="item-product slide">
+                            <div>
+                                <img class="img-responsive" src="~/images/img-watch-1.jpg" />
+                            </div>
+                            <ul class="price-product">
+                                <li>
+                                    <ul>
+                                        <li>
+                                            <span>2,205,000 </span>
+                                        </li>
+                                        <li>
+                                            <span>1,205,000 </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>Casio</span>
+                                        <span>LTP-1303D-7BVDF</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="item-product slide">
+                            <div>
+                                <img class="img-responsive" src="~/images/img-watch-1.jpg" />
+                                <div class="discount-price">
+                                    40%
+                                </div>
+                            </div>
+                            <ul class="price-product">
+                                <li>
+                                    <ul>
+                                        <li>
+                                            <span class="discounted">2,205,000 تومان </span>
+                                        </li>
+                                        <li>
+                                            <span>1,205,000 تومان </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>Casio</span>
+                                        <span>LTP-1303D-7BVDF</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="clearfix"> </div>
             <hr />
             <div>
@@ -219,3 +374,4 @@
         })
     </script>
 
+</div>

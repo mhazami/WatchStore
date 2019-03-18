@@ -28,21 +28,22 @@
                                 }
                                 <div class="col-md-3 product-left">
                                     <div class="product-main simpleCart_shelfItem">
-                                        <a href="/Products/ProductDetails?id=@Model[i].ProductId" class="mask"><img class="img-responsive zoom-img" src="@Url.Action("ShowImage", "Home", new { id = Model[i].FileId })" alt="@Model[i].ProductName" /></a>
+                                        @{
+                                            if (Model[i].Off != 0)
+                                            {
+                                                <div class="discount-price">
+                                                    <span id="@Model[i].ProductId+off" style="color:white;">-@Model[i].Off%</span>
+
+                                                </div>
+                                            }
+                                        }
+                                        <a href="/Products/ProductDetails?id=@Model[i].ProductId" class="mask"><img class="img-responsive zoom-img" src="@Url.Action("ShowImage", "Home", new {id = Model[i].FileId})" alt="@Model[i].ProductName"/></a>
                                         <div class="product-bottom">
                                             <h3>@Model[i].ProductName</h3>
                                             <p>@WebApp.Resources.Design.Design.EXPLORENOW</p>
                                             <h4>
                                                 <a class="item_add" href="#"><i></i></a> <span id="@Model[i].ProductId+price" class="item_price">@WebApp.Resources.Design.Design.PriceSign @Model[i].Price.ToString("N0")</span>
-                                                @{
-                                                    if (Model[i].Off != 0)
-                                                    {
-                                                        <div class="srchbottom">
-                                                            <span id="@Model[i].ProductId+off" style="color:white;">-@Model[i].Off%</span>
 
-                                                        </div>
-                                                    }
-                                                }
                                             </h4>
 
                                         </div>

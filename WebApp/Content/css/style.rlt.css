@@ -1,11 +1,13 @@
 
 @import url('/Content/css/vazir.css');
+@import url('/Content/css/Yekan.css');
 @import url('/Content/css/BNazanin.css');
 @import url('/Content/css/font-awesome.min.css');
 
+
 body {
-    background: #fff;
-    font-family: calibri;
+    background: #F5F5F5;
+    font-family: Yekan;
 }
 
     body a {
@@ -28,20 +30,21 @@ li a {
 
 
 p, h1, h2, h3, h4, h5, h6, samp, div, a {
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .logo {
     text-align: center;
     padding: 10px 0 10px 0px;
     border-bottom: 1px solid #DEDEDE;
+    background: #fff;
 }
 
     .logo a h1 {
         font-size: 26px;
         color: #000000;
         margin: 0;
-        font-family: calibri;
+        font-family: Yekan;
         text-transform: uppercase;
         display: inline-block;
     }
@@ -67,7 +70,7 @@ p, h1, h2, h3, h4, h5, h6, samp, div, a {
     font-size: 0.875em;
     position: relative;
     background-color: white;
-    font-family: calibri;
+    font-family: Yekan;
     font-size: 14px;
 }
 
@@ -131,12 +134,13 @@ p, h1, h2, h3, h4, h5, h6, samp, div, a {
     display: flex;
     float: right;
 }
-    .box_1 h3 {
-        color: #702428 !important;
-        font-size: 1em;
-        font-weight: 700;
-        margin: 0;
-    }
+
+.box_1 h3 {
+    color: #702428 !important;
+    font-size: 1em;
+    font-weight: 700;
+    margin: 0;
+}
 
 .drop {
     margin-top: 10px;
@@ -144,7 +148,7 @@ p, h1, h2, h3, h4, h5, h6, samp, div, a {
 
 a.simpleCart_empty {
     color: rgba(255, 255, 255, 0.6);
-    font-family: calibri;
+    font-family: Yekan;
     font-size: 11px;
 }
 
@@ -407,6 +411,8 @@ span.simpleCart_total {
 
 .header-bottom {
     padding: 18px 0px;
+    background: #fff;
+    box-shadow: rgba(0,0,0,.05) 0 0 3px 1px;
 }
 /*--end-bottom-header--*/
 /*--banner-Part-starts-Here --*/
@@ -641,7 +647,7 @@ figure.effect-bubba {
         opacity: 0;
         color: #fff;
         font-size: 1.8em;
-        font-family: calibri;
+        font-family: Yekan;
     }
 
         figure.effect-bubba h4.gal {
@@ -663,7 +669,7 @@ figure.effect-bubba {
         transform: translate3d(0,20px,0);
         color: #fff;
         font-size: 1em;
-        font-family: calibri;
+        font-family: Yekan;
     }
 
     figure.effect-bubba:hover figcaption::before,
@@ -692,8 +698,11 @@ figure.effect-bubba {
 }
 
 .product-main {
-    padding: 1em 0px 2.7em 0px;
+    position: relative;
+    padding: 1em 0px 0 0px;
+    height: 425px;
     border: 1px solid #ECEAEA;
+    overflow: hidden
 }
 
 .product {
@@ -705,14 +714,14 @@ figure.effect-bubba {
     color: #000;
     margin: 0;
     text-transform: uppercase;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .product-bottom h4 span {
     font-size: 17px;
     color: #000;
     margin: 5px 0 0 0;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .product-bottom h4 i {
@@ -730,6 +739,7 @@ figure.effect-bubba {
 
 .product-bottom {
     text-align: right;
+    position: absolute;
     margin-top: 20px;
     padding-right: 30px;
 }
@@ -748,27 +758,25 @@ figure.effect-bubba {
 img.zoom-img {
     -webkit-transform: scale(1, 1);
     -webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 250ms;
+    -webkit-transition-duration: 100ms;
     -moz-transform: scale(1, 1);
     -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 250ms;
+    -moz-transition-duration: 100ms;
     margin: 0 auto;
+
 }
 
 .product-left:hover img.zoom-img {
-    -webkit-transform: scale(1.05);
+    -webkit-transform: translateY(21%) translateX(-49%) scale(1.7);
     -webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 700ms;
-    -moz-transform: scale(1.05);
+    -moz-transform: translateY(21%) translateX(-49%) scale(1.7);
     -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 700ms;
     overflow: hidden;
     cursor: pointer;
 }
 
 a.mask {
     text-decoration: none;
-    overflow: hidden;
     display: block;
     padding: 12px 0px;
 }
@@ -791,13 +799,17 @@ a.mask {
     -ms-transition: 0.5s all ease;
 }
 
+.product-left .product-main {
+    transition: 0.2s all ease;
+    -webkit-transition: 0.2s all ease;
+    -moz-transition: 0.2s all ease;
+    -o-transition: 0.2s all ease;
+    -ms-transition: 0.2s all ease;
+    box-shadow: 0 0 15px 0 transparent
+}
 .product-left:hover .product-main {
-    border: 1px solid #73B6E1;
-    transition: 0.5s all ease;
-    -webkit-transition: 0.5s all ease;
-    -moz-transition: 0.5s all ease;
-    -o-transition: 0.5s all ease;
-    -ms-transition: 0.5s all ease;
+
+    box-shadow: 0 0 15px 0 hsla(0,0%,6%,.25)
 }
 
 .product-left:hover .srch {
@@ -854,7 +866,7 @@ a.mask {
     font-size: 1.5em;
     color: #000;
     margin: 0 0 0 0;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .infor-left ul li a span {
@@ -908,7 +920,7 @@ a.mask {
         .infor-left ul li a h6 {
             color: #999;
             font-size: 13px;
-            font-family: calibri;
+            font-family: Yekan;
             margin: 0 0 0 10px;
             display: inline-block;
             vertical-align: middle;
@@ -1018,7 +1030,6 @@ a.mask {
 }
 
 .icon-footer {
-    float: right;
     width: 40px;
     height: 40px;
 }
@@ -1031,6 +1042,7 @@ a.mask {
 }
 
 .icon-box {
+    text-align: center;
     padding-right: 80px;
 }
 
@@ -1038,9 +1050,9 @@ a.mask {
     text-align: right;
     line-height: 40px;
     padding-right: 15px;
-    font-family: calibri;
+    font-family: Yekan;
     font-size: medium;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .top-footer {
@@ -1069,7 +1081,7 @@ a.mask {
 }
 
     .footer-bottom strong {
-        font-family: calibri;
+        font-family: Yekan;
         font-size: 1.1em;
         font-weight: 800;
     }
@@ -1080,7 +1092,7 @@ a.mask {
     }
 
         .footer-bottom p a span {
-            font-family: calibri;
+            font-family: Yekan;
             font-size: small;
             color: #333333;
         }
@@ -1228,7 +1240,7 @@ a.mask {
     text-transform: uppercase;
     margin-bottom: 0;
     font-size: 16px;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .sky-form section {
@@ -1617,7 +1629,7 @@ a.mask {
 /*--breadcrumbs-end--*/
 /*--contact-starts--*/
 .contact {
-    padding: 6em 0px;
+    padding: 3em 0px;
 }
 
 .contact-top {
@@ -1636,7 +1648,7 @@ a.mask {
     padding: 15px 10px;
     outline: none;
     border: 1px solid #000;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .contact-right textarea {
@@ -1649,7 +1661,7 @@ a.mask {
     outline: none;
     border: 1px solid #000;
     margin-top: 1.4%;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .submit-btn input[type=submit] {
@@ -1660,7 +1672,7 @@ a.mask {
     margin: 20px 0 0 0px;
     border: 1px solid #000;
     background: none;
-    font-family: calibri;
+    font-family: Yekan;
     outline: none;
 }
 
@@ -1724,7 +1736,7 @@ a.mask {
     font-size: 1.7em;
     color: #73b6e1;
     margin: 0 0 0 0;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .account-top, .register-top {
@@ -1747,7 +1759,7 @@ a.mask {
     padding: 8px 10px;
     outline: none;
     border: 1px solid #000;
-    font-family: calibri;
+    font-family: Yekan;
     font-size: 14px;
     margin-bottom: 20px;
 }
@@ -1764,7 +1776,7 @@ a.mask {
     font-size: 14px;
     color: #666;
     font-weight: 500;
-    font-family: calibri;
+    font-family: Yekan;
     margin-right: 20px;
 }
 
@@ -1781,7 +1793,7 @@ a.mask {
     text-transform: uppercase;
     border: none;
     outline: none;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
     .address input[type="submit"]:hover {
@@ -1888,7 +1900,7 @@ span.cost {
         font-size: 2em;
         color: #000;
         margin: 0 0 0 0;
-        font-family: calibri;
+        font-family: Yekan;
     }
 
 .ckeck-top {
@@ -1914,7 +1926,7 @@ span.name {
     font-size: 29px;
     color: #565656;
     margin: 0 0 0 0;
-    font-family: calibri;
+    font-family: Yekan;
     background: #fafafa;
     text-align: right;
 }
@@ -2023,7 +2035,7 @@ ul.tag-men {
         margin: 5px 0;
         font-weight: 300;
         font-size: 0.9em;
-        font-family: calibri;
+        font-family: Yekan;
     }
 
         ul.tag-men li span.women1 {
@@ -2240,14 +2252,14 @@ h3.ghj {
     font-size: 1.8em;
     margin: 0 0 1em 0;
     color: #73B6E1;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .heading h2 {
     font-size: 2.2em;
     margin: 0 0 0 0;
     color: #000;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .typo-top {
@@ -2427,11 +2439,12 @@ h3.ghj {
 
     .search-bar input[type="submit"] {
         right: 30px;
+    }
 
-    }
     .top-header-left {
-        padding: 8px 15px 0 6px!important;
+        padding: 8px 15px 0 6px !important;
     }
+
     .dropdown div {
         left: 3px;
         top: 33px;
@@ -2467,6 +2480,7 @@ h3.ghj {
 
     .product-main {
         padding: 1em 0px 1.9em 0px;
+        position: relative
     }
 
     .infor-top {
@@ -2559,13 +2573,13 @@ h3.ghj {
     .top-header-left .box_1 p a {
         font-size: 12px
     }
+
     .single-top-left.col-xs-12 .thumb-image {
         margin-right: 3%;
     }
 
     .single-top-left.col-xs-12 {
         width: 100% !important
-
     }
 
 
@@ -3887,9 +3901,9 @@ h3.ghj {
 }
 
 .tb-info {
-    width: 20%;
+    width: 8%;
     text-align: center;
-    font-family: calibri;
+    font-family: Yekan;
 }
 
 .img-footer-brand {
@@ -3906,7 +3920,7 @@ h3.ghj {
     font-weight: 900;
     color: #d30909;
     text-align: center;
-    font-family: calibri;
+    font-family: Yekan;
     font-size: 22px;
     border: solid 1px;
     border-color: #f58282;
@@ -3918,11 +3932,19 @@ h3.ghj {
 
 .search-result {
     text-align: center;
-    font-family: calibri;
+    font-family: Yekan;
     font-size: 28px;
     height: 150px;
 }
 
+.tb-info strong {
+    font-weight: normal!important
+}
+.tb-info ~ td {
+    text-align: right !important;
+    width: 10%;
+    color: #a2a2a2 !important
+}
 .menu-flow {
     border: 1px solid #ccc;
     padding: 15px;
@@ -4006,7 +4028,7 @@ h3.ghj {
     border-top: 1px solid #c7c7c7;
     font-size: 34px;
     text-align: right;
-    width: 25%;
+    width: 15%;
 }
 
     .counter-product > span, .counter-product > label {
@@ -4071,14 +4093,17 @@ h3.ghj {
         max-height: 750px;
     }
 }
+
 .top-header-left {
     padding: 8px 0 0 0;
 }
+
 @media screen and (max-width: 768px) {
     .top-header-left {
         padding: 6px !important;
-        padding-top: 13px!important;
+        padding-top: 13px !important;
     }
+
     .slide-text label {
         font-size: 18px;
         margin: 0;
@@ -4269,6 +4294,7 @@ h3.ghj {
 .single-main .nav-tabs > li > a, .single-main .nav-tabs > li.active > a, .single-main .nav-tabs > li.active > a:focus, .single-main .nav-tabs > li.active > a:hover {
     background: #FAFAFA;
     border: none;
+    font-weight: normal
 }
 
 .single-main .nav-tabs > li > a {
@@ -4294,7 +4320,7 @@ h3.ghj {
 
 .image-box-banner .img-menu {
     width: 100% !important;
-    height: 390px;
+    height: 470px;
     padding: 0;
 }
 
@@ -4302,6 +4328,7 @@ h3.ghj {
     .thumb-image {
         margin-right: 36px !important;
     }
+
     .image-box-banner .img-menu {
         height: 280px;
     }
@@ -4313,8 +4340,182 @@ h3.ghj {
 
 .image-box-banner {
     position: relative;
-    padding: 15px;
+    padding: 15px 0;
 }
+
+.discounts-box {
+    padding: 0 8px;
+}
+
+    .discounts-box > div {
+        padding: 0 7px;
+    }
+
+.list-item-product {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+}
+
+.img-banner a img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 400px
+}
+
+
+
+.img-banner {
+    padding: 0 11px;
+}
+.img-banner > div {
+    margin: 3px 0;
+    padding: 0 4px;
+}
+
+.item-product-content {
+    padding: 13px 20px 8px 20px
+}
+
+.item-product-contnet, .item-product-head {
+    padding: 10px;
+}
+
+.item-product-head {
+    border-bottom: 1px solid #ececec;
+}
+
+.item-product {
+    outline: none;
+    float: right !important
+}
+
+    .item-product > div {
+        position: relative;
+        padding: 5px;
+    }
+
+.price-product {
+    margin-top: 35px;
+    display: flex;
+    border-top: 1px solid #ddd
+}
+
+    .price-product > li:first-child {
+        border-left: 1px solid #ebebeb
+    }
+
+    .price-product > li {
+        width: 50%;
+        color: #17a74a;
+        font-family: iyekan,Verdana,Tahoma,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 13px;
+    }
+
+.discounted {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    font-size: 12px;
+    color: #747474;
+}
+
+    .discounted:after {
+        content: "";
+        top: 8px;
+        border-top: 1px solid #d04a4a;
+        display: block;
+        width: 100%;
+        position: absolute;
+    }
+
+.price-product ul li:last-child {
+    margin: -5px 0px;
+}
+
+.price-product > li {
+    padding-top: 7px;
+}
+
+.price-product li a {
+    font-size: 12px;
+    color: #a5a5a5;
+    font-weight: normal;
+    text-align: center
+}
+
+    .price-product li a span {
+        display: block;
+    }
+
+.discount-price {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    display: inline-block;
+    background: #e57373;
+    width: auto;
+    height: 30px;
+    line-height: 32px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 0 15px;
+}
+
+    .discount-price:after {
+        content: " ";
+        height: 22px;
+        width: 22px;
+        background: #e57373;
+        position: absolute;
+        top: 4px;
+        right: -9px;
+        border-radius: 4px;
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    .discount-price:before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        background: #fff;
+        position: absolute;
+        top: 12px;
+        right: 0px;
+        z-index: 1;
+        border-radius: 10px;
+    }
+
+
+
+.item-product-head span {
+    font-size: 16px;
+    color: #787878;
+}
+
+.item-product-head {
+    padding: 20px 14px;
+}
+
+    .item-product-head input[type="button"] {
+        border: none;
+        float: left;
+        background: transparent;
+        color: #ee2323;
+        outline: none
+    }
 
 @media(max-width:550px) {
     .counter-product {
@@ -4322,7 +4523,6 @@ h3.ghj {
         width: 43%;
         left: 16px;
     }
-
 }
 
 @media(max-width:420px) {
@@ -4331,8 +4531,83 @@ h3.ghj {
         width: 52%;
         left: 16px;
     }
+
     .top-header-left {
         padding: 0px 5px !important;
-        padding-top: 6px!important;
+        padding-top: 6px !important;
     }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+    .img-banner  a img {
+        height: 150px;
+    }
+
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+
+
+@media (min-width: 1300px) {
+    .container {
+        width: 90%;
+    }
+    .img-banner  a img {
+        height: 350px;
+    }
+}
+
+.single .container {
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    .single .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .single .container {
+        width: 970px;
+    }
+    .product .container {
+        width: 1200px;
+    }
+
+    }
+
+@media (min-width: 1200px) {
+    .single .container {
+        width: 1170px;
+    }
+}
+
+@media(min-width: 1300px) {
+    .single .container {
+        width: 1270px !important;
+    }
+}
+
+.container .single-main, .product .container{
+    padding: 15px;
+    background: #fff
+}
+
+
+
+.single-main .single-main-left {
+    float: none;
+    margin: auto;
 }

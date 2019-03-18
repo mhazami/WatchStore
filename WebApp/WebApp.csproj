@@ -370,12 +370,14 @@
     <Content Include="Content\css\style.rlt.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\util.css" />
+    <Content Include="Content\css\Yekan.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\css\vazir.css" />
+    <Content Include="fonts\Yekan.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\11.png" />
@@ -410,6 +412,7 @@
     <Content Include="images\Error\label.png" />
     <Content Include="images\Error\woody-404.jpg" />
     <Content Include="images\Error\woody-404.png" />
+    <Content Include="images\father2.png" />
     <Content Include="images\icon\en-icon.png" />
     <Content Include="images\icon\fa-icon.png" />
     <Content Include="images\icon\icon-shiping.png" />
@@ -423,6 +426,7 @@
     <Content Include="images\icon\shopping-bag.png" />
     <Content Include="images\icon\telegram.png" />
     <Content Include="images\icon\whatsapp.png" />
+    <Content Include="images\img-watch-1.jpg" />
     <Content Include="images\Menu\classic.jpeg" />
     <Content Include="images\Menu\Clock.jpg" />
     <Content Include="images\Menu\deals.jpg" />
@@ -449,6 +453,16 @@
     <Content Include="images\search.png" />
     <Content Include="images\star.png" />
     <Content Include="images\tick.png" />
+    <Content Include="images\watch-1.jpg" />
+    <Content Include="images\watch-banner-10.jpg" />
+    <Content Include="images\watch-banner-11.jpg" />
+    <Content Include="images\watch-banner-3.jpg" />
+    <Content Include="images\watch-banner-4.jpg" />
+    <Content Include="images\watch-banner-5.jpg" />
+    <Content Include="images\watch-banner-6.jpg" />
+    <Content Include="images\watch-banner-7.jpg" />
+    <Content Include="images\watch-banner-8.jpg" />
+    <Content Include="images\watch-banner-9.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -513,6 +527,9 @@
     <Content Include="fonts\BNaznnBd.ttf" />
     <Content Include="fonts\BNaznnBd.woff" />
     <Content Include="fonts\BNaznnBd.woff2" />
+    <Content Include="fonts\Yekan.ttf" />
+    <Content Include="fonts\Yekan.eot" />
+    <Content Include="fonts\Yekan.woff" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile10.pubxml" />

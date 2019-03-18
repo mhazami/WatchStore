@@ -5,6 +5,7 @@
     list-style: none;
     display: inline-block;
     position: relative;
+    text-align: center;
     font-size: 18px;
 }
 
@@ -23,14 +24,17 @@
         -webkit-transition: color .4s ease-in-out;
         -o-transition: color .4s ease-in-out;
     }
-
+.memenu > li {
+    position: relative
+}
     .memenu > li > .mepanel {
         position: absolute;
         display: none;
         background: #fff;
-        width: 50%;
+        width: max-content;
+        width: -moz-max-content;
         top: 47px;
-        right: 0%;
+        right: 0;
         z-index: 9999999;
         padding: 20px 0 20px 30px;
         border: solid 1px #ccc;
@@ -201,14 +205,14 @@
     }
 
 .skyblue li > a, .skyblue > li.showhide span {
-    color: #000;
+    color: #525252;
+    font-weight: normal;
 }
 
 .skyblue > li:hover > a, .skyblue > li.active > a, .skyblue .dropdown li:hover > a {
     color: #73B6E1;
 }
 
-.
 skyblue .mepanel img:hover, .skyblue form.contact input[type="text"]:focus, .skyblue form.contact textarea:focus {
     border: solid 1px #0194be;
 }

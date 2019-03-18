@@ -1,12 +1,42 @@
 ﻿@using WebApp.App_Code.Base;
 @model IEnumerable<ClockStore.DTO.WallPaper>
 
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('.item-product-content').slick({
+            slidesToShow: 4,
+            autoplay: true,
+            autoplaySpeed: 1500,
+            rtl: true,
+            arrows: false, infinite: false,
+            dots: false,
+            pauseOnHover: false,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            }, {
+                breakpoint: 520,
+                settings: {
+                    slidesToShow: 1
+                }
+            }]
+        });
+    });
+</script>
 <div class="banner-box">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="image-box-banner">
-                    <img style="object-fit: cover" class="img-responsive img-menu" src="~/images/Menu/classic.jpeg" />
+                    @*<img  class="img-responsive img-menu" src="~/images/Menu/classic.jpeg" />*@
+                    <img class="img-responsive img-menu" style="object-fit: cover" src="~/images/watch-1.jpg" />
                     <div class="counter-product">
                         <label>  18:11:00</label>
                         <span>  زمان باقی مانده تا پایان سفارش</span>
@@ -16,29 +46,208 @@
         </div>
     </div>
 </div>
-<div class="about">
-    <div class="container">
 
-        <div class="about-top grid-1">
-            @{
-                foreach (var item in Model)
-                {
-                    <div class="col-md-4 about-left">
-                        <figure class="effect-bubba">
-                            <img class="img-responsive" src="@Url.Action("ShowImage", "Home", new {id = item.FileId})" alt="@item.Title" />
-                            <figcaption>
-                                <h2>@item.Title</h2>
-                                <p>@item.Description</p>
-                            </figcaption>
-                        </figure>
+<div class="container">
+    <div class="discounts-box row">
+        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+            <div class="list-item-product">
+                <div class="item-product-head">
+                    <span>پیشنهاد های شگفت انگیز</span>
+                    <input type="button" name="name" value="مشاهده تمامی تخفیف ها" />
+                </div>
+                <div class="item-product-content slider">
+
+                    <div class="item-product slide">
+                        <div>
+                            <img class="img-responsive" src="~/images/img-watch-1.jpg" />
+                        </div>
+                        <ul class="price-product">
+                            <li>
+                                <ul>
+
+                                    <li>
+                                        <span>1,205,000 تومان</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Casio</span>
+                                    <span>LTP-1303D-7BVDF</span>
+                                </a>
+                            </li>
+
+                        </ul>
                     </div>
-                }
-            }
-            <div class="clearfix"></div>
+
+                    <div class="item-product slide">
+                        <div>
+                            <img class="img-responsive" src="~/images/img-watch-1.jpg" />
+                        </div>
+                        <ul class="price-product">
+                            <li>
+                                <ul>
+
+                                    <li>
+                                        <span>1,205,000 تومان</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Casio</span>
+                                    <span>LTP-1303D-7BVDF</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="item-product slide">
+                        <div>
+                            <img class="img-responsive" src="~/images/img-watch-1.jpg" />
+                        </div>
+                        <ul class="price-product">
+                            <li>
+                                <ul>
+                                    <li>
+                                        <span>2,205,000 </span>
+                                    </li>
+                                    <li>
+                                        <span>1,205,000 </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Casio</span>
+                                    <span>LTP-1303D-7BVDF</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="item-product slide">
+                        <div>
+                            <img class="img-responsive" src="~/images/img-watch-1.jpg" />
+                        </div>
+                        <ul class="price-product">
+                            <li>
+                                <ul>
+                                    <li>
+                                        <span>2,205,000 </span>
+                                    </li>
+                                    <li>
+                                        <span>1,205,000 </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Casio</span>
+                                    <span>LTP-1303D-7BVDF</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="item-product slide">
+                        <div>
+                            <img class="img-responsive" src="~/images/img-watch-1.jpg" />
+                            <div class="discount-price">
+                                40%
+                            </div>
+                        </div>
+                        <ul class="price-product">
+                            <li>
+                                <ul>
+                                    <li>
+                                        <span class="discounted">2,205,000 تومان </span>
+                                    </li>
+                                    <li>
+                                        <span>1,205,000 تومان </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Casio</span>
+                                    <span>LTP-1303D-7BVDF</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-4 col-xs-12 col-md-3">
+            <img class="img-responsive " style="object-fit: cover" src="~/images/father2.png" />
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="row img-banner">
+        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+            <a href="#">
+                <img src="~/images/watch-banner-3.jpg" />
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-sm-6 col-md-6 col-xs-12">
+            <a href="#">  <img src="~/images/watch-banner-11.jpg" /></a>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-md-6 col-xs-12">
+            <a href="#">    <img src="~/images/watch-banner-10.jpg" /></a>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-md-6 col-xs-12">
+            <a href="#">    <img src="~/images/watch-banner-9.jpg" /></a>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-md-6 col-xs-12">
+            <a href="#">  <img src="~/images/watch-banner-8.jpg" /></a>
+        </div>
+
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+            <a href="#">
+                <img src="~/images/watch-banner-4.jpg" />
+            </a>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+            <a href="#">
+                <img src="~/images/watch-banner-5.jpg" />
+            </a>
         </div>
     </div>
 </div>
 
+
+
+@*<div class="about">
+        <div class="container">
+
+            <div class="about-top grid-1">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <div class="col-md-4 about-left">
+                            <figure class="effect-bubba">
+                                <img class="img-responsive" src="@Url.Action("ShowImage", "Home", new {id = item.FileId})" alt="@item.Title" />
+                                <figcaption>
+                                    <h2>@item.Title</h2>
+                                    <p>@item.Description</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    }
+                }
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>*@
 
 
 
