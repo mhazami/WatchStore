@@ -3860,8 +3860,9 @@ h3.ghj {
 }
 
 .item_price {
-    float: left;
+    float: right;
     padding-left: 0;
+    width: 100%;
     padding-right: 2%;
 }
 
@@ -3895,6 +3896,8 @@ h3.ghj {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
+
+
 .menu-flow {
     border: 1px solid #ccc;
     padding: 0;
