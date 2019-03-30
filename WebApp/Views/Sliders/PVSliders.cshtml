@@ -2,51 +2,53 @@
 @model IEnumerable<ClockStore.DTO.Slider>
 
 
-<div class="bnr" id="home">
-    <div id="top" class="callbacks_container">
-        <ul class="rslides" id="slider4">
-            @{
-                foreach (var item in Model)
-                {
+<div class="container">
+    <div class="bnr" id="home">
+        <div id="top" class="callbacks_container">
+            <ul class="rslides" id="slider4">
+                @{
+                    foreach (var item in Model)
+                    {
 
-                    <li>
+                        <li>
 
 
-                        <a href="@item.Link">
-                            <img src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" alt="@item.Title" />
-                        </a>
+                            <a href="@item.Link">
+                                <img src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" alt="@item.Title" />
+                            </a>
                        
                         
 
-                        @{
-                            if (!string.IsNullOrEmpty(item.Description))
-                            {
-                                <div class="slide-text">
-                                    <div class="flag-slide">تخفیف تا 50%</div>
-                                    <label>حراج بزرگ </label>
-                                    <span>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</span>
-                                    <a href="@item.Link">
-                                        <span>  خرید</span>
-                                        <img src="~/images/arrow-left.png" />
+                            @{
+                                if (!string.IsNullOrEmpty(item.Description))
+                                {
+                                    <div class="slide-text">
+                                        <div class="flag-slide">تخفیف تا 50%</div>
+                                        <label>حراج بزرگ </label>
+                                        <span>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</span>
+                                        <a href="@item.Link">
+                                            <span>  خرید</span>
+                                            <img src="~/images/arrow-left.png" />
 
-                                    </a>
-                                </div>
+                                        </a>
+                                    </div>
                                
+                                }
                             }
-                        }
 
-                    </li>
-
+                        </li>
 
 
+
+                    }
                 }
-            }
-        </ul>
+            </ul>
           
+        </div>
+        <div class="clearfix"> </div>
     </div>
-    <div class="clearfix"> </div>
-</div>
 
+</div>
 
 
 
