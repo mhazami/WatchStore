@@ -37,15 +37,33 @@
                                                 </div>
                                             }
                                         }
-                                        <a href="/Products/ProductDetails?id=@Model[i].ProductId" class="mask"><img class="img-responsive zoom-img" src="@Url.Action("ShowImage", "Home", new {id = Model[i].FileId})" alt="@Model[i].ProductName"/></a>
+
+                                        <a href="/Products/ProductDetails?id=@Model[i].ProductId" class="mask"><img class="img-responsive zoom-img" src="@Url.Action("ShowImage", "Home", new {id = Model[i].FileId})" alt="@Model[i].ProductName" /></a>
                                         <div class="product-bottom">
-                                            <h3>@Model[i].ProductName</h3>
+                                            <p>@Model[i].ProductName</p>
                                             <p>@WebApp.Resources.Design.Design.EXPLORENOW</p>
-                                            <h4>
-                                                <a class="item_add" href="#"><i></i></a> <span id="@Model[i].ProductId+price" class="item_price">@WebApp.Resources.Design.Design.PriceSign @Model[i].Price.ToString("N0")</span>
+                                            <p>یک سال (شرکت پارس آناهید رایان سیستم | پوزیترون)</p>
+                                            <p>
+                                                <a class="item_add" href="#"><i></i></a>
+                                                <strong id="@Model[i].ProductId+price" class="item_price">
+                                                    @Model[i].Price.ToString("N0") <small>
+                                                        @WebApp.Resources.Design.Design.PriceSign
+                                                    </small>
+                                                </strong>
+                                                <span class="withoff">
+                                                    <span class="discounted">2,205,000 تومان </span>
+                                                </span>
 
-                                            </h4>
 
+                                            </p>
+
+                                        </div>
+                                        <div class="detail-product-list">
+
+                                            <span> کوارتز</span>
+                                            <span>با منبع باتری</span>
+                                            <span> استیل</span>
+                                            <span>42mm</span>
                                         </div>
                                         @*<div class="srch">
                                                 <span>-50%</span>
