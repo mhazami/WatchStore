@@ -10,3 +10,15 @@ C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Releas
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Release\DTO.csproj.CopyComplete
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Release\ClockStore.DTO.dll
 C:\Users\M-Azami\Documents\Visual Studio 2017\Projects\ClockStore\DTO\obj\Release\ClockStore.DTO.pdb
+E:\WorkSpace\WatchStore\WatchStore\DTO\bin\Release\ClockStore.DTO.dll.config
+E:\WorkSpace\WatchStore\WatchStore\DTO\bin\Release\ClockStore.DTO.dll
+E:\WorkSpace\WatchStore\WatchStore\DTO\bin\Release\ClockStore.DTO.pdb
+E:\WorkSpace\WatchStore\WatchStore\DTO\bin\Release\EntityFramework.dll
+E:\WorkSpace\WatchStore\WatchStore\DTO\bin\Release\EntityFramework.SqlServer.dll
+E:\WorkSpace\WatchStore\WatchStore\DTO\bin\Release\EntityFramework.xml
+E:\WorkSpace\WatchStore\WatchStore\DTO\bin\Release\EntityFramework.SqlServer.xml
+E:\WorkSpace\WatchStore\WatchStore\DTO\obj\Release\DTO.csprojAssemblyReference.cache
+E:\WorkSpace\WatchStore\WatchStore\DTO\obj\Release\DTO.csproj.CoreCompileInputs.cache
+E:\WorkSpace\WatchStore\WatchStore\DTO\obj\Release\DTO.csproj.CopyComplete
+E:\WorkSpace\WatchStore\WatchStore\DTO\obj\Release\ClockStore.DTO.dll
+E:\WorkSpace\WatchStore\WatchStore\DTO\obj\Release\ClockStore.DTO.pdb

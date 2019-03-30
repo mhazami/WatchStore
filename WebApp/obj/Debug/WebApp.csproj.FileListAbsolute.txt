@@ -551,7 +551,6 @@ E:\WorkSpace\WatchStore\WatchStore\WebApp\bin\ClockStore.BLL.pdb
 E:\WorkSpace\WatchStore\WatchStore\WebApp\bin\ClockStore.BLL.dll.config
 E:\WorkSpace\WatchStore\WatchStore\WebApp\bin\ClockStore.DTO.pdb
 E:\WorkSpace\WatchStore\WatchStore\WebApp\bin\ClockStore.DTO.dll.config
-E:\WorkSpace\WatchStore\WatchStore\WebApp\bin\Azami.Utility.pdb
 E:\WorkSpace\WatchStore\WatchStore\WebApp\bin\EntityFramework.xml
 E:\WorkSpace\WatchStore\WatchStore\WebApp\bin\EntityFramework.SqlServer.xml
 E:\WorkSpace\WatchStore\WatchStore\WebApp\bin\Newtonsoft.Json.xml
