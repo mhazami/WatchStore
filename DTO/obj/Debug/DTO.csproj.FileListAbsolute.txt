@@ -29,6 +29,7 @@ G:\MAzami\Reposiroty\WatchStore\DTO\bin\Debug\EntityFramework.dll
 G:\MAzami\Reposiroty\WatchStore\DTO\bin\Debug\EntityFramework.SqlServer.dll
 G:\MAzami\Reposiroty\WatchStore\DTO\bin\Debug\EntityFramework.xml
 G:\MAzami\Reposiroty\WatchStore\DTO\bin\Debug\EntityFramework.SqlServer.xml
+G:\MAzami\Reposiroty\WatchStore\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
 G:\MAzami\Reposiroty\WatchStore\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 G:\MAzami\Reposiroty\WatchStore\DTO\obj\Debug\DTO.csproj.CopyComplete
 G:\MAzami\Reposiroty\WatchStore\DTO\obj\Debug\ClockStore.DTO.dll
