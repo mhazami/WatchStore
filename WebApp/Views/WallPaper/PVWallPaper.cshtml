@@ -1,8 +1,62 @@
 ﻿@using WebApp.App_Code.Base;
 @model IEnumerable<ClockStore.DTO.WallPaper>
+<style>
+    .disabled {
+        display: none;
+    }
+</style>
+<script src="~/Scripts/js/jquery.countdown.min.js"></script>
+@*<label id="clock">  </label>*@
+@*مهلت خرید*@
+@*<div id="getting-started" style="color: white;background-color: black;direction:ltr"></div>
+    <h2>دیگر</h2>
+    <div id="getting-startedf" style="color: white;background-color: black;direction:ltr"></div>*@
+<script type="text/javascript">
+    //debugger;
+    ////"2018/10/23"
+    //var val = 1 * 60 * 60 * 1000;
+    //var date = new Date('2019/04/04').valueOf() - val;
+    //$("#getting-started")
 
+    //    .countdown(date.toString(), function (event) {
+    //        $(this).text(
 
+    //            event.strftime(' %D day %H : %M : %S ')
+    //        );
+    //    });
+    //var val2 = 5 * 60 * 60 * 1000;
+    //var date2 = new Date('2019/04/04').valueOf();
+    //$("#getting-startedf")
 
+    //    .countdown(date2.toString(), function (event) {
+    //        $(this).text(
+
+    //            event.strftime(' %D day %H : %M : %S ')
+    //        );
+    //    });2019/04/05 12:34:56
+    $(function () {
+        debugger;
+        var date = $('#AdminDate').val();
+        $('#clock').countdown('' + date + '')
+            .on('update.countdown', function (event) {
+                debugger;
+                var format = '%H:%M:%S';
+                if (event.offset.totalDays > 0) {
+                    format = '%-d روز%!d ' + format;
+                }
+                if (event.offset.weeks > 0) {
+                    format = '%-w هفته%!w ' + format;
+                }
+                $(this).html(event.strftime(format));
+            })
+            .on('finish.countdown', function (event) {
+                $(this).html('مهلت این تخفیف به پایان رسیده است')
+                    .parentsUntil('.banner-box').addClass('disabled');
+
+            });
+    })
+
+</script>
 
 
 
@@ -40,15 +94,15 @@
                     @*<img  class="img-responsive img-menu" src="~/images/Menu/classic.jpeg" />*@
                     <img class="img-responsive img-menu" style="object-fit: cover" src="~/images/watch-1.jpg" />
                     <div class="counter-product">
-                        <label>  18:11:00</label>
-                        <span>  زمان باقی مانده تا پایان سفارش</span>
+                        <label id="clock" style="z-index: 14"></label>
+                        <span>  زمان باقی مانده تا پایان نخفیف</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<input id="AdminDate" type="hidden" value="2019/04/05 12:34:56" />
 <div class="container">
     <div class="discounts-box row">
         <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">

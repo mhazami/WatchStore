@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutUsBO.cs" />
+    <Compile Include="AdvertiseBO.cs" />
     <Compile Include="Base\BaseBO.cs" />
     <Compile Include="BasketBO.cs" />
     <Compile Include="CantactBO.cs" />

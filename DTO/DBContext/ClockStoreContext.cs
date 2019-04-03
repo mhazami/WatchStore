@@ -49,8 +49,6 @@ namespace ClockStore.DTO.DBContext
             base.OnModelCreating(modelBuilder);
         }
 
-
-
-
+        public System.Data.Entity.DbSet<ClockStore.DTO.Advertise> Advertises { get; set; }
     }
 }

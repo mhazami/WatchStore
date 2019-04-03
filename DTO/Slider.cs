@@ -26,7 +26,6 @@ namespace ClockStore.DTO
 
         public bool IsMainSlider { get; set; }
 
-        [Required]
         [MaxLength(5)]
         public string LangId { get; set; }
 

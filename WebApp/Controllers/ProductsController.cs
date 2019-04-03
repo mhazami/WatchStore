@@ -42,15 +42,15 @@ namespace WebApp.Controllers
                 && string.IsNullOrEmpty(ToOff)
                 && string.IsNullOrEmpty(FromPrice))
             {
-                list = db.Product.Where(c => c.LangId == LangId).ToList();
+                list = db.Product.ToList();
                 return View(list.ToList());
             }
             else
             {
-                query.Append($"Where LangId='{LangId}'");
+                query.Append($"Where");
             }
             if (!string.IsNullOrEmpty(ProductName))
-                query.Append($" And ProductName LIKE '%{ProductName.Trim()}%' ");
+                query.Append($" ProductName LIKE '%{ProductName.Trim()}%' ");
 
 
 
@@ -272,7 +272,7 @@ namespace WebApp.Controllers
         #region Method
         public ActionResult ProductsList()
         {
-            var list = db.Product.Where(c => c.Count > 0 && c.LangId == CultureInfo.CurrentCulture.Name).ToList();
+            var list = db.Product.Where(c => c.Count > 0).ToList();
             return PartialView("PVProductsList", list);
         }
 
@@ -281,44 +281,44 @@ namespace WebApp.Controllers
         {
             var list = new List<Product>();
             if (cat != 0 && cat != null)
-                list = db.Product.Where(c => c.Count > 0 && c.LangId == CultureInfo.CurrentCulture.Name && c.CategoryId == id && c.Sex == cat).ToList();
+                list = db.Product.Where(c => c.Count > 0 && c.CategoryId == id && c.Sex == cat).ToList();
             else
-                list = db.Product.Where(c => c.Count > 0 && c.LangId == CultureInfo.CurrentCulture.Name && c.CategoryId == id).ToList();
+                list = db.Product.Where(c => c.Count > 0 && c.CategoryId == id).ToList();
             return View(list);
         }
 
         //نمایش لیست محصولات کلاسیک
         public ActionResult Classic()
         {
-            var list = db.Product.Where(c => c.Count > 0 && c.LangId == CultureInfo.CurrentCulture.Name && c.MasterCategory == Enums.MasterCategory.Classic).ToList();
+            var list = db.Product.Where(c => c.Count > 0 && c.MasterCategory == Enums.MasterCategory.Classic).ToList();
             return View("ProducsList", list);
         }
 
         //نمایش محصولات اسپرت
         public ActionResult Sport()
         {
-            var list = db.Product.Where(c => c.Count > 0 && c.LangId == CultureInfo.CurrentCulture.Name && c.MasterCategory == Enums.MasterCategory.Sport).ToList();
+            var list = db.Product.Where(c => c.Count > 0 && c.MasterCategory == Enums.MasterCategory.Sport).ToList();
             return View("ProducsList", list);
         }
 
         //نمایش محصولات بچه گانه
         public ActionResult Kids()
         {
-            var list = db.Product.Where(c => c.Count > 0 && c.LangId == CultureInfo.CurrentCulture.Name && c.Sex == Enums.ProductSex.Kids).ToList();
+            var list = db.Product.Where(c => c.Count > 0 && c.Sex == Enums.ProductSex.Kids).ToList();
             return View("ProducsList", list);
         }
 
         //نمایش محصولات زنانه
         public ActionResult Women()
         {
-            var list = db.Product.Where(c => c.Count > 0 && c.LangId == CultureInfo.CurrentCulture.Name && c.Sex == Enums.ProductSex.Women).ToList();
+            var list = db.Product.Where(c => c.Count > 0 && c.Sex == Enums.ProductSex.Women).ToList();
             return View("ProducsList", list);
         }
 
         //نمایش محصولات مردانه
         public ActionResult Men()
         {
-            var list = db.Product.Where(c => c.Count > 0 && c.LangId == CultureInfo.CurrentCulture.Name && c.Sex == Enums.ProductSex.Men).ToList();
+            var list = db.Product.Where(c => c.Count > 0 && c.Sex == Enums.ProductSex.Men).ToList();
             return View("ProducsList", list);
         }
 
@@ -382,7 +382,7 @@ namespace WebApp.Controllers
 
         public ActionResult SearchResult(string id)
         {
-            var list = db.Product.Where(c => c.ProductName.Contains(id) || c.Description.Contains(id) && c.LangId == CultureInfo.CurrentCulture.Name).ToList();
+            var list = db.Product.Where(c => c.ProductName.Contains(id) || c.Description.Contains(id)).ToList();
             if (list.Any())
                 ViewBag.Res = string.Empty;
             else
@@ -428,6 +428,14 @@ namespace WebApp.Controllers
                 list.Add(obj);
             }
             return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+
+        //محصولات مشابه
+        public ActionResult SameProduct(Guid categoryId)
+        {
+            var list = db.Product.Where(c => c.CategoryId == categoryId).ToList();
+            return PartialView("PVSameProduct", list);
         }
     }
 }

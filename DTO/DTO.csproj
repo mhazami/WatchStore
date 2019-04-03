@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutUs.cs" />
+    <Compile Include="Advertise.cs" />
     <Compile Include="Basket.cs" />
     <Compile Include="BasketOrder.cs" />
     <Compile Include="Cantact.cs" />

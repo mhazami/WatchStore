@@ -174,6 +174,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AdvertisesController.cs" />
     <Compile Include="Controllers\ColorsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -254,6 +255,10 @@
     <Compile Include="Migrations\201901151727306_add_clock_desktop.cs" />
     <Compile Include="Migrations\201901151727306_add_clock_desktop.Designer.cs">
       <DependentUpon>201901151727306_add_clock_desktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904030709423_Remove_LangId.cs" />
+    <Compile Include="Migrations\201904030709423_Remove_LangId.Designer.cs">
+      <DependentUpon>201904030709423_Remove_LangId.cs</DependentUpon>
     </Compile>
     <Compile Include="Resources\Design\Design.fa-IR.Designer.cs">
       <DependentUpon>Design.fa-IR.resx</DependentUpon>
@@ -704,6 +709,12 @@
     <Content Include="Views\Colors\Index.cshtml" />
     <Content Include="Views\Home\PVGetMenu.cshtml" />
     <Content Include="Views\Products\ProducsList.cshtml" />
+    <Content Include="Views\Advertises\Create.cshtml" />
+    <Content Include="Views\Advertises\Delete.cshtml" />
+    <Content Include="Views\Advertises\Details.cshtml" />
+    <Content Include="Views\Advertises\Edit.cshtml" />
+    <Content Include="Views\Advertises\Index.cshtml" />
+    <Content Include="Views\Products\PVSameProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -824,6 +835,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901151727306_add_clock_desktop.resx">
       <DependentUpon>201901151727306_add_clock_desktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904030709423_Remove_LangId.resx">
+      <DependentUpon>201904030709423_Remove_LangId.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Design\Design.fa-IR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

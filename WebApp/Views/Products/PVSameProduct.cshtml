@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ClockStore.DTO.Product>
+
+
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="list-item-product discounts-box row">
+        <div class="item-product-head">
+            <span>محصولات مرتبط</span>
+            @*<input type="button" name="name" value="مشاهده تمامی تخفیف ها" />*@
+        </div>
+        <div class="item-product-content slider">
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="item-product slide">
+                        <div>
+                            <a href="/Products/ProductDetails?id=@item.ProductId">
+                                <img class="img-responsive" src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" />
+                                @if (item.Off > 0)
+                                {
+                                    <div class="discount-price">
+                                        @item.Off%
+                                    </div>
+                                }
+
+                            </a>
+                        </div>
+                        <ul class="price-product">
+                            <li>
+                                <ul>
+                                    @{
+                                        if (item.Off > 0)
+                                        {
+                                            <li>
+                                                <span class="discounted">@item.Price.ToString("N0") تومان</span>
+                                            </li>
+                                            <li>
+                                                <span>@item.PriceWithOff.ToString("N0") تومان</span>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            
+                                            <li>
+                                                <span>@item.Price.ToString("N0") تومان</span>
+                                            </li>
+                                        }
+                                    }
+
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>@item.Category.CategoryName</span>
+                                    <span>LTP-1303D-7BVDF</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                }
+            }
+
+
+
+
+        </div>
+    </div>
+</div>

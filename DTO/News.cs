@@ -21,7 +21,6 @@ namespace ClockStore.DTO
         public Guid VideoId { get; set; }
         
 
-        [Required]
         [MaxLength(5)]
         public string LangId { get; set; }
 

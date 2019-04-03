@@ -45,3 +45,4 @@ E:\Repository\WatchStore\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 E:\Repository\WatchStore\DTO\obj\Debug\DTO.csproj.CopyComplete
 E:\Repository\WatchStore\DTO\obj\Debug\ClockStore.DTO.dll
 E:\Repository\WatchStore\DTO\obj\Debug\ClockStore.DTO.pdb
+G:\MAzami\Reposiroty\WatchStore\DTO\obj\Debug\DTO.csprojAssemblyReference.cache

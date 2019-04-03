@@ -14,7 +14,7 @@ namespace ClockStore.DTO
 
         public string Description { get; set; }
 
-        [Required]
+        
         [MaxLength(5)]
         public string LangId { get; set; }
     }

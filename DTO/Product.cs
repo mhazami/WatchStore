@@ -42,7 +42,6 @@ namespace ClockStore.DTO
 
         public bool? IsNewSeason { get; set; }
 
-        [Required(ErrorMessage = "لطفا زبان را وارد کنید")]
         [MaxLength(5)]
         public string LangId { get; set; }
 
