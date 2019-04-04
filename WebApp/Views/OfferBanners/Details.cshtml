@@ -1,0 +1,53 @@
+﻿@model ClockStore.DTO.OfferBanner
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+
+
+<div>
+    <h4>جزئیات بنر</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            تصمیر
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("ShowImage", "Home", new { id = Model.FileId })" style="width:100px;height:100px;" class="thumbnail" />
+
+        </dd>
+        <dt>
+            عنوان
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            زمان
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Timer)
+        </dd>
+
+        <dt>
+            فعال است ؟
+        </dt>
+
+        <dd>
+            @(Model.Enable ? "بله" : "خیر")
+        </dd>
+
+    </dl>
+
+
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("بازگشت", "Index")
+</p>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ClockStore.DTO.OfferCard>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="container-table100">
+    <div class="wrap-table100">
+        <div class="table100">
+            <table>
+                <tr class="table100-head">
+
+                    <th class="column1">
+                        نوع تخفیف
+                    </th>
+                    <th class="column2">
+                        کد تخفیف
+                    </th>
+                    <th class="column3">
+                        مقدار
+                    </th>
+                    <th class="column3">
+                        فعال است ؟
+                    </th>
+
+                    <th class="column5"></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td class="column1">
+                            @item.OfferType.GetDescription()
+                        </td>
+                        <td class="column2">
+                            @item.OfferCode
+                        </td>
+                        <td class="column3">
+                            @item.OfferAmount
+                        </td>
+                        <td class="column3">
+                            @(item.Enable ? "بله" : "خیر")
+                        </td>
+
+                        <td class="column5">
+                            @Html.ActionLink("ویرایش", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("جزییات", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("حذف", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+</div>

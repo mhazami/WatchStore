@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
-<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,28 +12,30 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.File.ContextType)
+            تصویر
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Enable)
+            فعال است ؟
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.File.ContextType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Enable)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@Url.Action("ShowImage", "Home", new { id = item.FileId })" style="max-height:100px;max-width:100px;" />
+
+            </td>
+            <td>
+                @(item.Enable ? "بله" : "خیر")
+            </td>
+            <td>
+                @Html.ActionLink("ویرایش", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("جزئیات", "Details", new { id = item.Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

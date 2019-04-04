@@ -1,0 +1,81 @@
+﻿@model ClockStore.DTO.OfferBanner
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2>تعریف بنر</h2>
+
+
+    @using (Html.BeginForm("Create", "OfferBanners", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <div class="clearfix" style="margin-top:50px"></div>
+            <div class="container">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @*@Html.HiddenFor(model => model.ProductId)
+                    @Html.HiddenFor(model => model.LangId)*@
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-4 text-center">
+                            عنوان
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" id="Title" name="Title" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-4 text-center">
+                            تصویر
+                        </div>
+                        <div class="col-md-8">
+                            <input type="file" class="form-control" id="file" name="file" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-4 text-center">
+                            زمان
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" id="Timer" name="Timer" class="form-control" />
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-4 text-center">
+                           فعال است ؟
+                        </div>
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.Enable)
+
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                
+
+           
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+            </div>
+        </div>
+    }
+
+
+<div>
+    @Html.ActionLink("بازگشت", "Index")
+</div>

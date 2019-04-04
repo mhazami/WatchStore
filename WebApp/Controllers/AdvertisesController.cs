@@ -49,7 +49,7 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FileId,Enable")] Advertise advertise)
+        public ActionResult Create(Advertise advertise,HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FileId,Enable")] Advertise advertise)
+        public ActionResult Edit(Advertise advertise, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {

@@ -18,29 +18,47 @@
             font-size: 1.1em;
             font-weight: 200;
         }
-</style>
 
+    th, td {
+        text-align: center;
+    }
+</style>
+<script>
+    $(function () {
+        $('#DivOfferCode').fadeOut();
+        $('#chOffer').on('change', function () {
+            debugger;
+            if ($(this).is(':checked')) {
+                $('#DivOfferCode').fadeIn();
+
+            } else {
+                $('#DivOfferCode').fadeOut();
+
+            }
+        })
+    })
+</script>
 <div class="container">
 
     <div class="clearfix"> </div>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped table-hover">
         <tr>
+            @*<th>
+                    Customer Name
+                </th>*@
             <th>
-                Customer Name
+                نام کالا
             </th>
             <th>
-                Product Name
-            </th>
-            <th>
-                Product Code
+                کد کالا
             </th>
 
             <th>
-                Off
+                نخفیف
             </th>
             <th>
-                The amount payable
+                قیمت با احتساب تخفیف
             </th>
 
         </tr>
@@ -48,9 +66,9 @@
         @foreach (var item in Model.Baskets)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer.FullName)
-                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Customer.FullName)
+                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Product.ProductName)
                 </td>
@@ -73,10 +91,36 @@
         </tr>
     </table>
 
-    <div style="margin-top:50px;" class="clearfix"> </div>
+
 
     @using (Html.BeginForm("FinalApproval", "Baskets", FormMethod.Post, new { onsubmit = "return Validation(this)" }))
     {
+        <div style="margin-top:50px;" class="clearfix"> </div>
+
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                <div class="checkbox" style="text-align:right">
+                    <label><input type="checkbox" id="chOffer">استفاده از کد تخفیف</label>
+                </div>
+            </div>
+            <div class="col-md-6 pull-right">
+
+            </div>
+        </div>
+
+        <div class="row" id="DivOfferCode">
+            <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                <input type="text" id="offerCode" name="offerCode" class="form-control" />
+            </div>
+            <div class="col-md-9 pull-right" style="color:#f23737">
+                @ViewBag.ErrorOfferCard
+            </div>
+        </div>
+
+
+
+        <div style="margin-top:50px;" class="clearfix"> </div>
         <input type="hidden" value="@Model.Customer.CustomerId" name="CustomerId" />
         <div class="panel panel-info">
             <div class="panel-heading text-center">
@@ -149,7 +193,7 @@
     }
     <script>
         function Validation(form) {
-            
+
             var firstname = $("#FirstName").val();
             var lastname = $("#LastName").val();
             var email = $("#Email").val();

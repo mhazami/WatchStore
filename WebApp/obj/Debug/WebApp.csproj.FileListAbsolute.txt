@@ -718,3 +718,6 @@ G:\MAzami\Reposiroty\WatchStore\WebApp\obj\Debug\WebApp.csproj.CopyComplete
 G:\MAzami\Reposiroty\WatchStore\WebApp\obj\Debug\WebApp.dll
 G:\MAzami\Reposiroty\WatchStore\WebApp\obj\Debug\WebApp.pdb
 G:\MAzami\Reposiroty\WatchStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.Remove_LangId.resources
+G:\MAzami\Reposiroty\WatchStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.add_offer.resources
+G:\MAzami\Reposiroty\WatchStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.fixOfferCard.resources
+G:\MAzami\Reposiroty\WatchStore\WebApp\obj\Debug\ClockStore.DTO.Migrations.add_offerbanner.resources

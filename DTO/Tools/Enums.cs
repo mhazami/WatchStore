@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClockStore.DTO
 {
@@ -27,7 +22,13 @@ namespace ClockStore.DTO
         {
             [Description("یکی بخر دوتا ببر")]
             [Display(Name = "یکی بخر دوتا ببر")]
-            TwoByOne = 1
+            TwoByOne = 1,
+            [Description("درصدی")]
+            [Display(Name = "درصدی")]
+            percent = 2,
+            [Description("مبلغی")]
+            [Display(Name = "مبلغی")]
+            Price
         }
 
         public enum PaymentStatus : byte
@@ -142,6 +143,8 @@ namespace ClockStore.DTO
             [Display(Name = "مکانیکال")]
             Mechanical = 2
         }
+
+
 
 
 

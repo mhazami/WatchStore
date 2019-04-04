@@ -1,0 +1,57 @@
+﻿@model ClockStore.DTO.OfferBanner
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+
+<h3>آیا از حذف بنر اطمینان دارید؟</h3>
+<div>
+    <h4>جزئیات بنر</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            تصمیر
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("ShowImage", "Home", new { id = Model.FileId })" style="width:100px;height:100px;" class="thumbnail" />
+
+        </dd>
+        <dt>
+            عنوان
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            زمان
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Timer)
+        </dd>
+
+        <dt>
+            فعال است ؟
+        </dt>
+
+        <dd>
+            @(Model.Enable ? "بله" : "خیر")
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

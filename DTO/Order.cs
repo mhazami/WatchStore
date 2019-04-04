@@ -15,5 +15,7 @@ namespace ClockStore.DTO
         public bool IsFinaly { get; set; }
         public long RefID { get; set; }
         public decimal CurrentPrice { get; set; }
+
+        public  int OfferCardId { get; set; }
     }
 }

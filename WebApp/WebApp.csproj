@@ -178,6 +178,8 @@
     <Compile Include="Controllers\ColorsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\OfferBannersController.cs" />
+    <Compile Include="Controllers\OfferCardsController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\UserCommentsController.cs" />
     <Compile Include="Migrations\201810122035164_Add_File_To_Catgory.cs" />
@@ -259,6 +261,18 @@
     <Compile Include="Migrations\201904030709423_Remove_LangId.cs" />
     <Compile Include="Migrations\201904030709423_Remove_LangId.Designer.cs">
       <DependentUpon>201904030709423_Remove_LangId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904040529376_add_offer.cs" />
+    <Compile Include="Migrations\201904040529376_add_offer.Designer.cs">
+      <DependentUpon>201904040529376_add_offer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904040607177_fixOfferCard.cs" />
+    <Compile Include="Migrations\201904040607177_fixOfferCard.Designer.cs">
+      <DependentUpon>201904040607177_fixOfferCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904040645050_add_offerbanner.cs" />
+    <Compile Include="Migrations\201904040645050_add_offerbanner.Designer.cs">
+      <DependentUpon>201904040645050_add_offerbanner.cs</DependentUpon>
     </Compile>
     <Compile Include="Resources\Design\Design.fa-IR.Designer.cs">
       <DependentUpon>Design.fa-IR.resx</DependentUpon>
@@ -715,6 +729,16 @@
     <Content Include="Views\Advertises\Edit.cshtml" />
     <Content Include="Views\Advertises\Index.cshtml" />
     <Content Include="Views\Products\PVSameProduct.cshtml" />
+    <Content Include="Views\OfferBanners\Create.cshtml" />
+    <Content Include="Views\OfferBanners\Delete.cshtml" />
+    <Content Include="Views\OfferBanners\Details.cshtml" />
+    <Content Include="Views\OfferBanners\Edit.cshtml" />
+    <Content Include="Views\OfferBanners\Index.cshtml" />
+    <Content Include="Views\OfferCards\Create.cshtml" />
+    <Content Include="Views\OfferCards\Delete.cshtml" />
+    <Content Include="Views\OfferCards\Details.cshtml" />
+    <Content Include="Views\OfferCards\Edit.cshtml" />
+    <Content Include="Views\OfferCards\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -838,6 +862,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904030709423_Remove_LangId.resx">
       <DependentUpon>201904030709423_Remove_LangId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904040529376_add_offer.resx">
+      <DependentUpon>201904040529376_add_offer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904040607177_fixOfferCard.resx">
+      <DependentUpon>201904040607177_fixOfferCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904040645050_add_offerbanner.resx">
+      <DependentUpon>201904040645050_add_offerbanner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Design\Design.fa-IR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

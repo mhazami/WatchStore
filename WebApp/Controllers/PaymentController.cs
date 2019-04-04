@@ -1,13 +1,11 @@
-﻿using ClockStore.DTO.DBContext;
+﻿using ClockStore.DTO;
+using ClockStore.DTO.DBContext;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using ClockStore.DTO;
 using System.Data.Entity;
 using System.Globalization;
-using static ClockStore.DTO.Enums;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace WebApp.Controllers
 {
@@ -15,28 +13,56 @@ namespace WebApp.Controllers
     {
         private ClockStoreContext db = new ClockStoreContext();
         // GET: Payment
-        public ActionResult Index(Guid id)
+        public ActionResult Index(Guid id, string offerCode)
         {
             if (SessionParameters.Customer == null)
+            {
                 return Redirect("/Customers/Signin");
-            var baskets = db.Basket.Where(c => c.CustomerId == SessionParameters.Customer.CustomerId && c.IsArchive == false).ToList();
+            }
 
-            Order order = new Order();
-            order.OrderId = Guid.NewGuid();
-            order.SaveDate = DateTime.Now;
-            order.IsFinaly = false;
-            order.CurrentPrice = baskets.Sum(c => c.Product.PriceWithOff);
+            List<Basket> baskets = db.Basket.Where(c => c.CustomerId == SessionParameters.Customer.CustomerId && c.IsArchive == false).ToList();
+
+            Order order = new Order
+            {
+                OrderId = Guid.NewGuid(),
+                SaveDate = DateTime.Now,
+                IsFinaly = false,
+                CurrentPrice = baskets.Sum(c => c.Product.PriceWithOff)
+            };
+
+            if (!string.IsNullOrEmpty(offerCode))
+            {
+
+                OfferCard offer = db.OfferCards.FirstOrDefault(c => c.OfferCode == offerCode);
+                bool isvalid = db.CustomerOffers.Any(c => c.CustomerId == SessionParameters.Customer.CustomerId && c.OfferCardId == offer.Id);
+                if (!isvalid)
+                {
+                    order.OfferCardId = offer.Id;
+                    switch (offer.OfferType)
+                    {
+                        case Enums.OfferType.TwoByOne:
+                            break;
+                        case Enums.OfferType.percent:
+                            order.CurrentPrice = order.CurrentPrice - (order.CurrentPrice * offer.OfferAmount / 100);
+                            break;
+                        case Enums.OfferType.Price:
+                            order.CurrentPrice = order.CurrentPrice - Convert.ToDecimal(offer.OfferCode);
+                            break;
+
+                    }
+                }
+
+            }
             //order.CurrentPrice = 100;
             db.Order.Add(order);
             db.SaveChanges();
 
             System.Net.ServicePointManager.Expect100Continue = false;
             ZarinPal.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPal.PaymentGatewayImplementationServicePortTypeClient();
-            string Authority;
             int Amount = Convert.ToInt32(order.CurrentPrice);
-            var url = "http://kookwatch.com/Payment/Verify?cusId=" + SessionParameters.Customer.CustomerId + "&orderid=" + order.OrderId + "";
+            string url = "http://kookwatch.com/Payment/Verify?cusId=" + SessionParameters.Customer.CustomerId + "&orderid=" + order.OrderId + "";
             //var url = "http://localhost:40412/Payment/Verify?cusId=" + SessionParameters.Customer.CustomerId + "&orderid=" + order.OrderId + "";
-            int Status = zp.PaymentRequest("a3078700-d5bd-11e8-81b7-005056a205be", Amount, "درگاه پرداخت Trend Watch", "info@kookwatch.com", "09120332214", url, out Authority);
+            int Status = zp.PaymentRequest("a3078700-d5bd-11e8-81b7-005056a205be", Amount, "درگاه پرداخت Trend Watch", "info@kookwatch.com", "09120332214", url, out string Authority);
 
             if (Status == 100)
             {
@@ -53,7 +79,7 @@ namespace WebApp.Controllers
 
         public ActionResult Verify(Guid cusId, Guid orderid)
         {
-            var order = db.Order.Find(orderid);
+            Order order = db.Order.Find(orderid);
 
 
             if (Request.QueryString["Status"] != "" && Request.QueryString["Status"] != null && Request.QueryString["Authority"] != "" && Request.QueryString["Authority"] != null)
@@ -61,11 +87,10 @@ namespace WebApp.Controllers
                 if (Request.QueryString["Status"].ToString().Equals("OK"))
                 {
                     int Amount = Convert.ToInt32(order.CurrentPrice);
-                    long RefID;
                     System.Net.ServicePointManager.Expect100Continue = false;
                     ZarinPal.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPal.PaymentGatewayImplementationServicePortTypeClient();
 
-                    int Status = zp.PaymentVerification("a3078700-d5bd-11e8-81b7-005056a205be", Request.QueryString["Authority"].ToString(), Amount, out RefID);
+                    int Status = zp.PaymentVerification("a3078700-d5bd-11e8-81b7-005056a205be", Request.QueryString["Authority"].ToString(), Amount, out long RefID);
 
                     if (Status == 100)
                     {
@@ -73,11 +98,18 @@ namespace WebApp.Controllers
                         db.SaveChanges();
                         ViewBag.IsSuccess = true;
                         ViewBag.RefId = RefID;
-                        var baskets = db.Basket.Where(c => c.CustomerId == SessionParameters.Customer.CustomerId && c.IsArchive == false).ToList();
+                        List<Basket> baskets = db.Basket.Where(c => c.CustomerId == SessionParameters.Customer.CustomerId && c.IsArchive == false).ToList();
                         ViewBag.Status = "پرداخت شما با موفقیت انجام شد";
-                        foreach (var item in baskets)
+                        var customerOffer = new CustomerOffer()
                         {
-                            var basketOrder = new BasketOrder()
+                            CustomerId = cusId,
+                            OfferCardId = order.OfferCardId
+                        };
+                        db.CustomerOffers.Add(customerOffer);
+                        db.SaveChanges();
+                        foreach (Basket item in baskets)
+                        {
+                            BasketOrder basketOrder = new BasketOrder()
                             {
                                 BasketId = item.BasketId,
                                 OrderId = orderid

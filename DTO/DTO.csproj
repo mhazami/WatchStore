@@ -57,14 +57,16 @@
     <Compile Include="Clock.cs" />
     <Compile Include="Color.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerOffer.cs" />
     <Compile Include="DBContext\ClockStoreContext.cs" />
     <Compile Include="Desktop.cs" />
     <Compile Include="ExtraImages.cs" />
     <Compile Include="File.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="News.cs" />
+    <Compile Include="OfferBanner.cs" />
+    <Compile Include="OfferCard.cs" />
     <Compile Include="Order.cs" />
-    <Compile Include="TimeCounter.cs" />
     <Compile Include="Tools\Enums.cs" />
     <Compile Include="Tools\EnumUtils.cs" />
     <Compile Include="Tools\Utility.cs" />

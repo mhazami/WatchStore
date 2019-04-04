@@ -1,0 +1,56 @@
+﻿@model ClockStore.DTO.OfferCard
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+
+<h3>آیا از حذف کپن تخفیف اطمینان دارید ؟</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OfferType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfferCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfferAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Enable)
+        </dt>
+
+        <dd>
+            @(Model.Enable ? "بله" : "خیر")
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("بازگشت", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClockStore.DTO
+{
+  public  class OfferBanner
+    {
+        [Key]
+        public int Id { get; set; }
+
+        public Guid FileId { get; set; }
+        public File File { get; set; }
+
+        public string Title { get; set; }
+
+        public string Timer { get; set; }
+
+        public bool Enable { get; set; }
+    }
+}

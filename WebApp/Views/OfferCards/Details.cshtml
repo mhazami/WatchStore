@@ -1,0 +1,51 @@
+﻿@model ClockStore.DTO.OfferCard
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+
+<div>
+    <h4>جزئیات کپن تخفیف</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OfferType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfferCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfferAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Enable)
+        </dt>
+
+        <dd>
+            @(Model.Enable ? "بله" : "خیر")
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("بازگشت", "Index")
+</p>

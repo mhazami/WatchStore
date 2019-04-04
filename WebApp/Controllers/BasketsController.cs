@@ -1,17 +1,15 @@
-﻿using System;
+﻿using ClockStore.BLL;
+using ClockStore.DTO;
+using ClockStore.DTO.DBContext;
+using ClockStore.DTO.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using ClockStore.BLL;
-using ClockStore.DTO;
-using ClockStore.DTO.DBContext;
-using ClockStore.DTO.ViewModels;
 
 namespace WebApp.Controllers
 {
@@ -23,8 +21,11 @@ namespace WebApp.Controllers
         public ActionResult Index()
         {
             if (SessionParameters.User == null)
+            {
                 return Redirect("/Users/Login");
-            var basket = db.Basket.Include(b => b.Customer).Include(b => b.Product);
+            }
+
+            IQueryable<Basket> basket = db.Basket.Include(b => b.Customer).Include(b => b.Product);
             return View(basket.ToList());
         }
 
@@ -32,7 +33,10 @@ namespace WebApp.Controllers
         public ActionResult Details(Guid? id)
         {
             if (SessionParameters.User == null)
+            {
                 return Redirect("/Users/Login");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -49,7 +53,10 @@ namespace WebApp.Controllers
         public ActionResult Create()
         {
             if (SessionParameters.User == null)
+            {
                 return Redirect("/Users/Login");
+            }
+
             ViewBag.CustomerId = new SelectList(db.Customer, "CustomerId", "FirstName");
             ViewBag.ProductId = new SelectList(db.Product, "ProductId", "ProductName");
             return View();
@@ -79,7 +86,10 @@ namespace WebApp.Controllers
         public ActionResult Edit(Guid? id)
         {
             if (SessionParameters.User == null)
+            {
                 return Redirect("/Users/Login");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -116,7 +126,10 @@ namespace WebApp.Controllers
         public ActionResult Delete(Guid? id)
         {
             if (SessionParameters.User == null)
+            {
                 return Redirect("/Users/Login");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -152,8 +165,11 @@ namespace WebApp.Controllers
         public ActionResult CheckOut()
         {
             if (SessionParameters.Customer == null)
+            {
                 return Redirect("/Customers/Signin");
-            var basket = db.Basket.ToList().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId && c.IsArchive == false);
+            }
+
+            IEnumerable<Basket> basket = db.Basket.ToList().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId && c.IsArchive == false);
 
             return View(basket);
 
@@ -163,21 +179,21 @@ namespace WebApp.Controllers
 
         public ActionResult AddToCard(Guid id)
         {
-            var list = new List<Basket>();
+            List<Basket> list = new List<Basket>();
             if (SessionParameters.Customer == null)
             {
                 TempData["s"] = "null";
                 return Redirect("/Products/ProductDetails?id=" + id + "");
 
             }
-            var product = db.Product.Find(id);
+            Product product = db.Product.Find(id);
             if (product.Count == 1 && product.IsBlocked.HasValue && product.IsBlocked.Value)
             {
                 TempData["s"] = "Block";
                 return Redirect("/Products/ProductDetails?id=" + id + "");
             }
 
-            var basket = new Basket()
+            Basket basket = new Basket()
             {
                 BasketId = Guid.NewGuid(),
                 CustomerId = SessionParameters.Customer.CustomerId,
@@ -200,7 +216,10 @@ namespace WebApp.Controllers
                 db.SaveChanges();
                 TempData["s"] = "Added";
                 if (SessionParameters.Basket != null)
+                {
                     list = SessionParameters.Basket;
+                }
+
                 list.Add(basket);
                 SessionParameters.Basket = list;
                 return Redirect("/Products/ProductDetails?id=" + id + "");
@@ -214,14 +233,20 @@ namespace WebApp.Controllers
 
         public ActionResult RemoveFromCart(Guid id)
         {
-            var list = new List<Basket>();
+            List<Basket> list = new List<Basket>();
             if (SessionParameters.Basket != null)
+            {
                 list = SessionParameters.Basket;
+            }
+
             Basket basket = list.Single(c => c.BasketId == id);
-            var product = db.Product.Find(basket.ProductId);
+            Product product = db.Product.Find(basket.ProductId);
             //product.Count++;
             if (product.IsBlocked.Value)
+            {
                 product.IsBlocked = false;
+            }
+
             db.Entry(product).State = EntityState.Modified;
             //db.Basket.Remove(basket);
             db.SaveChanges();
@@ -236,17 +261,19 @@ namespace WebApp.Controllers
         public ActionResult PrintCustomerApprov(Guid? id)
         {
             if (SessionParameters.Customer == null && SessionParameters.User == null)
+            {
                 return Redirect("/Customers/Signin");
+            }
 
             if (id.HasValue)
             {
-                var basket = db.Basket.ToList().Where(c => c.CustomerId == id);
+                IEnumerable<Basket> basket = db.Basket.ToList().Where(c => c.CustomerId == id);
                 ViewBag.TotalAmount = db.Basket.ToList().Where(c => c.CustomerId == id).Sum(c => c.Product.PriceWithOff).ToString("N0");
                 return View(basket);
             }
             else
             {
-                var basket = db.Basket.ToList().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId);
+                IEnumerable<Basket> basket = db.Basket.ToList().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId);
                 ViewBag.TotalAmount = db.Basket.ToList().Where(c => c.CustomerId == SessionParameters.Customer.CustomerId).Sum(c => c.Product.PriceWithOff).ToString("N0");
                 return View(basket);
             }
@@ -255,10 +282,10 @@ namespace WebApp.Controllers
 
         public void ClearCheckout()
         {
-            var list = SessionParameters.Basket;
+            List<Basket> list = SessionParameters.Basket;
             if (list.Any())
             {
-                foreach (var item in list)
+                foreach (Basket item in list)
                 {
                     db.Basket.Remove(item);
                     db.SaveChanges();
@@ -270,8 +297,11 @@ namespace WebApp.Controllers
         public ActionResult FinalApproval()
         {
             if (SessionParameters.Customer == null)
+            {
                 return Redirect("/Customers/Signin");
-            var list = new CustomerBasket()
+            }
+
+            CustomerBasket list = new CustomerBasket()
             {
                 Customer = SessionParameters.Customer,
                 Baskets = db.Basket.Where(c => c.CustomerId == SessionParameters.Customer.CustomerId && c.IsArchive == false).ToList()
@@ -283,9 +313,21 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult FinalApproval(Guid CustomerId, string FirstName, string LastName, string Email, string Phone, string Address)
+        public ActionResult FinalApproval(Guid CustomerId, string FirstName, string LastName, string Email, string Phone, string Address, string offerCode)
         {
-            var cust = db.Customer.Find(CustomerId);
+            Customer cust = db.Customer.Find(CustomerId);
+            OfferCard offer = db.OfferCards.FirstOrDefault(c => c.OfferCode == offerCode);
+            if (offer == null)
+            {
+                ViewBag.ErrorOfferCard = "کد تخفیف اشتباه است";
+                return View();
+            }
+            bool isvalid = db.CustomerOffers.Any(c => c.CustomerId == CustomerId && c.OfferCardId == offer.Id);
+            if (isvalid)
+            {
+                ViewBag.ErrorOfferCard = "شما یکبار از این کد تخفیف استفاده کرده اید لطفا کد تخفیف دیگری را وارد کنید";
+                return View();
+            }
             cust.FirstName = FirstName;
             cust.LastName = LastName;
             cust.Email = Email;
@@ -294,7 +336,10 @@ namespace WebApp.Controllers
             cust.Address = Address;
             db.Entry(cust).State = EntityState.Modified;
             if (db.SaveChanges() > 0)
-                return Redirect("/Payment/Index/" + CustomerId);
+            {
+                return Redirect($"/Payment/Index?id={CustomerId}&offerCode={offerCode}");
+            }
+
             return View();
         }
 
